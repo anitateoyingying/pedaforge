@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PedaForge Portfolio &amp; Dynamic Profiling — capture daily observations, track developmental progress, and generate AI-powered narratives aligned to EYDF and NEL.">
+  <title>PedaForge &mdash; Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ────────────────────────────────────────────────────────
+       Navigation
+       ──────────────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo">PF</div>
+        PedaForge
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#coaching">Coaching</a></li>
+        <li><a href="index.html#architecture">Architecture</a></li>
+        <li><a href="index.html#timeline">Timeline</a></li>
+        <li><a href="index.html#budget">Budget</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="coach.html">Coach</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ────────────────────────────────────────────────────────
+       Page Header
+       ──────────────────────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>&rsaquo;</span>
+        <span class="current">Portfolio</span>
+      </div>
+      <h1>Authentic Portfolio &amp; Dynamic Profiling</h1>
+      <p>Capture daily observations, track developmental progress, and generate AI-powered narratives aligned to EYDF and NEL.</p>
+    </div>
+  </header>
+
+  <!-- ────────────────────────────────────────────────────────
+       Main Content
+       ──────────────────────────────────────────────────────── -->
+  <main class="container" style="padding-top: 40px; padding-bottom: 80px;">
+
+    <!-- Child Profile Header -->
+    <div class="portfolio-header">
+      <div class="child-avatar">&#128118;</div>
+      <div style="flex: 1;">
+        <h2 style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 4px;">Leo Tan</h2>
+        <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 2px;">K1 (4 years 3 months) &middot; Sunshine Class</p>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Key Person: Teacher Sarah</p>
+      </div>
+      <span class="tag tag-ai" style="padding: 6px 14px; font-size: 0.8rem;">Living Profile &mdash; Last Updated: 8 May 2026</span>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="observations">Observations</button>
+      <button class="tab" data-tab="assessment">Assessment</button>
+      <button class="tab" data-tab="parent">Parent Suggestions</button>
+    </div>
+
+    <!-- ─── Tab Panel 1: Overview ──────────────────────────── -->
+    <div class="tab-panel" data-tab-panel="overview">
+
+      <!-- Development Domain Progress -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px;">
+        <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 20px;">Development Domain Progress</h3>
+        <div class="domain-bars">
+          <div class="domain-bar">
+            <span class="label">Aesthetics &amp; Creative Expression</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 0%; background: var(--success);" data-width="85%"></div>
+            </div>
+            <span class="value">85%</span>
+          </div>
+          <div class="domain-bar">
+            <span class="label">Discovery of the World</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 0%; background: var(--info);" data-width="72%"></div>
+            </div>
+            <span class="value">72%</span>
+          </div>
+          <div class="domain-bar">
+            <span class="label">Language &amp; Literacy</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 0%; background: #8b5cf6;" data-width="68%"></div>
+            </div>
+            <span class="value">68%</span>
+          </div>
+          <div class="domain-bar">
+            <span class="label">Motor Skills Development</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 0%; background: var(--success);" data-width="90%"></div>
+            </div>
+            <span class="value">90%</span>
+          </div>
+          <div class="domain-bar">
+            <span class="label">Numeracy</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 0%; background: var(--warning);" data-width="55%"></div>
+            </div>
+            <span class="value">55%</span>
+          </div>
+          <div class="domain-bar">
+            <span class="label">Social &amp; Emotional Development</span>
+            <div class="bar-track">
+              <div class="bar-fill" style="width: 0%; background: var(--danger);" data-width="45%"></div>
+            </div>
+            <span class="value">45%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI-Generated Profile Summary -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px;">
+        <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 12px;">
+          <span style="display: inline-flex; align-items: center; gap: 8px;">
+            <span class="tag tag-ai" style="font-size: 0.7rem;">AI-Generated</span>
+            Profile Summary
+          </span>
+        </h3>
+        <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7;">Leo demonstrates strong creative abilities and excellent motor development. He excels in hands-on, kinesthetic activities and shows particular interest in building and construction play. Areas for focused support include social-emotional development &mdash; specifically peer interaction and emotional regulation during group activities. Leo benefits from having a consistent Key Person and responds well to calm, validating approaches when frustrated. Recommended: Bridge social-emotional growth through cooperative building activities that leverage his construction interests.</p>
+      </div>
+
+      <!-- Key Strengths & Growth Areas -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+          <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 16px;">Key Strengths</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--success); font-weight: 700; flex-shrink: 0;">+</span>
+              Exceptional fine and gross motor skills
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--success); font-weight: 700; flex-shrink: 0;">+</span>
+              Strong visual-spatial reasoning
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--success); font-weight: 700; flex-shrink: 0;">+</span>
+              Deep engagement with building/construction
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--success); font-weight: 700; flex-shrink: 0;">+</span>
+              Good verbal expression when 1-on-1
+            </li>
+          </ul>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+          <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 16px;">Growth Areas</h3>
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--warning); font-weight: 700; flex-shrink: 0;">&#9650;</span>
+              Emotional regulation in group settings
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--warning); font-weight: 700; flex-shrink: 0;">&#9650;</span>
+              Turn-taking and cooperative play
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--warning); font-weight: 700; flex-shrink: 0;">&#9650;</span>
+              Expressing frustration verbally instead of physically
+            </li>
+            <li style="display: flex; align-items: flex-start; gap: 8px; font-size: 0.9rem; color: var(--text-light);">
+              <span style="color: var(--warning); font-weight: 700; flex-shrink: 0;">&#9650;</span>
+              Transitioning between activities
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Tab Panel 2: Observations ──────────────────────── -->
+    <div class="tab-panel hidden" data-tab-panel="observations" style="display: none;">
+
+      <!-- Observation 1 -->
+      <div class="observation-card">
+        <div class="obs-meta">
+          <span>8 May 2026, 10:30 AM</span>
+          <span>&middot;</span>
+          <span>Teacher Sarah</span>
+        </div>
+        <p class="obs-text">During block play, Leo built an elaborate bridge connecting two towers. He spent 25 minutes focused on the task, testing different block configurations. When the bridge collapsed, he initially showed frustration (clenched fists) but then took a deep breath and tried again with larger blocks as support.</p>
+        <div class="obs-tags" style="margin-bottom: 12px;">
+          <span class="tag tag-framework">Motor Skills</span>
+          <span class="tag tag-data">Problem Solving</span>
+          <span class="tag tag-ai">Emotional Regulation</span>
+        </div>
+        <div style="background: var(--bg); border-radius: var(--radius-sm); padding: 12px 14px; border-left: 3px solid #8b5cf6;">
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600;">AI Narrative</p>
+          <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Leo demonstrates sustained engagement and iterative problem-solving. The self-regulation after frustration shows growth from last month's observations.</p>
+        </div>
+      </div>
+
+      <!-- Observation 2 -->
+      <div class="observation-card">
+        <div class="obs-meta">
+          <span>6 May 2026, 2:15 PM</span>
+          <span>&middot;</span>
+          <span>Teacher Sarah</span>
+        </div>
+        <p class="obs-text">Leo refused to participate in group circle time singing activity. He sat at the edge of the circle with his hands over his ears. When offered the option to join a smaller group, he agreed and participated actively.</p>
+        <div class="obs-tags" style="margin-bottom: 12px;">
+          <span class="tag tag-ai">Social-Emotional</span>
+          <span class="tag tag-data">Sensory</span>
+          <span class="tag tag-framework">Group Dynamics</span>
+        </div>
+        <div style="background: var(--bg); border-radius: var(--radius-sm); padding: 12px 14px; border-left: 3px solid #8b5cf6;">
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600;">AI Narrative</p>
+          <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Consistent pattern of sensory sensitivity in large group settings. Small group accommodation effective.</p>
+        </div>
+      </div>
+
+      <!-- Observation 3 -->
+      <div class="observation-card">
+        <div class="obs-meta">
+          <span>3 May 2026, 9:45 AM</span>
+          <span>&middot;</span>
+          <span>Teacher Wei Ting</span>
+        </div>
+        <p class="obs-text">During outdoor play, Leo organized a &ldquo;construction site&rdquo; with 3 other children. He assigned roles: &ldquo;You carry the planks, I&rsquo;ll build, and Mei Mei can be the engineer.&rdquo; He sustained this cooperative play for 15 minutes.</p>
+        <div class="obs-tags" style="margin-bottom: 12px;">
+          <span class="tag tag-framework">Leadership</span>
+          <span class="tag tag-ai">Social Skills</span>
+          <span class="tag tag-data">Language</span>
+        </div>
+        <div style="background: var(--bg); border-radius: var(--radius-sm); padding: 12px 14px; border-left: 3px solid #8b5cf6;">
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600;">AI Narrative</p>
+          <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Significant social milestone &mdash; Leo initiated and sustained cooperative play. Leadership emerging through areas of personal interest.</p>
+        </div>
+      </div>
+
+      <!-- Observation 4 -->
+      <div class="observation-card">
+        <div class="obs-meta">
+          <span>1 May 2026, 11:00 AM</span>
+          <span>&middot;</span>
+          <span>Teacher Sarah</span>
+        </div>
+        <p class="obs-text">During story time about &ldquo;The Three Little Pigs&rdquo;, Leo commented: &ldquo;The wolf should have used a crane to knock down the brick house!&rdquo; He then drew a detailed diagram of a crane with labeled parts.</p>
+        <div class="obs-tags" style="margin-bottom: 12px;">
+          <span class="tag tag-data">Literacy</span>
+          <span class="tag tag-ai">Creative Thinking</span>
+          <span class="tag tag-framework">Visual-Spatial</span>
+        </div>
+        <div style="background: var(--bg); border-radius: var(--radius-sm); padding: 12px 14px; border-left: 3px solid #8b5cf6;">
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; font-weight: 600;">AI Narrative</p>
+          <p style="font-size: 0.85rem; color: var(--text-light); line-height: 1.6;">Strong connection between narrative comprehension and technical thinking. Suggests bridging literacy through engineering/construction themes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Tab Panel 3: Assessment ────────────────────────── -->
+    <div class="tab-panel hidden" data-tab-panel="assessment" style="display: none;">
+
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px;">
+        <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 20px;">Term 1 Assessment Summary</h3>
+        <div style="overflow-x: auto;">
+          <table class="budget-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th style="text-align: center;">Beginning</th>
+                <th style="text-align: center;">Developing</th>
+                <th style="text-align: center;">Achieving</th>
+                <th style="text-align: center;">Excelling</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Aesthetics &amp; Creative Expression</td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"><span style="color: var(--success); font-size: 1.2rem;">&#9679;</span></td>
+              </tr>
+              <tr>
+                <td>Discovery of the World</td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"><span style="color: var(--info); font-size: 1.2rem;">&#9679;</span></td>
+                <td style="text-align: center;"></td>
+              </tr>
+              <tr>
+                <td>Language &amp; Literacy</td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"><span style="color: #8b5cf6; font-size: 1.2rem;">&#9679;</span></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+              </tr>
+              <tr>
+                <td>Motor Skills Development</td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"><span style="color: var(--success); font-size: 1.2rem;">&#9679;</span></td>
+              </tr>
+              <tr>
+                <td>Numeracy</td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"><span style="color: var(--warning); font-size: 1.2rem;">&#9679;</span></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+              </tr>
+              <tr>
+                <td>Social &amp; Emotional Development</td>
+                <td style="text-align: center;"><span style="color: var(--danger); font-size: 1.2rem;">&#9679;</span></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+                <td style="text-align: center;"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- AI Assessment Narrative -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;">
+        <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 12px;">
+          <span style="display: inline-flex; align-items: center; gap: 8px;">
+            <span class="tag tag-ai" style="font-size: 0.7rem;">AI-Generated</span>
+            Assessment Narrative
+          </span>
+        </h3>
+        <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7;">Leo&rsquo;s Term 1 profile shows strong bimodal development: exceptional motor/creative abilities alongside emergent social-emotional skills. The Zone of Proximal Development for Leo lies in channeling his construction interests as a bridge to cooperative play and emotional vocabulary building. Recommended focus for Term 2: structured cooperative building projects with assigned roles, emotion naming during play scenarios, and small-group activities that leverage peer modeling.</p>
+      </div>
+    </div>
+
+    <!-- ─── Tab Panel 4: Parent Suggestions ────────────────── -->
+    <div class="tab-panel hidden" data-tab-panel="parent" style="display: none;">
+
+      <div style="margin-bottom: 12px;">
+        <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 4px;">
+          <span style="display: inline-flex; align-items: center; gap: 8px;">
+            <span class="tag tag-ai" style="font-size: 0.7rem;">AI-Generated</span>
+            Home Activities
+          </span>
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Tailored suggestions to extend Leo's learning at home</p>
+      </div>
+
+      <!-- Suggestion 1 -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px;">
+        <h4 style="font-size: 1.05rem; color: var(--secondary); margin-bottom: 10px;">Building Together</h4>
+        <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7; margin-bottom: 12px;">At home, invite Leo to build with you. Take turns adding pieces. When his structure falls, model saying: &ldquo;That&rsquo;s okay! Let&rsquo;s think about why it fell and try differently.&rdquo; This builds frustration tolerance in a safe setting.</p>
+        <div class="obs-tags">
+          <span class="tag tag-framework">Social-Emotional</span>
+          <span class="tag tag-data">Motor Skills</span>
+        </div>
+      </div>
+
+      <!-- Suggestion 2 -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px;">
+        <h4 style="font-size: 1.05rem; color: var(--secondary); margin-bottom: 10px;">Feelings Vocabulary</h4>
+        <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7; margin-bottom: 12px;">Read stories about characters who feel frustrated or angry (e.g., &ldquo;When Sophie Gets Angry&rdquo;). After reading, ask: &ldquo;Have you ever felt like Sophie? What did you do?&rdquo; Create a &ldquo;feelings chart&rdquo; together.</p>
+        <div class="obs-tags">
+          <span class="tag tag-data">Language &amp; Literacy</span>
+          <span class="tag tag-framework">Social-Emotional</span>
+        </div>
+      </div>
+
+      <!-- Suggestion 3 -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px;">
+        <h4 style="font-size: 1.05rem; color: var(--secondary); margin-bottom: 10px;">Nature Explorer</h4>
+        <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7; margin-bottom: 12px;">Take Leo on nature walks with a magnifying glass. Ask open-ended questions: &ldquo;What do you notice about this leaf? Why do you think the ant is carrying that crumb?&rdquo; This builds scientific inquiry and verbal expression.</p>
+        <div class="obs-tags">
+          <span class="tag tag-data">Discovery of the World</span>
+          <span class="tag tag-framework">Language</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ────────────────────────────────────────────────────────
+       Footer
+       ──────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>PedaForge</h4>
+          <p>An AI-powered pedagogical development platform purpose-built for Singapore's early childhood education sector. Aligned with ECDA's IDP 2.0 vision to uplift educator capabilities through technology-enabled professional growth.</p>
+        </div>
+        <div>
+          <h4>Demos</h4>
+          <ul>
+            <li><a href="planner.html">Lesson Planner</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="coach.html">AI Coach</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="index.html#features">EYDF</a></li>
+            <li><a href="index.html#features">NEL</a></li>
+            <li><a href="index.html#coaching">QTT</a></li>
+            <li><a href="index.html#team">SFw for ECCE</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compliance</h4>
+          <ul>
+            <li><a href="index.html#architecture">PDPA</a></li>
+            <li><a href="index.html#architecture">Azure SG Region</a></li>
+            <li><a href="index.html#architecture">Zero Public AI Training</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PedaForge &mdash; Innovation Seed Fund Proposal</span>
+        <div class="footer-badges">
+          <span class="footer-badge">PDPA Compliant</span>
+          <span class="footer-badge">SG Data Residency</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

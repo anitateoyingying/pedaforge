@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PedaForge Director's Dashboard — Real-time pedagogical insights, staff QTT profiles, and SFw-aligned professional development recommendations for Singapore ECE centre leaders.">
+  <title>PedaForge &mdash; Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ────────────────────────────────────────────────────────
+       Navigation
+       ──────────────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo">PF</div>
+        PedaForge
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#coaching">Coaching</a></li>
+        <li><a href="index.html#architecture">Architecture</a></li>
+        <li><a href="index.html#timeline">Timeline</a></li>
+        <li><a href="index.html#budget">Budget</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="planner.html">Planner</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="coach.html">Coach</a></li>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ────────────────────────────────────────────────────────
+       Page Header
+       ──────────────────────────────────────────────────────── -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>&rsaquo;</span>
+        <span class="current">Dashboard</span>
+      </div>
+      <h1>Director's Leadership Dashboard</h1>
+      <p>Real-time pedagogical insights, staff QTT profiles, and SFw-aligned professional development recommendations.</p>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────────────
+       Main Content
+       ──────────────────────────────────────────────────────── -->
+  <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
+
+    <!-- Stats Row -->
+    <div class="dashboard-stats">
+      <div class="dash-stat">
+        <div class="stat-label">TOTAL EDUCATORS</div>
+        <div class="stat-value">12</div>
+        <div class="stat-change positive">+2 from last term</div>
+      </div>
+      <div class="dash-stat">
+        <div class="stat-label">AVG QTT SCORE</div>
+        <div class="stat-value">3.4/5</div>
+        <div class="stat-change positive">+0.3 improvement</div>
+      </div>
+      <div class="dash-stat">
+        <div class="stat-label">COACHING SESSIONS</div>
+        <div class="stat-value">48</div>
+        <div class="stat-change">This month</div>
+      </div>
+      <div class="dash-stat">
+        <div class="stat-label">DOC TIME SAVED</div>
+        <div class="stat-value">62%</div>
+        <div class="stat-change positive">vs. baseline</div>
+      </div>
+    </div>
+
+    <!-- Main Dashboard Grid -->
+    <div class="dashboard-grid">
+
+      <!-- ═══════════ Left Column ═══════════ -->
+      <div>
+
+        <!-- Panel 1: QTT Domain Averages -->
+        <div class="dash-panel mb-3">
+          <h3>&#128202; QTT Domain Performance</h3>
+          <div class="qtt-domain-chart">
+            <div class="qtt-bar-container">
+              <div class="qtt-bar" data-height="75%" style="height: 0%; background: var(--success);"></div>
+              <div class="qtt-bar-label">Learning Env.</div>
+            </div>
+            <div class="qtt-bar-container">
+              <div class="qtt-bar" data-height="85%" style="height: 0%; background: var(--info);"></div>
+              <div class="qtt-bar-label">Teacher-Child</div>
+            </div>
+            <div class="qtt-bar-container">
+              <div class="qtt-bar" data-height="60%" style="height: 0%; background: var(--warning);"></div>
+              <div class="qtt-bar-label">Curriculum</div>
+            </div>
+            <div class="qtt-bar-container">
+              <div class="qtt-bar" data-height="40%" style="height: 0%; background: var(--danger);"></div>
+              <div class="qtt-bar-label">Assessment</div>
+            </div>
+            <div class="qtt-bar-container">
+              <div class="qtt-bar" data-height="35%" style="height: 0%; background: var(--danger);"></div>
+              <div class="qtt-bar-label">Sustained Thinking</div>
+            </div>
+            <div class="qtt-bar-container">
+              <div class="qtt-bar" data-height="70%" style="height: 0%; background: var(--success);"></div>
+              <div class="qtt-bar-label">Family &amp; Community</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: Staff Pedagogical Profiles -->
+        <div class="dash-panel mb-3">
+          <h3>&#128101; Educator Profiles</h3>
+          <div style="overflow-x: auto;">
+            <table class="budget-table">
+              <thead>
+                <tr>
+                  <th>Educator</th>
+                  <th>Strongest Domain</th>
+                  <th>Growth Area</th>
+                  <th>Coaching Sessions</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Sarah L.</strong></td>
+                  <td>Teacher-Child Interaction</td>
+                  <td>Sustained Thinking</td>
+                  <td>12</td>
+                  <td><span style="color: var(--success); font-weight: 600;">On Track</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Wei Ting</strong></td>
+                  <td>Learning Environment</td>
+                  <td>Assessment</td>
+                  <td>8</td>
+                  <td><span style="color: var(--warning); font-weight: 600;">Needs Support</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Siti R.</strong></td>
+                  <td>Curriculum &amp; Pedagogy</td>
+                  <td>Sustained Thinking</td>
+                  <td>15</td>
+                  <td><span style="color: var(--info); font-weight: 600;">Exceeding</span></td>
+                </tr>
+                <tr>
+                  <td><strong>James K.</strong></td>
+                  <td>Family &amp; Community</td>
+                  <td>Curriculum</td>
+                  <td>6</td>
+                  <td><span style="color: var(--text-muted); font-weight: 600;">New Educator</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Panel 3: PLC Collaboration Recommendations -->
+        <div class="dash-panel mb-3">
+          <h3>&#129309; Professional Learning Community Topics</h3>
+
+          <div class="alert-item critical">
+            <div>
+              <div class="alert-title">Sustained Shared Thinking</div>
+              <div class="alert-desc">3 educators scoring below benchmark. Recommend: Center-wide PLC focus for Term 2. Pair Sarah L. with mentor Siti R.</div>
+            </div>
+          </div>
+
+          <div class="alert-item warning">
+            <div>
+              <div class="alert-title">Assessment for Learning</div>
+              <div class="alert-desc">2 educators need support with formative assessment documentation. Recommend: Workshop on observation-based assessment techniques.</div>
+            </div>
+          </div>
+
+          <div class="alert-item info">
+            <div>
+              <div class="alert-title">Curriculum Differentiation</div>
+              <div class="alert-desc">Opportunity to strengthen profile-driven planning across all classes. Schedule cross-class observation visits.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══════════ Right Column ═══════════ -->
+      <div>
+
+        <!-- Panel 4: Alerts & Actions -->
+        <div class="dash-panel mb-3">
+          <h3>&#128276; Action Items</h3>
+
+          <div class="alert-item critical">
+            <div>
+              <div class="alert-title">QTT Gap: Sustained Thinking</div>
+              <div class="alert-desc">Center average (35%) below ECDA benchmark (60%). Immediate action required.</div>
+            </div>
+          </div>
+
+          <div class="alert-item warning">
+            <div>
+              <div class="alert-title">Wei Ting &mdash; Coaching Overdue</div>
+              <div class="alert-desc">Last coaching session: 3 weeks ago. Schedule follow-up.</div>
+            </div>
+          </div>
+
+          <div class="alert-item info">
+            <div>
+              <div class="alert-title">Term 2 IDP Due</div>
+              <div class="alert-desc">Individual Development Plans for all educators due by 30 June 2026.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 5: SFw Professional Development -->
+        <div class="dash-panel mb-3">
+          <h3>&#127891; Targeted Training (SFw for ECCE)</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+
+            <div style="padding: 14px; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 4px;">Engage Children in Meaningful Conversations</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">TSC: ECE-PIN-3001-1.1</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px;">Recommended for: <strong>Sarah L.</strong>, <strong>Wei Ting</strong></div>
+              <button class="btn btn-primary btn-sm">Assign PD</button>
+            </div>
+
+            <div style="padding: 14px; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 4px;">Apply Formative Assessment in ECE</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">TSC: ECE-ASS-4001-1.1</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px;">Recommended for: <strong>Wei Ting</strong></div>
+              <button class="btn btn-primary btn-sm">Assign PD</button>
+            </div>
+
+            <div style="padding: 14px; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border);">
+              <div style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 4px;">Facilitate Collaborative Learning</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">TSC: ECE-COL-3002-1.1</div>
+              <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px;">Recommended for: <strong>James K.</strong></div>
+              <button class="btn btn-primary btn-sm">Assign PD</button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Panel 6: Quick Stats -->
+        <div class="dash-panel">
+          <h3>&#128200; This Term</h3>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <span style="font-size: 0.9rem; color: var(--text-light);">Lesson Plans Generated</span>
+              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">156</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <span style="font-size: 0.9rem; color: var(--text-light);">Portfolio Entries</span>
+              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">892</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
+              <span style="font-size: 0.9rem; color: var(--text-light);">Parent Reports Sent</span>
+              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">48</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+              <span style="font-size: 0.9rem; color: var(--text-light);">AI Coaching Hours</span>
+              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">24</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ────────────────────────────────────────────────────────
+       Footer
+       ──────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>PedaForge</h4>
+          <p>An AI-powered pedagogical development platform purpose-built for Singapore's early childhood education sector. Aligned with ECDA's IDP 2.0 vision to uplift educator capabilities through technology-enabled professional growth.</p>
+        </div>
+        <div>
+          <h4>Demos</h4>
+          <ul>
+            <li><a href="planner.html">Lesson Planner</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="coach.html">AI Coach</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="index.html#features">EYDF</a></li>
+            <li><a href="index.html#features">NEL</a></li>
+            <li><a href="index.html#coaching">QTT</a></li>
+            <li><a href="index.html#team">SFw for ECCE</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compliance</h4>
+          <ul>
+            <li><a href="index.html#architecture">PDPA</a></li>
+            <li><a href="index.html#architecture">Azure SG Region</a></li>
+            <li><a href="index.html#architecture">Zero Public AI Training</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PedaForge &mdash; Innovation Seed Fund Proposal</span>
+        <div class="footer-badges">
+          <span class="footer-badge">PDPA Compliant</span>
+          <span class="footer-badge">SG Data Residency</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

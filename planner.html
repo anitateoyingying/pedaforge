@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PedaForge Lesson Planner — AI-generated differentiated scaffolding based on your classroom's unique learning profiles. Aligned with EYDF, NEL, and Busy Bees Curriculum.">
+  <title>PedaForge — Lesson Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ────────────────────────────────────────────────────────
+       Navigation
+       ──────────────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar-brand">
+        <div class="logo">PF</div>
+        PedaForge
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#coaching">Coaching</a></li>
+        <li><a href="index.html#architecture">Architecture</a></li>
+        <li><a href="index.html#timeline">Timeline</a></li>
+        <li><a href="index.html#budget">Budget</a></li>
+        <li><a href="index.html#team">Team</a></li>
+        <li><a href="planner.html" class="active">Planner</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="coach.html">Coach</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ────────────────────────────────────────────────────────
+       Page Header
+       ──────────────────────────────────────────────────────── -->
+  <section class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>&rsaquo;</span>
+        <span class="current">Lesson Planner</span>
+      </div>
+      <h1>Profile-Driven Smart Lesson Planner</h1>
+      <p>AI-generated differentiated scaffolding based on your classroom's unique learning profiles.</p>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────────────
+       Planner Layout
+       ──────────────────────────────────────────────────────── -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="planner-layout">
+
+        <!-- ── Left Sidebar ─────────────────────────────── -->
+        <aside class="planner-sidebar">
+
+          <!-- Theme Selector -->
+          <div class="form-group">
+            <label for="theme-select">Theme / Topic</label>
+            <select class="form-control" id="theme-select">
+              <option value="community-helpers">Community Helpers</option>
+              <option value="my-body">My Body</option>
+              <option value="seasons">Seasons &amp; Weather</option>
+            </select>
+          </div>
+
+          <!-- Class Profiles -->
+          <h3>Class Profiles Detected</h3>
+
+          <div class="profile-chip selected">
+            <span>&#128170;</span>
+            <span class="profile-name">Kinesthetic Learners</span>
+            <span class="count">3</span>
+          </div>
+
+          <div class="profile-chip selected">
+            <span>&#128065;</span>
+            <span class="profile-name">Visual-Spatial Learners</span>
+            <span class="count">4</span>
+          </div>
+
+          <div class="profile-chip selected">
+            <span>&#128483;</span>
+            <span class="profile-name">Advanced Verbal</span>
+            <span class="count">2</span>
+          </div>
+
+          <div class="profile-chip selected">
+            <span>&#9997;</span>
+            <span class="profile-name">Fine-Motor Needs</span>
+            <span class="count">1</span>
+          </div>
+
+          <div class="profile-chip selected">
+            <span>&#128266;</span>
+            <span class="profile-name">Sensory-Avoidant</span>
+            <span class="count">1</span>
+          </div>
+
+          <div class="profile-chip selected">
+            <span>&#127775;</span>
+            <span class="profile-name">Gifted/Twice Exceptional</span>
+            <span class="count">1</span>
+          </div>
+
+          <!-- Framework Alignment -->
+          <h3 style="margin-top: 24px;">Framework Alignment</h3>
+
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text); margin-bottom: 10px; cursor: pointer;">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            EYDF (Early Years Development Framework)
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text); margin-bottom: 10px; cursor: pointer;">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            NEL (Nurturing Early Learners)
+          </label>
+
+          <label style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text); margin-bottom: 10px; cursor: pointer;">
+            <input type="checkbox" checked style="accent-color: var(--primary);">
+            Busy Bees Curriculum
+          </label>
+
+          <!-- Generate Button -->
+          <button class="btn btn-primary btn-lg" id="generate-plan" style="width: 100%; margin-top: 20px;">Generate Lesson Plan</button>
+
+        </aside>
+
+        <!-- ── Right Main Area ──────────────────────────── -->
+        <div class="planner-main">
+
+          <!-- Lesson Output Header -->
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 8px;">
+            <h2 style="font-size: 1.4rem; color: var(--secondary); margin: 0;">AI-Generated Lesson Plan</h2>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span class="tag tag-framework">EYDF Mapped</span>
+              <span class="tag tag-framework">NEL Aligned</span>
+              <span class="tag tag-ai">Differentiated</span>
+            </div>
+          </div>
+
+          <!-- Lesson Output -->
+          <div class="lesson-output" id="lesson-output">
+
+            <!-- Pre-populated: Community Helpers content -->
+            <div style="margin-bottom: 20px;">
+              <h3 style="margin-bottom: 12px; color: var(--secondary);">Activity: Building a Fire Station</h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; color: var(--text-light);">
+                <span><strong>Duration:</strong> 45 minutes</span>
+                <span><strong>Learning Area:</strong> Discovery of the World + Aesthetics &amp; Creative Expression</span>
+              </div>
+              <div style="font-size: 0.9rem; color: var(--text-light); margin-top: 6px;">
+                <strong>Key Concepts:</strong> Community roles, cooperation, spatial awareness
+              </div>
+            </div>
+
+            <h4 style="margin-bottom: 14px; color: var(--secondary); font-size: 1rem;">Scaffolding Strategies</h4>
+
+            <div class="scaffolding-item">
+              <div class="scaffolding-icon" style="background: rgba(59,130,246,0.1);">&#128170;</div>
+              <div>
+                <h4>Kinesthetic Learners</h4>
+                <p>Allow children to physically build the fire station using large hollow blocks. Incorporate movement: &ldquo;run like firefighters&rdquo; to count blocks needed.</p>
+              </div>
+            </div>
+
+            <div class="scaffolding-item">
+              <div class="scaffolding-icon" style="background: rgba(139,92,246,0.1);">&#128065;</div>
+              <div>
+                <h4>Visual-Spatial Learners</h4>
+                <p>Provide blueprint templates and reference photos of fire stations. Use grid paper for children to design their station before building.</p>
+              </div>
+            </div>
+
+            <div class="scaffolding-item">
+              <div class="scaffolding-icon" style="background: rgba(16,185,129,0.1);">&#128483;</div>
+              <div>
+                <h4>Advanced Verbal</h4>
+                <p>Assign the &ldquo;Dispatcher&rdquo; role: they narrate what&rsquo;s happening, call out instructions, and describe the building process to classmates.</p>
+              </div>
+            </div>
+
+            <div class="scaffolding-item">
+              <div class="scaffolding-icon" style="background: rgba(245,158,11,0.1);">&#9997;</div>
+              <div>
+                <h4>Fine-Motor Needs</h4>
+                <p>Provide larger, ergonomic building pieces. Use Velcro-attached components that require less precision but still allow participation.</p>
+              </div>
+            </div>
+
+            <div class="scaffolding-item">
+              <div class="scaffolding-icon" style="background: rgba(239,68,68,0.1);">&#128266;</div>
+              <div>
+                <h4>Sensory-Avoidant</h4>
+                <p>Offer noise-dampening foam blocks. Designate a quieter building zone away from the main activity hub.</p>
+              </div>
+            </div>
+
+            <!-- Rehearse & Retrieve Prompt -->
+            <div style="margin-top: 20px; padding: 16px; background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); border-radius: var(--radius-sm);">
+              <h4 style="color: var(--secondary); margin-bottom: 8px; font-size: 0.9rem;">Rehearse &amp; Retrieve Prompt</h4>
+              <p style="font-size: 0.85rem; color: var(--text-light); font-style: italic;">&ldquo;Recall last week&rsquo;s transportation activity. Ask: &lsquo;Remember when we learned about different vehicles? What vehicle do firefighters use? How is a fire engine different from a bus?&rsquo;&rdquo;</p>
+            </div>
+
+            <!-- Assessment Indicators -->
+            <div style="margin-top: 20px;">
+              <h4 style="color: var(--secondary); margin-bottom: 10px; font-size: 0.9rem;">Assessment Indicators</h4>
+              <ul style="list-style: none; padding: 0; margin: 0;">
+                <li style="padding: 6px 0; font-size: 0.85rem; color: var(--text-light); display: flex; align-items: flex-start; gap: 8px;">
+                  <span style="color: var(--success); flex-shrink: 0;">&#10003;</span>
+                  Can the child identify the role of firefighters in the community?
+                </li>
+                <li style="padding: 6px 0; font-size: 0.85rem; color: var(--text-light); display: flex; align-items: flex-start; gap: 8px;">
+                  <span style="color: var(--success); flex-shrink: 0;">&#10003;</span>
+                  Does the child collaborate effectively during group building?
+                </li>
+                <li style="padding: 6px 0; font-size: 0.85rem; color: var(--text-light); display: flex; align-items: flex-start; gap: 8px;">
+                  <span style="color: var(--success); flex-shrink: 0;">&#10003;</span>
+                  Can the child follow a simple blueprint or plan?
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────────────────────────────────
+       Footer
+       ──────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>PedaForge</h4>
+          <p>An AI-powered pedagogical development platform purpose-built for Singapore's early childhood education sector. Aligned with ECDA's IDP 2.0 vision to uplift educator capabilities through technology-enabled professional growth.</p>
+        </div>
+        <div>
+          <h4>Demos</h4>
+          <ul>
+            <li><a href="planner.html">Lesson Planner</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="coach.html">AI Coach</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Frameworks</h4>
+          <ul>
+            <li><a href="index.html#features">EYDF</a></li>
+            <li><a href="index.html#features">NEL</a></li>
+            <li><a href="index.html#coaching">QTT</a></li>
+            <li><a href="index.html#team">SFw for ECCE</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Compliance</h4>
+          <ul>
+            <li><a href="index.html#architecture">PDPA</a></li>
+            <li><a href="index.html#architecture">Azure SG Region</a></li>
+            <li><a href="index.html#architecture">Zero Public AI Training</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PedaForge &mdash; Innovation Seed Fund Proposal</span>
+        <div class="footer-badges">
+          <span class="footer-badge">PDPA Compliant</span>
+          <span class="footer-badge">SG Data Residency</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
