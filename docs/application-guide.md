@@ -1,14 +1,14 @@
-# ECDA Innovation Seed Fund Application Guide
+# ECDA Early Childhood Innovation Sandbox Application Guide
 
 ## PedaForge: Step-by-Step Application Preparation
 
-This guide provides detailed steps to prepare and submit your PedaForge proposal for the ECDA Innovation Seed Fund under the refreshed Early Childhood Industry Digital Plan (IDP 2.0).
+This guide provides detailed steps to prepare and submit your PedaForge proposal for the ECDA Early Childhood Innovation Sandbox under the refreshed Early Childhood Industry Digital Plan (IDP 2.0).
 
 ---
 
 ## Background: Understanding the Funding Landscape
 
-The **Innovation Seed Fund** is a new initiative under ECDA's IDP 2.0, announced at the Committee of Supply in March 2026. It supports preschool operators in testing new concepts and developing prototypes for scalable innovations.
+The **Early Childhood Innovation Sandbox** is a new initiative under ECDA's IDP 2.0, announced at the Committee of Supply in March 2026. It supports preschool operators in testing new concepts and developing prototypes for scalable innovations.
 
 **Key facts:**
 - Grant call tentatively scheduled for **H2 2026**
@@ -30,28 +30,28 @@ The **Innovation Seed Fund** is a new initiative under ECDA's IDP 2.0, announced
 
 1. Visit the ECDA IDP 2.0 page:
    `https://www.ecda.gov.sg/operators/early-childhood-transformation-initiative/early-childhood-industry-digital-plan`
-2. Sign up for notifications about the Innovation Seed Fund grant call
+2. Sign up for notifications about the Early Childhood Innovation Sandbox grant call
 3. Check the page regularly for updates on application timelines
 
 ### Step 2: Identify Your Operator Partner
 
-The Innovation Seed Fund is for **preschool operators**. You need to either:
+The Early Childhood Innovation Sandbox is for **preschool operators**. You need to either:
 
 **Option A: Apply as an operator**
-- If your wife works at or leads a preschool center
-- Ensure the center has a valid ECDA license (at least 12 months)
-- Get formal endorsement from the center's management/board
+- If your wife works at or leads a preschool centre
+- Ensure the centre has a valid ECDA licence (at least 12 months)
+- Get formal endorsement from the centre's management/board
 
 **Option B: Partner with an operator**
 - Approach 2-3 preschool operators who align with PedaForge's vision
 - Prepare a partnership agreement or letter of intent
-- Identify pilot centers (ideally 2-3 with diverse demographics)
+- Identify pilot centres (ideally 2-3 with diverse demographics)
 
 **Recommended operators to approach:**
-- Mid-sized operators (3-10 centers) — large enough to benefit, small enough to be agile
+- Mid-sized operators (3-10 centres) — large enough to benefit, small enough to be agile
 - Operators already on IDP 1.0 journey — they understand digital transformation
-- Centers with educators who have participated in ECDA Innovation Grant or Practitioner Inquiry projects
-- ASSETS (Association of Early Childhood and Training Services) member organizations
+- Centres with educators who have participated in ECDA Innovation Grant or Practitioner Inquiry projects
+- ASSETS (Association of Early Childhood and Training Services) member organisations
 
 ### Step 3: Assemble Your Advisory Board
 
@@ -60,11 +60,11 @@ Beyond the core project team, recruit advisors who add credibility:
 1. **ECDA-Certified Pedagogical Consultant** — validates QTT and SFw alignment
 2. **Academic Partner** — NIEC (National Institute of Early Childhood) or NTU faculty member for research validation
 3. **Technology Advisor** — Azure AI Foundry or AI domain expert
-4. **Practicing Center Director** — provides operational perspective and user validation
+4. **Practising Centre Director** — provides operational perspective and user validation
 
 ### Step 4: Conduct Baseline Assessment
 
-Before applying, gather evidence of the problem at your partner center(s):
+Before applying, gather evidence of the problem at your partner centre(s):
 
 1. **Time Audit**: Survey educators on weekly hours spent on documentation
    - Lesson planning
@@ -77,7 +77,7 @@ Before applying, gather evidence of the problem at your partner center(s):
 
 3. **Educator Satisfaction Survey**: Measure:
    - Perceived administrative burden (1-5 scale)
-   - Time for individualized interactions
+   - Time for individualised interactions
    - Satisfaction with current planning tools
    - Interest in AI-supported tools
 
@@ -103,14 +103,14 @@ Use the README.md as the foundation and adapt for ECDA's format. Key sections:
 - Sustainability and Commercialisation Plan
 
 **B. Presentation Deck**
-Use the generated `PedaForge_Proposal.pptx` as a starting point. Customize:
+Use the generated `PedaForge_Proposal.pptx` as a starting point. Customise:
 - Add your operator partner's name and details
 - Include baseline data from Step 4
 - Add team member photos and bios
 - Include any letters of support
 
 **C. Supporting Documents** (prepare in advance):
-- Operator's ECDA license
+- Operator's ECDA licence
 - Partnership agreement or letter of intent
 - Team member CVs/resumes
 - Letters of support from NIEC/NTU (if applicable)
@@ -126,8 +126,8 @@ Use the generated `PedaForge_Proposal.pptx` as a starting point. Customize:
 ### Step 6: Monitor the Grant Call Opening
 
 - Check ECDA website weekly from June 2026 onwards
-- Attend any briefing sessions ECDA conducts for the Innovation Seed Fund
-- Note: For the Practitioner Inquiry Grant, ECDA requires attendance at compulsory briefing sessions. The Innovation Seed Fund may have similar requirements.
+- Attend any briefing sessions ECDA conducts for the Early Childhood Innovation Sandbox
+- Note: For the Practitioner Inquiry Grant, ECDA requires attendance at compulsory briefing sessions. The Early Childhood Innovation Sandbox may have similar requirements.
 
 ### Step 7: Complete the Application Form
 
@@ -139,7 +139,7 @@ When the grant call opens:
    - Use ECDA terminology: "Key Person", "Enabling Environment", "Unique Child"
    - Reference EYDF, NEL, QTT, SFw explicitly
    - Cite IDP 2.0 objectives directly
-   - Emphasize alignment with the sector transformation agenda
+   - Emphasise alignment with the sector transformation agenda
 
 4. **Budget alignment** — ensure your budget:
    - Falls within ECDA's funding cap (if specified)
@@ -179,12 +179,12 @@ If shortlisted, you may be invited to present to an ECDA panel:
 - Demonstrate PDPA compliance understanding
 - Show a clear path to sector-wide scaling
 - Have the pedagogical lead present the QTT/SFw alignment
-- Bring a practicing educator to share their perspective (if possible)
+- Bring a practising educator to share their perspective (if possible)
 
 **Anticipate these questions:**
 - "How is this different from existing solutions in the ECDG pre-approved list?"
 - "How will you ensure PDPA compliance for child data?"
-- "What happens after the 12-month sandbox period?"
+- "What happens after the 6-month sandbox period?"
 - "How will you measure actual impact on children's learning outcomes?"
 - "Can this scale to operators of different sizes?"
 - "What is the operator's co-investment commitment?"
@@ -193,7 +193,7 @@ If shortlisted, you may be invited to present to an ECDA panel:
 
 1. Sign the grant agreement with ECDA
 2. Set up project governance (steering committee with ECDA representative)
-3. Begin Phase 1: Architecture and AI Foundation
+3. Begin Phase 1: Development and AI Foundation
 4. Submit interim reports as required
 5. Invite ECDA for periodic reviews
 6. Document everything for the final impact report
@@ -205,12 +205,12 @@ If shortlisted, you may be invited to present to an ECDA panel:
 | When | Action |
 |------|--------|
 | Now (May 2026) | Register for ECDA notifications, identify operator partner |
-| June 2026 | Conduct baseline assessment at partner center(s) |
+| June 2026 | Conduct baseline assessment at partner centre(s) |
 | June 2026 | Assemble advisory board, prepare supporting documents |
-| July 2026 | Attend any ECDA briefing sessions for Innovation Seed Fund |
+| July 2026 | Attend any ECDA briefing sessions for Early Childhood Innovation Sandbox |
 | H2 2026 | Submit application when grant call opens |
-| Q4 2026 | If approved, begin 12-month sandbox execution |
-| Q4 2027 | Final impact report and scaling plan |
+| Q4 2026 | If approved, begin 6-month sandbox execution |
+| Q2 2027 | Final impact report and scaling plan |
 
 ---
 
@@ -219,7 +219,7 @@ If shortlisted, you may be invited to present to an ECDA panel:
 ### Align with ECDA's Strategic Priorities
 
 ECDA's IDP 2.0 emphasizes:
-1. **Sector-wide transformation** — show how PedaForge can scale beyond pilot centers
+1. **Sector-wide transformation** — show how PedaForge can scale beyond pilot centres
 2. **AI-enabled solutions** — demonstrate responsible AI use with PDPA safeguards
 3. **Productivity gains** — quantify time saved in hours, not just percentages
 4. **Teaching and learning outcomes** — connect educator efficiency to child outcomes
@@ -281,16 +281,16 @@ ECDA wants to fund innovations that outlast the grant period:
 
 ## Checklist: Application Readiness
 
-- [ ] Registered for ECDA Innovation Seed Fund notifications
-- [ ] Identified and confirmed operator partner (with valid ECDA license)
-- [ ] Conducted baseline time audit at partner center(s)
+- [ ] Registered for ECDA Early Childhood Innovation Sandbox notifications
+- [ ] Identified and confirmed operator partner (with valid ECDA licence)
+- [ ] Conducted baseline time audit at partner centre(s)
 - [ ] Collected current QTT scores (if available)
 - [ ] Surveyed educators on pain points and interest
 - [ ] Documented current workflows for lesson planning, portfolios, assessment
 - [ ] Assembled project team with confirmed availability
 - [ ] Recruited 2+ advisory board members
 - [ ] Prepared project proposal document
-- [ ] Customized presentation deck with partner-specific data
+- [ ] Customised presentation deck with partner-specific data
 - [ ] Prepared data privacy impact assessment
 - [ ] Obtained letters of support
 - [ ] Prepared vendor quotations for budget items

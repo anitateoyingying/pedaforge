@@ -6,17 +6,17 @@ from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
 
-PRIMARY = RGBColor(0x0E, 0x7C, 0x6B)
-PRIMARY_DARK = RGBColor(0x09, 0x5E, 0x52)
-SECONDARY = RGBColor(0x1A, 0x36, 0x5D)
-ACCENT = RGBColor(0xF0, 0xA5, 0x00)
+PRIMARY = RGBColor(0x01, 0xAB, 0xAA)
+PRIMARY_DARK = RGBColor(0x00, 0x8C, 0x8B)
+SECONDARY = RGBColor(0x2D, 0x2A, 0x5E)
+ACCENT = RGBColor(0xFE, 0xCD, 0x1B)
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
-LIGHT_BG = RGBColor(0xF7, 0xF9, 0xFC)
-TEXT_DARK = RGBColor(0x1E, 0x29, 0x3B)
-TEXT_LIGHT = RGBColor(0x64, 0x74, 0x8B)
-DANGER = RGBColor(0xEF, 0x44, 0x44)
+LIGHT_BG = RGBColor(0xFA, 0xF6, 0xF0)
+TEXT_DARK = RGBColor(0x3D, 0x3E, 0x3F)
+TEXT_LIGHT = RGBColor(0x6B, 0x72, 0x80)
+DANGER = RGBColor(0xE8, 0x06, 0x3C)
 SUCCESS = RGBColor(0x10, 0xB9, 0x81)
-WARNING = RGBColor(0xF5, 0x9E, 0x0B)
+WARNING = RGBColor(0xFF, 0x9E, 0x18)
 INFO = RGBColor(0x3B, 0x82, 0xF6)
 
 
@@ -40,7 +40,7 @@ def add_shape(slide, left, top, width, height, color, radius=None):
 
 def add_text_box(slide, left, top, width, height, text, size=18,
                  bold=False, color=TEXT_DARK, alignment=PP_ALIGN.LEFT,
-                 font_name="Calibri"):
+                 font_name="Arial"):
     txbox = slide.shapes.add_textbox(left, top, width, height)
     tf = txbox.text_frame
     tf.word_wrap = True
@@ -76,7 +76,6 @@ def add_bullet_list(slide, left, top, width, height, items, size=14,
 def add_card(slide, left, top, width, height, title, body, accent_color,
              title_size=14, body_size=11):
     card = add_shape(slide, left, top, width, height, WHITE)
-    accent = add_shape(slide, left, top, Inches(0.06), height, accent_color)
 
     add_text_box(slide, left + Inches(0.2), top + Inches(0.1),
                  width - Inches(0.3), Inches(0.4),
@@ -102,13 +101,13 @@ def create_presentation():
     set_slide_bg(slide, SECONDARY)
 
     add_shape(slide, Inches(0), Inches(0), Inches(10), Inches(5.625),
-              RGBColor(0x15, 0x2A, 0x4A))
+              RGBColor(0x1A, 0x15, 0x35))
 
     add_shape(slide, Inches(0), Inches(4.8), Inches(10), Inches(0.06), PRIMARY)
 
     add_text_box(slide, Inches(0.8), Inches(0.6), Inches(8.4), Inches(0.5),
-                 "ECDA Innovation Seed Fund Proposal", size=14,
-                 color=RGBColor(0x8B, 0xAA, 0xCC), font_name="Calibri")
+                 "ECDA Early Childhood Innovation Sandbox Proposal", size=14,
+                 color=RGBColor(0xB8, 0xA0, 0xD0), font_name="Arial")
 
     add_text_box(slide, Inches(0.8), Inches(1.2), Inches(8.4), Inches(1.2),
                  "PedaForge", size=44, bold=True, color=WHITE)
@@ -116,19 +115,19 @@ def create_presentation():
     add_text_box(slide, Inches(0.8), Inches(2.2), Inches(8.4), Inches(0.8),
                  "AI-Powered Pedagogical Development Platform\n"
                  "for Singapore Early Childhood Education",
-                 size=20, color=RGBColor(0xAA, 0xCC, 0xDD))
+                 size=20, color=RGBColor(0xC8, 0xB8, 0xE0))
 
     add_text_box(slide, Inches(0.8), Inches(3.6), Inches(8.4), Inches(0.4),
                  "Aligned with ECDA Industry Digital Plan (IDP 2.0)",
-                 size=13, color=RGBColor(0x8B, 0xAA, 0xCC))
+                 size=13, color=RGBColor(0xB8, 0xA0, 0xD0))
 
     add_text_box(slide, Inches(0.8), Inches(4.2), Inches(4), Inches(0.4),
-                 "Duration: 12 Months  |  Budget: SGD $125,000",
-                 size=12, color=RGBColor(0x6B, 0x8A, 0xAA))
+                 "Duration: 6 Months  |  Budget: SGD $20,000",
+                 size=12, color=RGBColor(0x8B, 0x80, 0xA8))
 
     add_text_box(slide, Inches(5.5), Inches(4.2), Inches(4), Inches(0.4),
                  "May 2026", size=12,
-                 color=RGBColor(0x6B, 0x8A, 0xAA), alignment=PP_ALIGN.RIGHT)
+                 color=RGBColor(0x8B, 0x80, 0xA8), alignment=PP_ALIGN.RIGHT)
 
     # ─── SLIDE 2: The Problem ───────────────────────────
     slide = prs.slides.add_slide(prs.slide_layouts[6])
@@ -153,7 +152,7 @@ def create_presentation():
          "Educators spend evenings and weekends on paperwork.", DANGER),
         ("Pedagogical Compromise", "35% less", "interaction time",
          "Cognitive overload from multi-framework documentation forces "
-         "one-size-fits-all planning, reducing individualized learning.", WARNING),
+         "one-size-fits-all planning, reducing individualised learning.", WARNING),
         ("Siloed Leadership", "Zero", "real-time visibility",
          "Directors lack data on daily pedagogical quality. Annual "
          "appraisals are subjective and disconnected from the Skills Framework.", INFO),
@@ -163,9 +162,6 @@ def create_presentation():
         x = Inches(0.6 + i * 3.1)
         card_bg = add_shape(slide, x, Inches(1.8), Inches(2.8), Inches(3.4),
                             LIGHT_BG)
-
-        accent_bar = add_shape(slide, x, Inches(1.8), Inches(2.8),
-                               Inches(0.06), color)
 
         add_text_box(slide, x + Inches(0.2), Inches(2.0), Inches(2.4),
                      Inches(0.3), title, size=13, bold=True, color=SECONDARY)
@@ -213,7 +209,7 @@ def create_presentation():
          "Anti-sycophancy directives built in.",
          "QTT | Skills Framework", ACCENT),
         ("4. Director Dashboard",
-         "Center-wide QTT averages, educator profiles, "
+         "Centre-wide QTT averages, educator profiles, "
          "PLC collaboration topics, and SFw-aligned "
          "professional development recommendations.",
          "LNA | SFw | IDP", RGBColor(0x8B, 0x5C, 0xF6)),
@@ -226,7 +222,6 @@ def create_presentation():
         y = Inches(1.2 + row * 2.1)
 
         card_bg = add_shape(slide, x, y, Inches(4.2), Inches(1.9), LIGHT_BG)
-        accent_bar = add_shape(slide, x, y, Inches(0.06), Inches(1.9), color)
 
         add_text_box(slide, x + Inches(0.2), y + Inches(0.1), Inches(3.8),
                      Inches(0.35), title, size=14, bold=True, color=SECONDARY)
@@ -274,23 +269,23 @@ def create_presentation():
         y = Inches(1.3)
 
         card_bg = add_shape(slide, x, y, Inches(2.15), Inches(2.8),
-                            RGBColor(0x1E, 0x3A, 0x5F))
+                            RGBColor(0x3D, 0x26, 0x63))
 
         add_text_box(slide, x + Inches(0.15), y + Inches(0.1), Inches(1.85),
                      Inches(0.35), title, size=12, bold=True, color=WHITE)
 
         add_text_box(slide, x + Inches(0.15), y + Inches(0.5), Inches(1.85),
-                     Inches(1.6), desc, size=9, color=RGBColor(0xAA, 0xBB, 0xCC))
+                     Inches(1.6), desc, size=9, color=RGBColor(0xB0, 0xA0, 0xC8))
 
         bar_y = y + Inches(2.2)
         for b in range(4):
-            bar_color = ACCENT if b < bars else RGBColor(0x2A, 0x45, 0x6A)
+            bar_color = ACCENT if b < bars else RGBColor(0x3A, 0x30, 0x60)
             add_shape(slide, x + Inches(0.15 + b * 0.45), bar_y,
                       Inches(0.35), Inches(0.08), bar_color)
 
         add_text_box(slide, x + Inches(0.15), bar_y + Inches(0.15),
                      Inches(1.85), Inches(0.25), intensity,
-                     size=8, color=RGBColor(0x8B, 0xAA, 0xCC))
+                     size=8, color=RGBColor(0xB8, 0xA0, 0xD0))
 
     safeguards = [
         "Anti-sycophancy: No reflexive validation, specific earned praise only",
@@ -302,7 +297,7 @@ def create_presentation():
         add_text_box(slide, Inches(0.6), Inches(4.3 + i * 0.28),
                      Inches(8.8), Inches(0.25),
                      f"  {text}", size=9,
-                     color=RGBColor(0x8B, 0xAA, 0xCC))
+                     color=RGBColor(0xB8, 0xA0, 0xD0))
 
     # ─── SLIDE 5: Ecosystem Flow ────────────────────────
     slide = prs.slides.add_slide(prs.slide_layouts[6])
@@ -387,7 +382,7 @@ def create_presentation():
     stack = [
         ("Frontend", "React / Next.js, TypeScript, TailwindCSS", INFO),
         ("Backend", "Python 3.11+, FastAPI, Uvicorn", PRIMARY),
-        ("AI / LLM", "Claude Opus 4 via Azure AI Foundry", ACCENT),
+        ("AI / LLM", "Claude Haiku 4.5 via Azure AI Foundry", ACCENT),
         ("Database", "PostgreSQL (children, plans, portfolios)", RGBColor(0x8B, 0x5C, 0xF6)),
         ("Auth", "JWT + bcrypt, RBAC (educator / director / admin)", DANGER),
         ("Hosting", "Azure App Service (SG region), Key Vault", SECONDARY),
@@ -396,7 +391,6 @@ def create_presentation():
     for i, (layer, tech, color) in enumerate(stack):
         y = Inches(1.15 + i * 0.58)
         add_shape(slide, Inches(0.6), y, Inches(4.2), Inches(0.48), LIGHT_BG)
-        add_shape(slide, Inches(0.6), y, Inches(0.06), Inches(0.48), color)
 
         add_text_box(slide, Inches(0.8), y + Inches(0.05), Inches(1.3),
                      Inches(0.35), layer, size=11, bold=True, color=SECONDARY)
@@ -410,7 +404,7 @@ def create_presentation():
         ("SG Data Residency", "All data hosted in Singapore Azure region "
          "(southeastasia)"),
         ("Role-Based Access", "Educators see only assigned cohorts; Directors "
-         "get aggregated center view"),
+         "get aggregated centre view"),
         ("Encryption", "AES-256 at rest, TLS 1.2+ in transit, "
          "Key Vault for secrets"),
         ("Audit Trail", "All actions logged with user ID and timestamp"),
@@ -443,7 +437,7 @@ def create_presentation():
         ("100%", "Differentiated\nLesson Plans", "2+ profiles per plan", INFO),
         ("85%", "IDP Accuracy\nRating", "Educator agreement", SUCCESS),
         ("2x", "Weekly Coaching\nCycles", "Per educator", ACCENT),
-        ("+0.5", "QTT Score\nImprovement", "Center average", RGBColor(0x8B, 0x5C, 0xF6)),
+        ("+0.5", "QTT Score\nImprovement", "Centre average", RGBColor(0x8B, 0x5C, 0xF6)),
         ("90%", "Educator\nRetention Intent", "Would continue", DANGER),
     ]
 
@@ -473,24 +467,20 @@ def create_presentation():
     slide_title_bar(slide)
 
     add_text_box(slide, Inches(0.6), Inches(0.2), Inches(8.8), Inches(0.35),
-                 "12-MONTH ROADMAP", size=10, bold=True, color=PRIMARY)
+                 "6-MONTH ROADMAP", size=10, bold=True, color=PRIMARY)
 
     add_text_box(slide, Inches(0.6), Inches(0.5), Inches(8.8), Inches(0.5),
                  "Sandbox Implementation Timeline",
                  size=26, bold=True, color=SECONDARY)
 
     phases = [
-        ("Months 1–2", "Architecture &\nAI Foundation",
-         "Infrastructure, AI prompt\nengineering, PDPA setup", PRIMARY),
-        ("Months 3–4", "Platform\nBuild",
-         "Lesson planner, portfolio,\ncoaching, dashboard", INFO),
-        ("Month 5", "Pilot\nDeployment",
-         "2–3 centers onboarded,\neducator workshops", SUCCESS),
-        ("Months 6–9", "Active\nExecution",
+        ("Months 1–2", "Development &\nAI Foundation",
+         "Infrastructure, AI prompts,\nplatform build, PDPA", PRIMARY),
+        ("Month 3", "Pilot\nDeployment",
+         "2–3 centres onboarded,\neducator workshops", INFO),
+        ("Months 4–5", "Active\nExecution",
          "Live classroom usage,\nfirst IDPs generated", ACCENT),
-        ("Months 10–11", "Impact\nAssessment",
-         "End-of-year LNA,\nquantitative metrics", RGBColor(0x8B, 0x5C, 0xF6)),
-        ("Month 12", "Final Report\n& Scale Plan",
+        ("Month 6", "Impact Assessment\n& Reporting",
          "Findings, commercialisation\nroadmap, ECDA presentation", DANGER),
     ]
 
@@ -522,9 +512,9 @@ def create_presentation():
 
     milestones = [
         "Month 2: AI prompts validated against QTT rubric",
-        "Month 5: First educators onboarded with training",
-        "Month 9: First SFw-aligned IDPs auto-generated",
-        "Month 12: Final impact report to ECDA",
+        "Month 3: First educators onboarded with training",
+        "Month 5: First SFw-aligned IDPs auto-generated",
+        "Month 6: Final impact report to ECDA",
     ]
 
     add_text_box(slide, Inches(0.6), Inches(3.9), Inches(4), Inches(0.3),
@@ -547,10 +537,10 @@ def create_presentation():
                  "Budget Breakdown (SGD)", size=26, bold=True, color=SECONDARY)
 
     budget_phases = [
-        ("Phase 1: Architecture & AI", "$72,000", "58%", PRIMARY),
-        ("Phase 2: Security & Compliance", "$16,000", "13%", INFO),
-        ("Phase 3: Change Management", "$18,000", "14%", ACCENT),
-        ("Phase 4: Project Management", "$19,000", "15%",
+        ("Development & Infrastructure", "$9,800", "49%", PRIMARY),
+        ("Security & Compliance", "$3,200", "16%", INFO),
+        ("Change Management", "$4,400", "22%", ACCENT),
+        ("Evaluation & Reporting", "$2,600", "13%",
          RGBColor(0x8B, 0x5C, 0xF6)),
     ]
 
@@ -577,24 +567,23 @@ def create_presentation():
     total_bg = add_shape(slide, Inches(0.6), Inches(4.4), Inches(8.2),
                          Inches(0.6), SECONDARY)
     add_text_box(slide, Inches(0.8), Inches(4.45), Inches(4), Inches(0.45),
-                 "Total Seed Funding Required", size=14, bold=True,
+                 "Total Sandbox Funding Required", size=14, bold=True,
                  color=WHITE)
     add_text_box(slide, Inches(5.5), Inches(4.45), Inches(3.1), Inches(0.45),
-                 "SGD $125,000", size=20, bold=True, color=ACCENT,
+                 "SGD $20,000", size=20, bold=True, color=ACCENT,
                  alignment=PP_ALIGN.RIGHT)
 
     details_left = [
-        "Senior Full-Stack Developer: $700/day x 40 days",
-        "AI/Prompt Engineer: $650/day x 30 days",
-        "UI/UX Designer: $500/day x 20 days",
-        "Cloud + AI API: $1,200/month x 12 months",
+        "Full-Stack + AI Dev: $500/day x 16 days",
+        "Azure Hosting: $200/month x 6 months",
+        "Claude Haiku via Azure AI Foundry: $100/month x 6 months",
     ]
 
     details_right = [
-        "VAPT + PDPA Audit: $16,000",
-        "Pedagogical Consultant: $800/day x 12 days",
-        "Educator Workshops: $8,400",
-        "PM + Evaluation: $19,000",
+        "PDPA + Security: $3,200",
+        "Pedagogical Consultant: $600/day x 4 days",
+        "Educator Workshops: $2,000",
+        "Evaluation + Reporting: $2,600",
     ]
 
     for col, items in enumerate([details_left, details_right]):
@@ -617,34 +606,22 @@ def create_presentation():
                  size=26, bold=True, color=SECONDARY)
 
     team = [
-        ("Project Lead", "1.0 FTE",
-         "Oversees timeline, budget, stakeholder\nrelationships, ECDA liaison",
+        ("Project Lead", "0.3 FTE",
+         "Timeline, budget, stakeholder liaison,\nECDA comms, evaluation & reporting",
          PRIMARY),
-        ("Technical Architect", "1.0 FTE",
-         "Full-stack development, AI integration,\nsystem security, infrastructure",
+        ("Technical Lead", "1.0 FTE",
+         "Full-stack development, AI integration\nvia Azure AI Foundry, deployment",
          INFO),
-        ("AI Engineer", "1.0 FTE",
-         "Prompt engineering, QTT alignment,\ncoaching engine, SFw mapping",
+        ("Pedagogical Specialist", "0.2 FTE",
+         "EYDF, NEL, QTT, SFw validation,\neducator training facilitation",
          ACCENT),
-        ("Pedagogical Lead", "0.5 FTE",
-         "EYDF, NEL, QTT, SFw validation,\ncurriculum alignment review",
-         RGBColor(0x8B, 0x5C, 0xF6)),
-        ("UI/UX Designer", "0.5 FTE",
-         "Interface design, educator usability\ntesting, accessibility",
-         SUCCESS),
-        ("Impact Evaluator", "0.3 FTE",
-         "Assessment design, data analysis,\nfinal impact reporting",
-         DANGER),
     ]
 
     for i, (role, fte, desc, color) in enumerate(team):
-        row = i // 3
-        col = i % 3
-        x = Inches(0.6 + col * 3.1)
-        y = Inches(1.2 + row * 2.0)
+        x = Inches(0.6 + i * 3.1)
+        y = Inches(1.2)
 
         card_bg = add_shape(slide, x, y, Inches(2.8), Inches(1.8), LIGHT_BG)
-        accent_bar = add_shape(slide, x, y, Inches(2.8), Inches(0.06), color)
 
         circle = slide.shapes.add_shape(
             MSO_SHAPE.OVAL, x + Inches(1.05), y + Inches(0.15),
@@ -678,7 +655,7 @@ def create_presentation():
 
     frameworks = [
         ("ECDA IDP 2.0",
-         "Direct alignment with Innovation Seed Fund objectives. "
+         "Direct alignment with Early Childhood Innovation Sandbox objectives. "
          "AI-enabled solution for sector-wide transformation.",
          "Strategic Fit", PRIMARY),
         ("EYDF",
@@ -710,7 +687,6 @@ def create_presentation():
         y = Inches(1.2 + row * 2.0)
 
         card_bg = add_shape(slide, x, y, Inches(2.8), Inches(1.8), LIGHT_BG)
-        accent_bar = add_shape(slide, x, y, Inches(0.06), Inches(1.8), color)
 
         add_text_box(slide, x + Inches(0.2), y + Inches(0.1), Inches(2.4),
                      Inches(0.3), name, size=14, bold=True, color=SECONDARY)
@@ -726,7 +702,7 @@ def create_presentation():
     set_slide_bg(slide, SECONDARY)
 
     add_shape(slide, Inches(0), Inches(0), Inches(10), Inches(5.625),
-              RGBColor(0x15, 0x2A, 0x4A))
+              RGBColor(0x1A, 0x15, 0x35))
     add_shape(slide, Inches(0), Inches(4.8), Inches(10), Inches(0.06), PRIMARY)
 
     add_text_box(slide, Inches(1), Inches(1.0), Inches(8), Inches(0.8),
@@ -735,7 +711,7 @@ def create_presentation():
 
     add_text_box(slide, Inches(1), Inches(1.8), Inches(8), Inches(0.6),
                  "Give educators back the time that matters most.",
-                 size=20, color=RGBColor(0xAA, 0xCC, 0xDD),
+                 size=20, color=RGBColor(0xC8, 0xB8, 0xE0),
                  alignment=PP_ALIGN.CENTER)
 
     highlights = [
@@ -748,13 +724,13 @@ def create_presentation():
     for i, h in enumerate(highlights):
         add_text_box(slide, Inches(2), Inches(2.7 + i * 0.35), Inches(6),
                      Inches(0.3), f"✓  {h}", size=13,
-                     color=RGBColor(0x8B, 0xAA, 0xCC),
+                     color=RGBColor(0xB8, 0xA0, 0xD0),
                      alignment=PP_ALIGN.CENTER)
 
     cta_bg = add_shape(slide, Inches(3), Inches(4.2), Inches(4),
                        Inches(0.5), PRIMARY)
     add_text_box(slide, Inches(3), Inches(4.22), Inches(4), Inches(0.45),
-                 "SGD $125,000  |  12 Months  |  IDP 2.0 Aligned",
+                 "SGD $20,000  |  6 Months  |  IDP 2.0 Aligned",
                  size=13, bold=True, color=WHITE, alignment=PP_ALIGN.CENTER)
 
     output_path = "/home/dmgadmin/sandbox/pedaforge/slides/PedaForge_Proposal.pptx"

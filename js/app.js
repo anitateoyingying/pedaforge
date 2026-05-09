@@ -110,7 +110,7 @@ const COACHING_CONVERSATIONS = {
   reflective: [
     {
       role: 'assistant',
-      text: "Welcome! I'm your PedaForge Coach. Let's reflect on today's teaching. Can you describe a moment from today where you felt a child was particularly engaged — or particularly struggling?"
+      text: "Welcome! I'm your PedaForge Coach. Let's reflect on today's teaching. Can you describe a moment from today where you felt a child was particularly engaged, or particularly struggling?"
     },
     {
       role: 'user',
@@ -126,7 +126,7 @@ const COACHING_CONVERSATIONS = {
     },
     {
       role: 'assistant',
-      text: "Excellent emotional scaffolding — you instinctively acted as Leo's Key Person by getting to his level and validating his feelings. For tomorrow, consider guiding Leo to articulate what frustrated him before offering alternatives. This builds his self-regulation vocabulary. <span class=\"qtt-tag\">QTT: Sustained Shared Thinking</span>"
+      text: "Excellent emotional scaffolding. You instinctively acted as Leo's Key Person by getting to his level and validating his feelings. For tomorrow, consider guiding Leo to articulate what frustrated him before offering alternatives. This builds his self-regulation vocabulary. <span class=\"qtt-tag\">QTT: Sustained Shared Thinking</span>"
     }
   ],
 
@@ -141,7 +141,7 @@ const COACHING_CONVERSATIONS = {
     },
     {
       role: 'assistant',
-      text: 'Good choice. Describe your current classroom layout. How are your learning corners organized, and what intentional choices have you made about material placement? <span class="qtt-tag">QTT: Learning Environment — Physical Setup</span>'
+      text: 'Good choice. Describe your current classroom layout. How are your learning corners organised, and what intentional choices have you made about material placement? <span class="qtt-tag">QTT: Learning Environment: Physical Setup</span>'
     },
     {
       role: 'user',
@@ -149,14 +149,14 @@ const COACHING_CONVERSATIONS = {
     },
     {
       role: 'assistant',
-      text: "Low engagement with the science station often indicates accessibility or visual cue issues. Try placing provocation questions at children's eye level, rotating materials weekly, and linking the station to your current theme. If your theme is 'Community Helpers', add magnifying glasses and uniforms to examine. How might you connect science exploration to your children's current interests? <span class=\"qtt-tag\">QTT: Learning Environment — Materials & Resources</span>"
+      text: "Low engagement with the science station often indicates accessibility or visual cue issues. Try placing provocation questions at children's eye level, rotating materials weekly, and linking the station to your current theme. If your theme is 'Community Helpers', add magnifying glasses and uniforms to examine. How might you connect science exploration to your children's current interests? <span class=\"qtt-tag\">QTT: Learning Environment: Materials & Resources</span>"
     }
   ],
 
   socratic: [
     {
       role: 'assistant',
-      text: "I'd like to explore your pedagogical assumptions today. Think about a routine practice you follow — something you've 'always done this way.' What comes to mind?"
+      text: "I'd like to explore your pedagogical assumptions today. Think about a routine practice you follow, something you've 'always done this way.' What comes to mind?"
     },
     {
       role: 'user',
@@ -164,7 +164,7 @@ const COACHING_CONVERSATIONS = {
     },
     {
       role: 'assistant',
-      text: "Interesting. What would happen if you didn't have whole-group circle time? What purpose does it actually serve for the children — not for the schedule? <span class=\"qtt-tag\">Assumption Challenge</span>"
+      text: "Interesting. What would happen if you didn't have whole-group circle time? What purpose does it actually serve for the children, not for the schedule? <span class=\"qtt-tag\">Assumption Challenge</span>"
     },
     {
       role: 'user',
@@ -172,7 +172,7 @@ const COACHING_CONVERSATIONS = {
     },
     {
       role: 'assistant',
-      text: "If community building is the goal, is a 20-minute large group the most effective format for 4-year-olds? What evidence from your own classroom tells you this works — or doesn't? Consider: which children thrive during circle time, and which struggle to sit still? What might that tell you? <span class=\"qtt-tag\">Evidence Examination</span>"
+      text: "If community building is the goal, is a 20-minute large group the most effective format for 4-year-olds? What evidence from your own classroom tells you this works, or doesn't? Consider: which children thrive during circle time, and which struggle to sit still? What might that tell you? <span class=\"qtt-tag\">Evidence Examination</span>"
     }
   ],
 
@@ -195,7 +195,7 @@ const COACHING_CONVERSATIONS = {
     },
     {
       role: 'assistant',
-      text: "Good identification. Now let's build safeguards. For the cutting conflict: assign rotating roles (cutter, mixer, server) with a visual role chart. For food reluctance: use a 'brave taste' approach — no child is forced, but the activity includes sensory exploration (smell, touch, describe) before tasting. What's your allergy protocol, and have you confirmed dietary restrictions with all parents? <span class=\"qtt-tag\">Risk Mitigation</span>"
+      text: "Good identification. Now let's build safeguards. For the cutting conflict: assign rotating roles (cutter, mixer, server) with a visual role chart. For food reluctance: use a 'brave taste' approach; no child is forced, but the activity includes sensory exploration (smell, touch, describe) before tasting. What's your allergy protocol, and have you confirmed dietary restrictions with all parents? <span class=\"qtt-tag\">Risk Mitigation</span>"
     }
   ]
 };
@@ -263,7 +263,7 @@ function createChatMessage(role, text) {
 const CHAT_CANNED_RESPONSES = [
   {
     keywords: ['frustrated', 'angry', 'crying'],
-    response: "Emotional moments like these are powerful learning opportunities. Consider using the RULER approach: Recognize the emotion, Understand its source, Label it with the child, Express empathy, and then Regulate together. You might say, \"I can see you're feeling very frustrated. That's okay — let's take a deep breath together.\" Building an emotional vocabulary helps children self-regulate over time. <span class=\"qtt-tag\">QTT: Emotional Regulation</span>"
+    response: "Emotional moments like these are powerful learning opportunities. Consider using the RULER approach: Recognise the emotion, Understand its source, Label it with the child, Express empathy, and then Regulate together. You might say, \"I can see you're feeling very frustrated. That's okay. Let's take a deep breath together.\" Building an emotional vocabulary helps children self-regulate over time. <span class=\"qtt-tag\">QTT: Emotional Regulation</span>"
   },
   {
     keywords: ['lesson', 'plan', 'activity'],
