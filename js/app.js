@@ -597,15 +597,7 @@ function initPortfolioDemo() {
 /* ─── 8. Dashboard Demo ───────────────────────────────────── */
 
 function initDashboardDemo() {
-  const qttFills = document.querySelectorAll('.qtt-fill');
-  if (qttFills.length > 0) {
-    qttFills.forEach(fill => { fill.style.height = '0'; });
-    setTimeout(() => {
-      qttFills.forEach((fill, i) => {
-        setTimeout(() => { fill.style.height = fill.dataset.pct + '%'; }, i * 100);
-      });
-    }, 400);
-  }
+  // QTT bars rendered via inline styles — no JS needed
 
   // Animate stat counters
   const statValues = document.querySelectorAll('.dash-stat .stat-value');
