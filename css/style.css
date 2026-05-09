@@ -1446,38 +1446,47 @@ section {
   gap: 8px;
 }
 
-.qtt-domain-chart {
-  display: flex;
-  align-items: flex-end;
-  gap: 16px;
-  height: 200px;
-  padding: 20px 0;
+.qtt-chart {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  padding: 12px 0;
 }
-
-.qtt-bar-container {
-  flex: 1;
+.qtt-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  height: 100%;
+  gap: 6px;
 }
-
-.qtt-bar {
-  width: 100%;
-  max-width: 60px;
-  border-radius: 6px 6px 0 0;
-  transition: height 0.8s ease;
+.qtt-val {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.qtt-track {
+  width: 36px;
+  height: 140px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 6px;
   position: relative;
-  margin-top: auto;
 }
-
-.qtt-bar-label {
-  font-size: 0.7rem;
+.qtt-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.qtt-lbl {
+  font-size: 0.65rem;
   color: var(--text-muted);
   text-align: center;
-  line-height: 1.3;
-  max-width: 80px;
+  line-height: 1.2;
+}
+@media (max-width: 600px) {
+  .qtt-chart { grid-template-columns: repeat(3, 1fr); gap: 14px 10px; }
+  .qtt-track { height: 100px; }
 }
 
 .alert-item {
