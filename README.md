@@ -36,16 +36,22 @@ Singapore's early childhood education (ECE) workforce faces a documentation cris
 
 ### The Evidence
 
-The **OECD TALIS Starting Strong 2024** report identifies emotional exhaustion from administrative burden as a leading contributor to workforce attrition in early childhood settings. The report underscores that documentation workload is not merely an inconvenience; it is a systemic barrier to quality pedagogy.
+Research consistently documents the severity of this crisis:
+
+- **Harper, Wilson and McGrath-Champ (2025)** in *The Australian Educational Researcher* found educators spend up to **9 unpaid hours per week** on administrative documentation, with fewer than **30% of working hours** spent on focused child interactions, and **67%** reporting that quality of teaching is compromised.
+- The **OECD TALIS Starting Strong (2018)** report identifies documentation as the top stressor and a leading contributor to workforce attrition in early childhood settings.
+- **Sylva et al. (2004)** in the landmark **EPPE Project** demonstrated that the quality of adult-child interactions is the strongest predictor of child outcomes, yet documentation burden directly reduces this interaction time.
+- At the **ACE 2017 Conference**, **21 of 30 Singapore ECE leaders** surveyed (70%) identified administrative burden as the single biggest barrier to pedagogical leadership.
+- **Siraj-Blatchford et al. (2002)** in the **REPEY Report** established the concept of sustained shared thinking as essential for quality ECE, yet it requires the very time that documentation demands consume.
 
 The scale of the problem in Singapore's ECE sector:
 
 | Challenge | Impact |
 |-----------|--------|
-| **Documentation overload** | Educators spend an average of **8 hours per week** on lesson plans, observations, portfolios, checklists, and developmental reports |
-| **Reduced child interaction** | **35% less time** spent on individualised interactions due to manual documentation demands |
+| **Documentation overload** | Educators spend up to **9 unpaid hours per week** on lesson plans, observations, portfolios, checklists, and developmental reports (Harper et al. 2025) |
+| **Reduced child interaction** | Less than **30% of time** spent on focused child interactions due to manual documentation demands (Harper et al. 2025) |
 | **Subjective appraisals** | Annual performance reviews rely on infrequent observations and are often misaligned with Skills Framework for ECCE (SFw) competencies |
-| **Limited visibility** | Centre directors lack real-time insight into pedagogical quality across classrooms |
+| **Limited visibility** | 70% of Singapore ECE leaders cite admin burden as biggest barrier to pedagogical leadership (ACE 2017) |
 | **Homogeneous planning** | Cognitive overload forces educators into one-size-fits-all lesson planning, undermining differentiated instruction |
 | **Professional isolation** | Educators receive coaching only during scheduled observations, missing daily growth opportunities |
 
@@ -86,7 +92,7 @@ The lesson planner moves beyond generic activity templates by generating differe
 
 1. Educator selects a cohort and theme.
 2. The system retrieves the living profiles of all children in that cohort.
-3. Claude AI generates a differentiated weekly plan with scaffolding tiers.
+3. GPT-4o-mini generates a differentiated weekly plan with scaffolding tiers.
 4. The educator reviews, adjusts, and confirms the plan.
 5. Assessment indicators are auto-populated for portfolio integration.
 
@@ -181,7 +187,7 @@ The dashboard gives centre directors and pedagogical leaders a real-time, data-i
 |  +---------------+  +----------------+  +----------------------+  |
 |  |   API Layer   |  |  AI Services   |  |    Data Layer         |  |
 |  |               |  |                |  |                      |  |
-|  |  Lesson API   |  |  Claude AI     |  |    PostgreSQL         |  |
+|  |  Lesson API   |  |  GPT-4o-mini   |  |    PostgreSQL         |  |
 |  |  Portfolio     |  |  Coaching      |  |    (Children, Plans, |  |
 |  |  Coach API    |  |  Engine        |  |     Portfolios,      |  |
 |  |  Dashboard    |  |  QTT Mapper    |  |     Observations,    |  |
@@ -192,7 +198,7 @@ The dashboard gives centre directors and pedagogical leaders a real-time, data-i
 +------------------------------------------------------------------+
 ```
 
-The architecture follows a standard three-tier pattern with clear separation between the presentation layer (React/Next.js), the API and AI service layer (FastAPI), and the data persistence layer (PostgreSQL).
+The architecture follows a standard three-tier pattern with clear separation between the presentation layer (Angular), the API and AI service layer (FastAPI), and the data persistence layer (PostgreSQL).
 
 **Key architectural decisions:**
 
@@ -222,7 +228,7 @@ The AI pipeline processes input through five stages:
                          search across all child documentation
                                 |
                                 v
-5. AI Generation         Claude AI performs:
+5. AI Generation         GPT-4o-mini performs:
                           - Theme-based lesson plan generation
                           - Developmental narrative drafting
                           - Coaching conversation management
@@ -230,20 +236,20 @@ The AI pipeline processes input through five stages:
                           - Term summary synthesis
 ```
 
-**Retrieval-Augmented Generation (RAG):** When generating lesson plans or coaching responses, the system retrieves relevant context from the FAISS index (previous observations, portfolio entries, and coaching history) and includes it in the prompt to Claude. This ensures AI outputs are grounded in each child's actual developmental journey, not generic templates.
+**Retrieval-Augmented Generation (RAG):** When generating lesson plans or coaching responses, the system retrieves relevant context from the FAISS index (previous observations, portfolio entries, and coaching history) and includes it in the prompt to GPT-4o-mini. This ensures AI outputs are grounded in each child's actual developmental journey, not generic templates.
 
 ### Tech Stack
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
-| Frontend | React / Next.js, TypeScript, TailwindCSS, Chart.js | Responsive SPA with server-side rendering for initial load performance |
+| Frontend | Angular, TypeScript, TailwindCSS, Chart.js | Enterprise-grade SPA with component-based architecture and rich ecosystem |
 | Backend | Python 3.11+, FastAPI, Uvicorn | Async API server with SSE streaming support |
-| AI / LLM | Claude Haiku 4.5 via Azure AI Foundry (Anthropic SDK) | Cost-efficient lesson generation, coaching, narrative drafting, alignment mapping |
+| AI / LLM | GPT-4o-mini via Azure OpenAI (OpenAI SDK) | Cost-efficient lesson generation, coaching, narrative drafting, alignment mapping |
 | Embeddings | sentence-transformers (all-MiniLM-L6-v2) | Dense vector representations for semantic search |
 | Vector Search | FAISS | Fast approximate nearest neighbour search over child documentation |
 | Database | PostgreSQL | Relational storage for children, plans, portfolios, observations, coaching sessions |
 | Authentication | JWT (bcrypt, HS256), role-based access control | Secure educator and director authentication |
-| Hosting | Azure App Service (Singapore region), Azure Files, Key Vault | Cloud infrastructure with Singapore data residency |
+| Hosting | Azure App Service (Singapore region), Azure OpenAI, Key Vault | Cloud infrastructure with Singapore data residency |
 | Compliance | PDPA, zero public AI training, SG data residency | Regulatory alignment for child data protection |
 
 ---
@@ -256,7 +262,7 @@ PedaForge handles sensitive data about young children. Data privacy is not a fea
 
 | Principle | Implementation |
 |-----------|---------------|
-| **Zero Public AI Training** | All AI processing occurs within Azure AI Foundry's closed tenant environment. No child data is used to train public models. No data leaves the organisation's Azure tenant. |
+| **Zero Public AI Training** | All AI processing occurs within Azure OpenAI's closed tenant environment. No child data is used to train public models. No data leaves the organisation's Azure tenant. |
 | **Singapore Data Residency** | All data, at rest and in transit, remains within Singapore-based Azure data centres. No cross-border data transfer. |
 | **Role-Based Access Control** | Every user has a unique login. Educators access only their assigned cohorts. Directors access aggregated views with explicit authorisation for individual educator data. |
 | **Encryption at Rest** | AES-256 encryption for all stored data, including database records, uploaded files, and coaching transcripts. |
@@ -285,7 +291,11 @@ PedaForge is grounded in established educational research and evidence-based ped
 
 | Source | Year | Application in PedaForge |
 |--------|------|-------------------------|
-| **OECD TALIS Starting Strong Report** | 2024 | Quantifies the documentation burden and its impact on workforce quality. Validates the core problem PedaForge addresses. |
+| **OECD TALIS Starting Strong Report** | 2018 | Quantifies the documentation burden and its impact on workforce quality. Validates the core problem PedaForge addresses. |
+| **Harper, Wilson and McGrath-Champ** | 2025 | Documents 9 unpaid hours/week on admin, <30% focused interaction time, 67% quality compromised. Published in *The Australian Educational Researcher*. |
+| **Sylva et al., EPPE Project** | 2004 | Demonstrates quality of adult-child interaction as strongest predictor of child outcomes. |
+| **Siraj-Blatchford et al., REPEY Report** | 2002 | Establishes sustained shared thinking as essential for quality ECE. |
+| **ACE Conference Survey** | 2017 | 70% of Singapore ECE leaders identify admin burden as biggest barrier to pedagogical leadership. |
 | **Bowlby, J., Attachment Theory** | 1969 | Underpins the Key Person approach embedded in the Living Profile. Each child's portfolio maintains continuity of the educator-child relationship. |
 | **Vygotsky, L., Zone of Proximal Development** | 1978 | The differentiated scaffolding in the lesson planner is designed to target each child's ZPD, providing appropriately challenging activities. |
 | **Roediger, H. & Karpicke, J., Active Retrieval Practice** | 2006 | The "Rehearse and Retrieve" scheduling algorithm implements spaced retrieval practice, shown to improve long-term retention by 30-50%. |
@@ -334,7 +344,7 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 
 ### Phase 1: Development and AI Foundation (Months 1-3)
 
-- Azure cloud infrastructure setup (App Service, PostgreSQL, Key Vault, AI Foundry)
+- Azure cloud infrastructure setup (App Service, PostgreSQL, Key Vault, Azure OpenAI)
 - Build four core modules: Smart Lesson Planner, Portfolio and Profiling, AI Coaching Agent, Director's Dashboard
 - AI prompt engineering and QTT/SFw alignment
 - PDPA compliance framework and role-based access control
@@ -373,7 +383,7 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 |----------|-----------|-----------|
 | **Development and Infrastructure** | Full-stack and AI development (contract, 16 days) | $8,000 |
 | | Azure App Service + PostgreSQL (12 months @ $150/month) | $1,800 |
-| | AI API, Claude Haiku 4.5 via Azure AI Foundry (12 months @ $85/month) | $1,020 |
+| | AI API, GPT-4o-mini via Azure OpenAI (12 months @ $85/month) | $1,020 |
 | | **Subtotal** | **$10,820** |
 | **Security and Compliance** | PDPA compliance review | $2,000 |
 | | Security assessment | $1,200 |
@@ -392,9 +402,9 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 
 - All costs are in Singapore Dollars (SGD).
 - Cloud infrastructure costs assume Azure App Service B1 tier with PostgreSQL Flexible Server, scaled for 2-3 pilot centres over 12 months.
-- AI API costs use Claude Haiku 4.5 via Azure AI Foundry, the most cost-efficient model in the Claude family, estimated at approximately 500 coaching sessions, 200 lesson plans, and 1,000 portfolio narratives per month across all pilot centres.
+- AI API costs use GPT-4o-mini via Azure OpenAI, one of the most cost-efficient models available, estimated at approximately 500 coaching sessions, 200 lesson plans, and 1,000 portfolio narratives per month across all pilot centres.
 - The budget is structured to align with Early Childhood Innovation Sandbox disbursement milestones.
-- Azure AI Foundry provides a managed, secure gateway to Claude models with enterprise-grade SLA, Singapore data residency, and zero public model training guarantees.
+- Azure OpenAI provides a managed, secure gateway to OpenAI models with enterprise-grade SLA, Singapore data residency, and zero public model training guarantees.
 
 ---
 
@@ -403,7 +413,7 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 | Role | FTE | Responsibilities |
 |------|-----|-----------------|
 | **Project Lead** | 0.3 | Overall timeline and budget management. Stakeholder communication with ECDA, pilot centres, and institutional partners. Risk management. Leads evaluation and impact reporting. |
-| **Technical Lead** | 1.0 | Full-stack development (FastAPI, React/Next.js). AI integration via Azure AI Foundry and prompt engineering. System architecture, database design, security, and deployment on Azure. |
+| **Technical Lead** | 1.0 | Full-stack development (FastAPI, Angular). AI integration via Azure OpenAI and prompt engineering. System architecture, database design, security, and deployment on Azure. |
 | **Pedagogical Specialist** | 0.2 | EYDF, NEL, QTT, and SFw domain expertise. Validation of AI-generated content against curriculum standards. Coaching mode design. Educator training facilitation. |
 
 ### Advisory
@@ -496,7 +506,7 @@ PedaForge is designed for sustainability beyond the 12-month innovation sandbox 
 - Python 3.11 or higher
 - Node.js 18 or higher
 - PostgreSQL 15 or higher
-- Azure account with AI Foundry access (for Claude API)
+- Azure account with Azure OpenAI access (for GPT-4o-mini API)
 
 ### Local Development Setup
 
@@ -531,8 +541,8 @@ npm run dev
 | Variable | Description |
 |----------|------------|
 | `DATABASE_URL` | PostgreSQL connection string |
-| `AZURE_AI_ENDPOINT` | Azure AI Foundry endpoint URL |
-| `AZURE_AI_API_KEY` | Azure AI Foundry API key |
+| `AZURE_OPENAI_ENDPOINT` | Azure OpenAI endpoint URL |
+| `AZURE_OPENAI_API_KEY` | Azure OpenAI API key |
 | `JWT_SECRET_KEY` | Secret key for JWT token signing |
 | `CORS_ORIGINS` | Allowed CORS origins (comma-separated) |
 

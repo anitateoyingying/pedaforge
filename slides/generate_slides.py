@@ -380,9 +380,9 @@ def create_presentation():
                  size=26, bold=True, color=SECONDARY)
 
     stack = [
-        ("Frontend", "React / Next.js, TypeScript, TailwindCSS", INFO),
+        ("Frontend", "Angular, TypeScript, TailwindCSS", INFO),
         ("Backend", "Python 3.11+, FastAPI, Uvicorn", PRIMARY),
-        ("AI / LLM", "Claude Haiku 4.5 via Azure AI Foundry", ACCENT),
+        ("AI / LLM", "GPT-4o-mini via Azure OpenAI", ACCENT),
         ("Database", "PostgreSQL (children, plans, portfolios)", RGBColor(0x8B, 0x5C, 0xF6)),
         ("Auth", "JWT + bcrypt, RBAC (educator / director / admin)", DANGER),
         ("Hosting", "Azure App Service (SG region), Key Vault", SECONDARY),
@@ -576,7 +576,7 @@ def create_presentation():
     details_left = [
         "Full-Stack + AI Dev: $500/day x 16 days",
         "Azure Hosting: $150/month x 12 months",
-        "Claude Haiku via Azure AI Foundry: $85/month x 12 months",
+        "GPT-4o-mini via Azure OpenAI: $85/month x 12 months",
     ]
 
     details_right = [
@@ -610,7 +610,7 @@ def create_presentation():
          "Timeline, budget, stakeholder liaison,\nECDA comms, evaluation & reporting",
          PRIMARY),
         ("Technical Lead", "1.0 FTE",
-         "Full-stack development, AI integration\nvia Azure AI Foundry, deployment",
+         "Full-stack development, AI integration\nvia Azure OpenAI, deployment",
          INFO),
         ("Pedagogical Specialist", "0.2 FTE",
          "EYDF, NEL, QTT, SFw validation,\neducator training facilitation",

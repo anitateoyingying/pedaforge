@@ -59,7 +59,7 @@ Beyond the core project team, recruit advisors who add credibility:
 
 1. **ECDA-Certified Pedagogical Consultant** — validates QTT and SFw alignment
 2. **Academic Partner** — NIEC (National Institute of Early Childhood) or NTU faculty member for research validation
-3. **Technology Advisor** — Azure AI Foundry or AI domain expert
+3. **Technology Advisor** — Azure OpenAI or AI domain expert
 4. **Practising Centre Director** — provides operational perspective and user validation
 
 ### Step 4: Conduct Baseline Assessment
@@ -184,7 +184,7 @@ If shortlisted, you may be invited to present to an ECDA panel:
 **Anticipate these questions:**
 - "How is this different from existing solutions in the ECDG pre-approved list?"
 - "How will you ensure PDPA compliance for child data?"
-- "What happens after the 6-month sandbox period?"
+- "What happens after the 12-month sandbox period?"
 - "How will you measure actual impact on children's learning outcomes?"
 - "Can this scale to operators of different sizes?"
 - "What is the operator's co-investment commitment?"
@@ -209,8 +209,8 @@ If shortlisted, you may be invited to present to an ECDA panel:
 | June 2026 | Assemble advisory board, prepare supporting documents |
 | July 2026 | Attend any ECDA briefing sessions for Early Childhood Innovation Sandbox |
 | H2 2026 | Submit application when grant call opens |
-| Q4 2026 | If approved, begin 6-month sandbox execution |
-| Q2 2027 | Final impact report and scaling plan |
+| Q4 2026 | If approved, begin 12-month sandbox execution |
+| Q4 2027 | Final impact report and scaling plan |
 
 ---
 
