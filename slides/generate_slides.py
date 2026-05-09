@@ -382,7 +382,7 @@ def create_presentation():
     stack = [
         ("Frontend", "Angular, TypeScript, TailwindCSS", INFO),
         ("Backend", "Python 3.11+, FastAPI, Uvicorn", PRIMARY),
-        ("AI / LLM", "GPT-4o-mini via Azure OpenAI", ACCENT),
+        ("AI / LLM", "GPT-4.1-mini via Azure OpenAI", ACCENT),
         ("Database", "PostgreSQL (children, plans, portfolios)", RGBColor(0x8B, 0x5C, 0xF6)),
         ("Auth", "JWT + bcrypt, RBAC (educator / director / admin)", DANGER),
         ("Hosting", "Azure App Service (SG region), Key Vault", SECONDARY),
@@ -576,7 +576,7 @@ def create_presentation():
     details_left = [
         "Full-Stack + AI Dev: $500/day x 16 days",
         "Azure Hosting: $150/month x 12 months",
-        "GPT-4o-mini via Azure OpenAI: $85/month x 12 months",
+        "GPT-4.1-mini via Azure OpenAI: $85/month x 12 months",
     ]
 
     details_right = [

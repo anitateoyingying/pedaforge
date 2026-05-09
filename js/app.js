@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounterAnimation();
   initScrollAnimations();
   initBlobParallax();
+  initScrollProgress();
+  initMagneticTilt();
+  initButtonRipple();
+  initHeroParallax();
+  initTypingIndicator();
 });
 
 /* ─── 1. Navbar Scroll Effect ─────────────────────────────── */
@@ -671,8 +676,7 @@ function animateCounter(element) {
   function step(now) {
     const elapsed = now - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    // Ease-out cubic for smooth deceleration
-    const eased = 1 - Math.pow(1 - progress, 3);
+    const eased = 1 - Math.pow(2, -10 * progress);
     const current = target * eased;
 
     if (isDecimal) {
@@ -696,27 +700,42 @@ function animateCounter(element) {
 /* ─── 10. General Scroll Animations ───────────────────────── */
 
 function initScrollAnimations() {
-  // Tag sections and cards for animation
+  // Directional reveals for problem cards
+  document.querySelectorAll('.problem-card:nth-child(odd)').forEach(el => el.classList.add('reveal-left'));
+  document.querySelectorAll('.problem-card:nth-child(even)').forEach(el => el.classList.add('reveal-right'));
+
+  // Scale reveals for feature cards
+  document.querySelectorAll('.feature-card').forEach(el => el.classList.add('reveal-scale'));
+
+  // Text reveal on section headings
+  document.querySelectorAll('.section-header h2').forEach(h => h.classList.add('text-reveal'));
+
+  // Stagger grids
+  document.querySelectorAll('.features-grid, .problem-grid, .kpi-grid, .team-grid, .coaching-modes')
+    .forEach(g => g.classList.add('stagger-grid'));
+
+  // Tag remaining elements for standard animation
   const animatableSelectors = [
     'section .section-header',
-    '.feature-card',
-    '.problem-card',
     '.kpi-card',
     '.team-card',
     '.timeline-item',
     '.observation-card',
     '.dash-panel',
-    '.scaffolding-item'
+    '.scaffolding-item',
+    '.coaching-progression'
   ];
 
   const elements = document.querySelectorAll(animatableSelectors.join(','));
   elements.forEach(el => {
-    if (!el.classList.contains('animate-on-scroll')) {
+    if (!el.classList.contains('animate-on-scroll') && !el.classList.contains('reveal-left')
+        && !el.classList.contains('reveal-right') && !el.classList.contains('reveal-scale')) {
       el.classList.add('animate-on-scroll');
     }
   });
 
-  const allAnimatable = document.querySelectorAll('.animate-on-scroll');
+  // Observe all animatable elements
+  const allAnimatable = document.querySelectorAll('.animate-on-scroll, .reveal-left, .reveal-right, .reveal-scale, .text-reveal');
   if (allAnimatable.length === 0) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -784,4 +803,117 @@ function initTabSwitching() {
       });
     });
   });
+}
+
+/* ─── 12. Scroll Progress Indicator ──────────────────── */
+
+function initScrollProgress() {
+  const bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  document.body.appendChild(bar);
+
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    if (h > 0) bar.style.transform = `scaleX(${window.scrollY / h})`;
+  }, { passive: true });
+}
+
+/* ─── 13. Magnetic Tilt Hover on Cards ───────────────── */
+
+function initMagneticTilt() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.feature-card, .kpi-card, .team-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${y * -8}deg) translateY(-4px)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transition = 'transform 0.5s cubic-bezier(.22,1,.36,1)';
+      card.style.transform = '';
+    });
+    card.addEventListener('mouseenter', () => {
+      card.style.transition = 'transform 0.1s ease';
+    });
+  });
+}
+
+/* ─── 14. Button Ripple Effect ───────────────────────── */
+
+function initButtonRipple() {
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      const circle = document.createElement('span');
+      circle.className = 'ripple';
+      const r = btn.getBoundingClientRect();
+      const d = Math.max(r.width, r.height);
+      circle.style.width = circle.style.height = d + 'px';
+      circle.style.left = (e.clientX - r.left - d / 2) + 'px';
+      circle.style.top = (e.clientY - r.top - d / 2) + 'px';
+      btn.appendChild(circle);
+      circle.addEventListener('animationend', () => circle.remove());
+    });
+  });
+}
+
+/* ─── 15. Hero Parallax Depth ────────────────────────── */
+
+function initHeroParallax() {
+  const content = document.querySelector('.hero-content');
+  const visual = document.querySelector('.hero-visual');
+  if (!content || !visual) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  window.addEventListener('scroll', () => {
+    const s = window.scrollY;
+    if (s > window.innerHeight) return;
+    content.style.transform = `translateY(${s * 0.15}px)`;
+    visual.style.transform = `translateY(${s * 0.08}px)`;
+  }, { passive: true });
+}
+
+/* ─── 16. Typing Indicator in Chat Demo ──────────────── */
+
+function initTypingIndicator() {
+  const chatBody = document.querySelector('.chat-demo-body');
+  if (!chatBody) return;
+
+  const originalRender = window.renderConversation;
+  if (typeof originalRender !== 'function') return;
+
+  window.renderConversation = function(modeKey) {
+    const conversation = COACHING_CONVERSATIONS[modeKey];
+    if (!conversation || !chatBody) return;
+
+    chatBody.innerHTML = '';
+
+    conversation.forEach((msg, i) => {
+      const delay = i * 400;
+
+      if (msg.role === 'assistant' && i > 0) {
+        setTimeout(() => {
+          const typing = document.createElement('div');
+          typing.className = 'chat-message assistant';
+          typing.innerHTML = '<div class="avatar">PF</div><div class="chat-bubble typing-indicator"><span></span><span></span><span></span></div>';
+          chatBody.appendChild(typing);
+          chatBody.scrollTop = chatBody.scrollHeight;
+
+          setTimeout(() => {
+            typing.remove();
+            const messageEl = createChatMessage(msg.role, msg.text);
+            chatBody.appendChild(messageEl);
+            chatBody.scrollTop = chatBody.scrollHeight;
+          }, 600);
+        }, delay);
+      } else {
+        setTimeout(() => {
+          const messageEl = createChatMessage(msg.role, msg.text);
+          chatBody.appendChild(messageEl);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, delay);
+      }
+    });
+  };
 }

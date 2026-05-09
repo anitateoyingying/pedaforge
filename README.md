@@ -92,7 +92,7 @@ The lesson planner moves beyond generic activity templates by generating differe
 
 1. Educator selects a cohort and theme.
 2. The system retrieves the living profiles of all children in that cohort.
-3. GPT-4o-mini generates a differentiated weekly plan with scaffolding tiers.
+3. GPT-4.1-mini generates a differentiated weekly plan with scaffolding tiers.
 4. The educator reviews, adjusts, and confirms the plan.
 5. Assessment indicators are auto-populated for portfolio integration.
 
@@ -187,7 +187,7 @@ The dashboard gives centre directors and pedagogical leaders a real-time, data-i
 |  +---------------+  +----------------+  +----------------------+  |
 |  |   API Layer   |  |  AI Services   |  |    Data Layer         |  |
 |  |               |  |                |  |                      |  |
-|  |  Lesson API   |  |  GPT-4o-mini   |  |    PostgreSQL         |  |
+|  |  Lesson API   |  |  GPT-4.1-mini   |  |    PostgreSQL         |  |
 |  |  Portfolio     |  |  Coaching      |  |    (Children, Plans, |  |
 |  |  Coach API    |  |  Engine        |  |     Portfolios,      |  |
 |  |  Dashboard    |  |  QTT Mapper    |  |     Observations,    |  |
@@ -228,7 +228,7 @@ The AI pipeline processes input through five stages:
                          search across all child documentation
                                 |
                                 v
-5. AI Generation         GPT-4o-mini performs:
+5. AI Generation         GPT-4.1-mini performs:
                           - Theme-based lesson plan generation
                           - Developmental narrative drafting
                           - Coaching conversation management
@@ -236,7 +236,7 @@ The AI pipeline processes input through five stages:
                           - Term summary synthesis
 ```
 
-**Retrieval-Augmented Generation (RAG):** When generating lesson plans or coaching responses, the system retrieves relevant context from the FAISS index (previous observations, portfolio entries, and coaching history) and includes it in the prompt to GPT-4o-mini. This ensures AI outputs are grounded in each child's actual developmental journey, not generic templates.
+**Retrieval-Augmented Generation (RAG):** When generating lesson plans or coaching responses, the system retrieves relevant context from the FAISS index (previous observations, portfolio entries, and coaching history) and includes it in the prompt to GPT-4.1-mini. This ensures AI outputs are grounded in each child's actual developmental journey, not generic templates.
 
 ### Tech Stack
 
@@ -244,7 +244,7 @@ The AI pipeline processes input through five stages:
 |-------|-----------|---------|
 | Frontend | Angular, TypeScript, TailwindCSS, Chart.js | Enterprise-grade SPA with component-based architecture and rich ecosystem |
 | Backend | Python 3.11+, FastAPI, Uvicorn | Async API server with SSE streaming support |
-| AI / LLM | GPT-4o-mini via Azure OpenAI (OpenAI SDK) | Cost-efficient lesson generation, coaching, narrative drafting, alignment mapping |
+| AI / LLM | GPT-4.1-mini via Azure OpenAI (OpenAI SDK) | Cost-efficient lesson generation, coaching, narrative drafting, alignment mapping |
 | Embeddings | sentence-transformers (all-MiniLM-L6-v2) | Dense vector representations for semantic search |
 | Vector Search | FAISS | Fast approximate nearest neighbour search over child documentation |
 | Database | PostgreSQL | Relational storage for children, plans, portfolios, observations, coaching sessions |
@@ -383,7 +383,7 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 |----------|-----------|-----------|
 | **Development and Infrastructure** | Full-stack and AI development (contract, 16 days) | $8,000 |
 | | Azure App Service + PostgreSQL (12 months @ $150/month) | $1,800 |
-| | AI API, GPT-4o-mini via Azure OpenAI (12 months @ $85/month) | $1,020 |
+| | AI API, GPT-4.1-mini via Azure OpenAI (12 months @ $85/month) | $1,020 |
 | | **Subtotal** | **$10,820** |
 | **Security and Compliance** | PDPA compliance review | $2,000 |
 | | Security assessment | $1,200 |
@@ -402,7 +402,7 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 
 - All costs are in Singapore Dollars (SGD).
 - Cloud infrastructure costs assume Azure App Service B1 tier with PostgreSQL Flexible Server, scaled for 2-3 pilot centres over 12 months.
-- AI API costs use GPT-4o-mini via Azure OpenAI, one of the most cost-efficient models available, estimated at approximately 500 coaching sessions, 200 lesson plans, and 1,000 portfolio narratives per month across all pilot centres.
+- AI API costs use GPT-4.1-mini via Azure OpenAI, one of the most cost-efficient models available, estimated at approximately 500 coaching sessions, 200 lesson plans, and 1,000 portfolio narratives per month across all pilot centres.
 - The budget is structured to align with Early Childhood Innovation Sandbox disbursement milestones.
 - Azure OpenAI provides a managed, secure gateway to OpenAI models with enterprise-grade SLA, Singapore data residency, and zero public model training guarantees.
 
@@ -506,7 +506,7 @@ PedaForge is designed for sustainability beyond the 12-month innovation sandbox 
 - Python 3.11 or higher
 - Node.js 18 or higher
 - PostgreSQL 15 or higher
-- Azure account with Azure OpenAI access (for GPT-4o-mini API)
+- Azure account with Azure OpenAI access (for GPT-4.1-mini API)
 
 ### Local Development Setup
 
