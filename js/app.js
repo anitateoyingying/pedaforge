@@ -391,11 +391,11 @@ const PLANNER_CONTENT = {
     learningArea: ‘Discovery of the World + Aesthetics & Creative Expression’,
     keyConcepts: ‘Community roles, cooperation, spatial awareness’,
     scaffolding: [
-      { profile: ‘Kinesthetic Learners’, color: ‘rgba(59,130,246,0.1)’, icon: ‘💪’, desc: ‘Allow children to physically build the fire station using large hollow blocks. Incorporate movement: "run like firefighters" to count blocks needed.’ },
-      { profile: ‘Visual-Spatial Learners’, color: ‘rgba(139,92,246,0.1)’, icon: ‘👁’, desc: ‘Provide blueprint templates and reference photos of fire stations. Use grid paper for children to design their station before building.’ },
-      { profile: ‘Advanced Verbal’, color: ‘rgba(16,185,129,0.1)’, icon: ‘🗣’, desc: ‘Assign the "Dispatcher" role: they narrate what\’s happening, call out instructions, and describe the building process to classmates.’ },
-      { profile: ‘Fine-Motor Needs’, color: ‘rgba(245,158,11,0.1)’, icon: ‘✍’, desc: ‘Provide larger, ergonomic building pieces. Use Velcro-attached components that require less precision but still allow participation.’ },
-      { profile: ‘Sensory-Avoidant’, color: ‘rgba(239,68,68,0.1)’, icon: ‘🔊’, desc: ‘Offer noise-dampening foam blocks. Designate a quieter building zone away from the main activity hub.’ }
+      { profile: ‘Kinesthetic Learners’, color: ‘rgba(59,130,246,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>’, desc: ‘Allow children to physically build the fire station using large hollow blocks. Incorporate movement: "run like firefighters" to count blocks needed.’ },
+      { profile: ‘Visual-Spatial Learners’, color: ‘rgba(139,92,246,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>’, desc: ‘Provide blueprint templates and reference photos of fire stations. Use grid paper for children to design their station before building.’ },
+      { profile: ‘Advanced Verbal’, color: ‘rgba(16,185,129,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>’, desc: ‘Assign the "Dispatcher" role: they narrate what\’s happening, call out instructions, and describe the building process to classmates.’ },
+      { profile: ‘Fine-Motor Needs’, color: ‘rgba(245,158,11,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>’, desc: ‘Provide larger, ergonomic building pieces. Use Velcro-attached components that require less precision but still allow participation.’ },
+      { profile: ‘Sensory-Avoidant’, color: ‘rgba(239,68,68,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4zM23 9l-6 6M17 9l6 6"/></svg>’, desc: ‘Offer noise-dampening foam blocks. Designate a quieter building zone away from the main activity hub.’ }
     ],
     rehearse: ‘Recall last week\’s transportation activity. Ask: "Remember when we learned about different vehicles? What vehicle do firefighters use? How is a fire engine different from a bus?"’,
     assessment: [
@@ -410,11 +410,11 @@ const PLANNER_CONTENT = {
     learningArea: ‘Discovery of the World + Motor Skills Development’,
     keyConcepts: ‘Five senses, body awareness, descriptive language’,
     scaffolding: [
-      { profile: ‘Kinesthetic Learners’, color: ‘rgba(59,130,246,0.1)’, icon: ‘💪’, desc: ‘Set up a sensory obstacle course where children crawl, balance, and stretch while identifying which body parts they use at each station.’ },
-      { profile: ‘Visual-Spatial Learners’, color: ‘rgba(139,92,246,0.1)’, icon: ‘👁’, desc: ‘Provide body outline templates and sticker labels. Children match sense organs to their locations and draw what each sense detects.’ },
-      { profile: ‘Advanced Verbal’, color: ‘rgba(16,185,129,0.1)’, icon: ‘🗣’, desc: ‘Challenge them to be "Sense Reporters" who describe sensory experiences using rich adjectives and record findings in a mini journal.’ },
-      { profile: ‘Fine-Motor Needs’, color: ‘rgba(245,158,11,0.1)’, icon: ‘✍’, desc: ‘Use large-handle magnifying glasses and chunky tweezers for sensory exploration. Provide pre-cut labels with Velcro backing for the body map.’ },
-      { profile: ‘Sensory-Avoidant’, color: ‘rgba(239,68,68,0.1)’, icon: ‘🔊’, desc: ‘Offer a preview card showing each sensory station before participation. Provide gloves and tongs as alternatives to direct touch.’ }
+      { profile: ‘Kinesthetic Learners’, color: ‘rgba(59,130,246,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>’, desc: ‘Set up a sensory obstacle course where children crawl, balance, and stretch while identifying which body parts they use at each station.’ },
+      { profile: ‘Visual-Spatial Learners’, color: ‘rgba(139,92,246,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>’, desc: ‘Provide body outline templates and sticker labels. Children match sense organs to their locations and draw what each sense detects.’ },
+      { profile: ‘Advanced Verbal’, color: ‘rgba(16,185,129,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>’, desc: ‘Challenge them to be "Sense Reporters" who describe sensory experiences using rich adjectives and record findings in a mini journal.’ },
+      { profile: ‘Fine-Motor Needs’, color: ‘rgba(245,158,11,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>’, desc: ‘Use large-handle magnifying glasses and chunky tweezers for sensory exploration. Provide pre-cut labels with Velcro backing for the body map.’ },
+      { profile: ‘Sensory-Avoidant’, color: ‘rgba(239,68,68,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4zM23 9l-6 6M17 9l6 6"/></svg>’, desc: ‘Offer a preview card showing each sensory station before participation. Provide gloves and tongs as alternatives to direct touch.’ }
     ],
     rehearse: ‘Recall yesterday\’s circle time about body parts. Ask: "What did we learn about our hands yesterday? How many fingers do we have? What can our hands do that our feet cannot?"’,
     assessment: [
@@ -429,11 +429,11 @@ const PLANNER_CONTENT = {
     learningArea: ‘Discovery of the World + Numeracy’,
     keyConcepts: ‘Weather patterns, measurement, seasonal changes’,
     scaffolding: [
-      { profile: ‘Kinesthetic Learners’, color: ‘rgba(59,130,246,0.1)’, icon: ‘💪’, desc: ‘Build a physical rain gauge and wind vane outdoors. Children take turns being "Weather Runners" who collect and report measurements.’ },
-      { profile: ‘Visual-Spatial Learners’, color: ‘rgba(139,92,246,0.1)’, icon: ‘👁’, desc: ‘Create a large visual weather calendar with magnetic icons. Children photograph clouds and compare them to a cloud identification chart.’ },
-      { profile: ‘Advanced Verbal’, color: ‘rgba(16,185,129,0.1)’, icon: ‘🗣’, desc: ‘Assign "Weather Presenter" roles where children deliver a daily forecast to the class, using weather vocabulary and prediction language.’ },
-      { profile: ‘Fine-Motor Needs’, color: ‘rgba(245,158,11,0.1)’, icon: ‘✍’, desc: ‘Use large weather symbol stamps instead of drawing. Provide pre-made magnetic weather icons that snap onto the calendar board.’ },
-      { profile: ‘Sensory-Avoidant’, color: ‘rgba(239,68,68,0.1)’, icon: ‘🔊’, desc: ‘Allow indoor observation through windows. Provide headphones for outdoor sessions and a shaded, enclosed observation spot.’ }
+      { profile: ‘Kinesthetic Learners’, color: ‘rgba(59,130,246,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>’, desc: ‘Build a physical rain gauge and wind vane outdoors. Children take turns being "Weather Runners" who collect and report measurements.’ },
+      { profile: ‘Visual-Spatial Learners’, color: ‘rgba(139,92,246,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>’, desc: ‘Create a large visual weather calendar with magnetic icons. Children photograph clouds and compare them to a cloud identification chart.’ },
+      { profile: ‘Advanced Verbal’, color: ‘rgba(16,185,129,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>’, desc: ‘Assign "Weather Presenter" roles where children deliver a daily forecast to the class, using weather vocabulary and prediction language.’ },
+      { profile: ‘Fine-Motor Needs’, color: ‘rgba(245,158,11,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg>’, desc: ‘Use large weather symbol stamps instead of drawing. Provide pre-made magnetic weather icons that snap onto the calendar board.’ },
+      { profile: ‘Sensory-Avoidant’, color: ‘rgba(239,68,68,0.1)’, icon: ‘<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4zM23 9l-6 6M17 9l6 6"/></svg>’, desc: ‘Allow indoor observation through windows. Provide headphones for outdoor sessions and a shaded, enclosed observation spot.’ }
     ],
     rehearse: ‘Recall last week\’s nature walk. Ask: "What did we see on our walk? Were the leaves green or brown? What does that tell us about the season? What might change next month?"’,
     assessment: [
@@ -597,31 +597,27 @@ function initPortfolioDemo() {
 /* ─── 8. Dashboard Demo ───────────────────────────────────── */
 
 function initDashboardDemo() {
-  // Animate QTT bar chart heights on scroll
   const qttBars = document.querySelectorAll('.qtt-bar');
   if (qttBars.length > 0) {
+    qttBars.forEach(bar => { bar.style.height = '0'; });
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const bar = entry.target;
-          const targetHeight = bar.getAttribute('data-height') || bar.style.height;
-          bar.style.height = '0';
-          requestAnimationFrame(() => {
-            bar.style.height = targetHeight;
-          });
+          const targetHeight = bar.getAttribute('data-height');
+          if (targetHeight) {
+            void bar.offsetHeight;
+            requestAnimationFrame(() => {
+              bar.style.height = targetHeight;
+            });
+          }
           observer.unobserve(bar);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
 
-    qttBars.forEach(bar => {
-      const targetHeight = bar.getAttribute('data-height') || bar.style.height;
-      if (targetHeight) {
-        bar.setAttribute('data-height', targetHeight);
-        bar.style.height = '0';
-      }
-      observer.observe(bar);
-    });
+    qttBars.forEach(bar => observer.observe(bar));
   }
 
   // Animate stat counters

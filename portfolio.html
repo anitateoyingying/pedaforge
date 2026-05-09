@@ -73,7 +73,7 @@
 
     <!-- Child Profile Header -->
     <div class="portfolio-header">
-      <div class="child-avatar">&#128118;</div>
+      <div class="child-avatar"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <div style="flex: 1;">
         <h2 style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 4px;">Leo Tan</h2>
         <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 2px;">K1 (4 years 3 months) &middot; Sunshine Class</p>
@@ -96,49 +96,92 @@
       <!-- Development Domain Progress -->
       <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 24px;">
         <h3 style="font-size: 1.1rem; color: var(--secondary); margin-bottom: 20px;">Development Domain Progress</h3>
-        <div class="domain-bars">
-          <div class="domain-bar">
-            <span class="label">Aesthetics &amp; Creative Expression</span>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: 0%; background: var(--success);" data-width="85%"></div>
+        <div class="domain-grid">
+
+          <div class="domain-cell">
+            <div class="domain-icon" style="background: rgba(16,185,129,0.1); color: var(--success);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
-            <span class="value">85%</span>
-          </div>
-          <div class="domain-bar">
-            <span class="label">Discovery of the World</span>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: 0%; background: var(--info);" data-width="72%"></div>
+            <div class="domain-roundel">
+              <svg class="roundel-ring" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--border)" stroke-width="6"/>
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--success)" stroke-width="6" stroke-linecap="round" class="roundel-track" stroke-dasharray="226.19" stroke-dashoffset="33.93"/>
+              </svg>
+              <span class="roundel-value">85%</span>
             </div>
-            <span class="value">72%</span>
+            <span class="domain-name">Aesthetics &amp; Creative</span>
           </div>
-          <div class="domain-bar">
-            <span class="label">Language &amp; Literacy</span>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: 0%; background: #8b5cf6;" data-width="68%"></div>
+
+          <div class="domain-cell">
+            <div class="domain-icon" style="background: rgba(59,130,246,0.1); color: var(--info);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
-            <span class="value">68%</span>
-          </div>
-          <div class="domain-bar">
-            <span class="label">Motor Skills Development</span>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: 0%; background: var(--success);" data-width="90%"></div>
+            <div class="domain-roundel">
+              <svg class="roundel-ring" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--border)" stroke-width="6"/>
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--info)" stroke-width="6" stroke-linecap="round" class="roundel-track" stroke-dasharray="226.19" stroke-dashoffset="63.33"/>
+              </svg>
+              <span class="roundel-value">72%</span>
             </div>
-            <span class="value">90%</span>
+            <span class="domain-name">Discovery of the World</span>
           </div>
-          <div class="domain-bar">
-            <span class="label">Numeracy</span>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: 0%; background: var(--warning);" data-width="55%"></div>
+
+          <div class="domain-cell">
+            <div class="domain-icon" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
-            <span class="value">55%</span>
-          </div>
-          <div class="domain-bar">
-            <span class="label">Social &amp; Emotional Development</span>
-            <div class="bar-track">
-              <div class="bar-fill" style="width: 0%; background: var(--danger);" data-width="45%"></div>
+            <div class="domain-roundel">
+              <svg class="roundel-ring" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--border)" stroke-width="6"/>
+                <circle cx="40" cy="40" r="36" fill="none" stroke="#8b5cf6" stroke-width="6" stroke-linecap="round" class="roundel-track" stroke-dasharray="226.19" stroke-dashoffset="72.38"/>
+              </svg>
+              <span class="roundel-value">68%</span>
             </div>
-            <span class="value">45%</span>
+            <span class="domain-name">Language &amp; Literacy</span>
           </div>
+
+          <div class="domain-cell">
+            <div class="domain-icon" style="background: rgba(16,185,129,0.1); color: var(--success);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="domain-roundel">
+              <svg class="roundel-ring" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--border)" stroke-width="6"/>
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--success)" stroke-width="6" stroke-linecap="round" class="roundel-track" stroke-dasharray="226.19" stroke-dashoffset="22.62"/>
+              </svg>
+              <span class="roundel-value">90%</span>
+            </div>
+            <span class="domain-name">Motor Skills</span>
+          </div>
+
+          <div class="domain-cell">
+            <div class="domain-icon" style="background: rgba(255,158,24,0.1); color: var(--warning);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+            </div>
+            <div class="domain-roundel">
+              <svg class="roundel-ring" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--border)" stroke-width="6"/>
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--warning)" stroke-width="6" stroke-linecap="round" class="roundel-track" stroke-dasharray="226.19" stroke-dashoffset="101.79"/>
+              </svg>
+              <span class="roundel-value">55%</span>
+            </div>
+            <span class="domain-name">Numeracy</span>
+          </div>
+
+          <div class="domain-cell">
+            <div class="domain-icon" style="background: rgba(220,38,38,0.1); color: var(--danger);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="domain-roundel">
+              <svg class="roundel-ring" viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--border)" stroke-width="6"/>
+                <circle cx="40" cy="40" r="36" fill="none" stroke="var(--danger)" stroke-width="6" stroke-linecap="round" class="roundel-track" stroke-dasharray="226.19" stroke-dashoffset="124.40"/>
+              </svg>
+              <span class="roundel-value">45%</span>
+            </div>
+            <span class="domain-name">Social &amp; Emotional</span>
+          </div>
+
         </div>
       </div>
 
@@ -150,7 +193,14 @@
             Profile Summary
           </span>
         </h3>
-        <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7;">Leo demonstrates strong creative abilities and excellent motor development. He excels in hands-on, kinesthetic activities and shows particular interest in building and construction play. Areas for focused support include social-emotional development, specifically peer interaction and emotional regulation during group activities. Leo benefits from having a consistent Key Person and responds well to calm, validating approaches when frustrated. Recommended: Bridge social-emotional growth through cooperative building activities that leverage his construction interests.</p>
+        <p style="font-size: 0.9rem; color: var(--text-light); line-height: 1.7;">Leo demonstrates strong creative abilities and excellent motor development. He excels in hands-on, kinesthetic activities and shows particular interest in building and construction play. Areas for focused support include social-emotional development, specifically peer interaction and emotional regulation during group activities. Leo benefits from having a consistent Key Person and responds well to calm, validating approaches when frustrated.</p>
+        <div class="recommendation-box">
+          <h4>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M15.09 14c.18-.98.65-1.74 1.41-2.5A7 7 0 1 0 7.5 11.5c.76.76 1.23 1.52 1.41 2.5"/></svg>
+            Recommendation
+          </h4>
+          <p>Bridge social-emotional growth through cooperative building activities that leverage his construction interests. Pair Leo with a peer model during structured building projects, assigning collaborative roles that require turn-taking and verbal negotiation.</p>
+        </div>
       </div>
 
       <!-- Key Strengths & Growth Areas -->
