@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="PedaForge AI Coaching Agent: multiple coaching modes aligned to ECDA Quality Teaching Tool for Singapore early childhood educators.">
   <title>PedaForge: AI Coach</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* ─── Coach Page Layout ──────────────────────────────── */
@@ -43,12 +43,12 @@
 
     .mode-strip-btn:hover {
       border-color: var(--primary);
-      background: rgba(1,171,170,0.04);
+      background: rgba(232,6,60,0.04);
     }
 
     .mode-strip-btn.active {
       border-color: var(--primary);
-      background: rgba(1,171,170,0.08);
+      background: rgba(232,6,60,0.08);
       color: var(--primary);
     }
 
@@ -234,7 +234,7 @@
 
     .chat-standalone .chat-standalone-input button:hover {
       transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(1,171,170,0.3);
+      box-shadow: 0 2px 8px rgba(232,6,60,0.3);
     }
 
     /* ─── Prompt Starters ────────────────────────────────── */
@@ -262,7 +262,7 @@
     .prompt-starter:hover {
       border-color: var(--primary);
       color: var(--primary);
-      background: rgba(1,171,170,0.04);
+      background: rgba(232,6,60,0.04);
     }
 
     /* ─── Sidebar Panels ─────────────────────────────────── */
@@ -357,7 +357,7 @@
     .mode-explained-tag {
       display: inline-block;
       padding: 2px 8px;
-      background: rgba(1,171,170,0.08);
+      background: rgba(232,6,60,0.08);
       color: var(--primary);
       border-radius: 100px;
       font-size: 0.7rem;
@@ -455,6 +455,11 @@
   </style>
 </head>
 <body>
+<div class="bg-blobs" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
 
   <!-- ────────────────────────────────────────────────────────
        Navigation
@@ -467,16 +472,26 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#features">Features</a></li>
-        <li><a href="index.html#coaching">Coaching</a></li>
-        <li><a href="index.html#architecture">Architecture</a></li>
-        <li><a href="index.html#timeline">Timeline</a></li>
-        <li><a href="index.html#budget">Budget</a></li>
-        <li><a href="index.html#team">Team</a></li>
-        <li><a href="planner.html">Planner</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="coach.html" class="active">Coach</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
+        <li>
+          <span class="nav-dropdown-trigger">Proposal</span>
+          <div class="nav-dropdown">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#coaching">Coaching</a>
+            <a href="index.html#architecture">Architecture</a>
+            <a href="index.html#timeline">Timeline</a>
+            <a href="index.html#budget">Budget</a>
+            <a href="index.html#team">Team</a>
+          </div>
+        </li>
+        <li>
+          <span class="nav-dropdown-trigger">Demos</span>
+          <div class="nav-dropdown">
+            <a href="planner.html">Lesson Planner</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="coach.html">AI Coach</a>
+            <a href="dashboard.html">Dashboard</a>
+          </div>
+        </li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
     </div>

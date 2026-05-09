@@ -59,7 +59,7 @@ PedaForge addresses this by reallocating educator hours from administrative burd
 
 ## Project Overview
 
-PedaForge is a **6-month innovation project** proposed for the ECDA Early Childhood Innovation Sandbox. The platform integrates four interconnected modules that collectively reduce documentation burden, improve pedagogical quality, and equip centre leaders with actionable data. Aligned with the refreshed Early Childhood Industry Digital Plan (IDP 2.0) announced at the Committee of Supply in March 2026, PedaForge demonstrates how responsible AI adoption can drive sector-wide transformation.
+PedaForge is a **12-month innovation project** proposed for the ECDA Early Childhood Innovation Sandbox. The platform integrates four interconnected modules that collectively reduce documentation burden, improve pedagogical quality, and equip centre leaders with actionable data. Aligned with the refreshed Early Childhood Industry Digital Plan (IDP 2.0) announced at the Committee of Supply in March 2026, PedaForge demonstrates how responsible AI adoption can drive sector-wide transformation.
 
 The project targets deployment across 2-3 pilot preschool centres in Singapore, with the goal of demonstrating measurable improvements in educator efficiency, teaching quality (as measured by QTT domains), and child developmental outcomes.
 
@@ -313,12 +313,12 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 
 | Metric | Baseline | Target | Measurement Method | Timing |
 |--------|----------|--------|-------------------|--------|
-| Documentation time per educator | 8 hrs/week | 3 hrs/week (60% reduction) | Pre/post time-tracking surveys, system usage logs | Months 3-5 |
+| Documentation time per educator | 8 hrs/week | 3 hrs/week (60% reduction) | Pre/post time-tracking surveys, system usage logs | Months 6-9 |
 | Differentiated lesson plans | Manual, often generic | 100% of plans address 2+ learner profiles | Automated analysis of generated plans | Continuous |
-| IDP accuracy rating | Subjective annual review | 85% educator agreement with AI-generated IDP | Post-assessment surveys and educator interviews | Month 6 |
-| Coaching engagement | Ad hoc, observation-dependent | 2+ sessions per educator per week | System usage analytics | Months 3-5 |
-| QTT score improvement | Pre-pilot baseline assessment | +0.5 points average across QTT domains | Pre/post QTT assessment by trained assessors | Months 3, 6 |
-| Educator retention intent | Industry benchmark | 90% of pilot participants would continue using the platform | End-of-pilot survey | Month 6 |
+| IDP accuracy rating | Subjective annual review | 85% educator agreement with AI-generated IDP | Post-assessment surveys and educator interviews | Month 12 |
+| Coaching engagement | Ad hoc, observation-dependent | 2+ sessions per educator per week | System usage analytics | Months 6-9 |
+| QTT score improvement | Pre-pilot baseline assessment | +0.5 points average across QTT domains | Pre/post QTT assessment by trained assessors | Months 6, 12 |
+| Educator retention intent | Industry benchmark | 90% of pilot participants would continue using the platform | End-of-pilot survey | Month 12 |
 
 ### Secondary Metrics
 
@@ -332,48 +332,36 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 
 ## Implementation Timeline
 
-### Phase 1: Development and AI Foundation (Months 1-2)
+### Phase 1: Development and AI Foundation (Months 1-3)
 
-- Infrastructure setup: Azure App Service, PostgreSQL, Key Vault, Azure AI Foundry
-- Core API scaffold: FastAPI project structure, authentication, RBAC
-- AI pipeline foundation: Claude integration, embedding pipeline, FAISS index
-- All four coaching modes: Composable prompt architecture, anti-sycophancy layer, safety guardrails
-- Lesson planner, portfolio, coaching, and dashboard module development
-- Frontend development: responsive design, SSE streaming, Chart.js
-- Database schema design and migration framework
-- PDPA compliance review and data classification
+- Azure cloud infrastructure setup (App Service, PostgreSQL, Key Vault, AI Foundry)
+- Build four core modules: Smart Lesson Planner, Portfolio and Profiling, AI Coaching Agent, Director's Dashboard
+- AI prompt engineering and QTT/SFw alignment
+- PDPA compliance framework and role-based access control
 
-### Phase 2: Pilot Deployment (Month 3)
+### Phase 2: Pilot Deployment and Onboarding (Months 4-5)
 
-- Partner centre onboarding (2-3 preschool centres)
-- Educator training workshops (2 sessions per centre)
-- Director orientation and dashboard training
-- Pre-pilot QTT baseline assessment
-- Pre-pilot documentation time survey
+- Onboard 2-3 pilot centres
+- Educator workshops and digital literacy training
+- Baseline metrics establishment
 - Security audit and penetration testing
-- System monitoring and rapid iteration
 
-### Phase 3: Active Classroom Usage (Months 4-5)
+### Phase 3: Active Classroom Usage and Iteration (Months 6-9)
 
-- Daily platform usage by pilot educators
-- Weekly coaching engagement monitoring
-- Monthly educator feedback collection
-- Bi-weekly system updates based on user feedback
-- Mid-pilot QTT assessment
-- Portfolio quality review and narrative accuracy audit
-- Lesson plan differentiation audit
-- First SFw-aligned IDPs generated
+- Live platform usage across pilot centres
+- SFw-aligned Individual Development Plans (IDPs)
+- Weekly AI coaching sessions
+- Iterative feedback and continuous improvement
+- AI model refinement based on real-world data
 
-### Phase 4: Impact Assessment and Reporting (Month 6)
+### Phase 4: Impact Assessment and Scaling (Months 10-12)
 
-- Post-pilot QTT assessment by trained assessors
-- Post-pilot documentation time survey
-- Educator satisfaction and retention intent survey
-- Director and pedagogical leader interviews
-- System usage analytics compilation
-- Final impact report with statistical analysis
-- Presentation to ECDA and stakeholders
-- Sustainability and commercialisation roadmap
+- End-of-pilot QTT assessment
+- Quantitative time-saved metrics vs baseline
+- Educator satisfaction surveys
+- Comprehensive impact report
+- ECDA presentation and scaling proposal
+- Preparation for national rollout across Busy Bees centres
 
 ---
 
@@ -384,9 +372,9 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 | Category | Component | Cost (SGD) |
 |----------|-----------|-----------|
 | **Development and Infrastructure** | Full-stack and AI development (contract, 16 days) | $8,000 |
-| | Azure App Service + PostgreSQL (6 months @ $200/month) | $1,200 |
-| | AI API, Claude Haiku 4.5 via Azure AI Foundry (6 months @ $100/month) | $600 |
-| | **Subtotal** | **$9,800** |
+| | Azure App Service + PostgreSQL (12 months @ $150/month) | $1,800 |
+| | AI API, Claude Haiku 4.5 via Azure AI Foundry (12 months @ $85/month) | $1,020 |
+| | **Subtotal** | **$10,820** |
 | **Security and Compliance** | PDPA compliance review | $2,000 |
 | | Security assessment | $1,200 |
 | | **Subtotal** | **$3,200** |
@@ -398,12 +386,12 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 
 | | |
 |---|---|
-| **Total Project Budget** | **SGD $20,000** |
+| **Total Project Budget** | **SGD $21,000** |
 
 ### Budget Notes
 
 - All costs are in Singapore Dollars (SGD).
-- Cloud infrastructure costs assume Azure App Service B1 tier with PostgreSQL Flexible Server, scaled for 2-3 pilot centres over 6 months.
+- Cloud infrastructure costs assume Azure App Service B1 tier with PostgreSQL Flexible Server, scaled for 2-3 pilot centres over 12 months.
 - AI API costs use Claude Haiku 4.5 via Azure AI Foundry, the most cost-efficient model in the Claude family, estimated at approximately 500 coaching sessions, 200 lesson plans, and 1,000 portfolio narratives per month across all pilot centres.
 - The budget is structured to align with Early Childhood Innovation Sandbox disbursement milestones.
 - Azure AI Foundry provides a managed, secure gateway to Claude models with enterprise-grade SLA, Singapore data residency, and zero public model training guarantees.
@@ -480,7 +468,7 @@ The prototype is a static HTML/CSS/JS demonstration. It simulates AI responses a
 
 ## Sustainability and Commercialisation
 
-PedaForge is designed for sustainability beyond the 6-month innovation sandbox period.
+PedaForge is designed for sustainability beyond the 12-month innovation sandbox period.
 
 ### Post-Pilot Commercialisation Pathway
 

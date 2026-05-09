@@ -6,8 +6,8 @@ from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
 
-PRIMARY = RGBColor(0x01, 0xAB, 0xAA)
-PRIMARY_DARK = RGBColor(0x00, 0x8C, 0x8B)
+PRIMARY = RGBColor(0xE8, 0x06, 0x3C)
+PRIMARY_DARK = RGBColor(0xC8, 0x05, 0x34)
 SECONDARY = RGBColor(0x2D, 0x2A, 0x5E)
 ACCENT = RGBColor(0xFE, 0xCD, 0x1B)
 WHITE = RGBColor(0xFF, 0xFF, 0xFF)
@@ -122,7 +122,7 @@ def create_presentation():
                  size=13, color=RGBColor(0xB8, 0xA0, 0xD0))
 
     add_text_box(slide, Inches(0.8), Inches(4.2), Inches(4), Inches(0.4),
-                 "Duration: 6 Months  |  Budget: SGD $20,000",
+                 "Duration: 12 Months  |  Budget: SGD $21,000",
                  size=12, color=RGBColor(0x8B, 0x80, 0xA8))
 
     add_text_box(slide, Inches(5.5), Inches(4.2), Inches(4), Inches(0.4),
@@ -467,21 +467,21 @@ def create_presentation():
     slide_title_bar(slide)
 
     add_text_box(slide, Inches(0.6), Inches(0.2), Inches(8.8), Inches(0.35),
-                 "6-MONTH ROADMAP", size=10, bold=True, color=PRIMARY)
+                 "12-MONTH ROADMAP", size=10, bold=True, color=PRIMARY)
 
     add_text_box(slide, Inches(0.6), Inches(0.5), Inches(8.8), Inches(0.5),
                  "Sandbox Implementation Timeline",
                  size=26, bold=True, color=SECONDARY)
 
     phases = [
-        ("Months 1–2", "Development &\nAI Foundation",
-         "Infrastructure, AI prompts,\nplatform build, PDPA", PRIMARY),
-        ("Month 3", "Pilot\nDeployment",
+        ("Months 1–3", "Development &\nAI Foundation",
+         "Azure infrastructure,\ncore modules, AI prompts", PRIMARY),
+        ("Months 4–5", "Pilot Deployment\n& Onboarding",
          "2–3 centres onboarded,\neducator workshops", INFO),
-        ("Months 4–5", "Active\nExecution",
-         "Live classroom usage,\nfirst IDPs generated", ACCENT),
-        ("Month 6", "Impact Assessment\n& Reporting",
-         "Findings, commercialisation\nroadmap, ECDA presentation", DANGER),
+        ("Months 6–9", "Active Usage\n& Iteration",
+         "Live classroom usage,\nIDPs, AI coaching", ACCENT),
+        ("Months 10–12", "Assessment\n& Scaling",
+         "Impact report, ECDA\npresentation, scale plan", DANGER),
     ]
 
     timeline_y = Inches(1.4)
@@ -511,10 +511,10 @@ def create_presentation():
                      alignment=PP_ALIGN.CENTER)
 
     milestones = [
-        "Month 2: AI prompts validated against QTT rubric",
-        "Month 3: First educators onboarded with training",
-        "Month 5: First SFw-aligned IDPs auto-generated",
-        "Month 6: Final impact report to ECDA",
+        "Month 3: AI prompts validated against QTT rubric",
+        "Month 5: First educators onboarded with training",
+        "Month 9: First SFw-aligned IDPs auto-generated",
+        "Month 12: Final impact report to ECDA",
     ]
 
     add_text_box(slide, Inches(0.6), Inches(3.9), Inches(4), Inches(0.3),
@@ -537,9 +537,9 @@ def create_presentation():
                  "Budget Breakdown (SGD)", size=26, bold=True, color=SECONDARY)
 
     budget_phases = [
-        ("Development & Infrastructure", "$9,800", "49%", PRIMARY),
-        ("Security & Compliance", "$3,200", "16%", INFO),
-        ("Change Management", "$4,400", "22%", ACCENT),
+        ("Development & Infrastructure", "$10,800", "51%", PRIMARY),
+        ("Security & Compliance", "$3,200", "15%", INFO),
+        ("Change Management", "$4,400", "21%", ACCENT),
         ("Evaluation & Reporting", "$2,600", "13%",
          RGBColor(0x8B, 0x5C, 0xF6)),
     ]
@@ -570,13 +570,13 @@ def create_presentation():
                  "Total Sandbox Funding Required", size=14, bold=True,
                  color=WHITE)
     add_text_box(slide, Inches(5.5), Inches(4.45), Inches(3.1), Inches(0.45),
-                 "SGD $20,000", size=20, bold=True, color=ACCENT,
+                 "SGD $21,000", size=20, bold=True, color=ACCENT,
                  alignment=PP_ALIGN.RIGHT)
 
     details_left = [
         "Full-Stack + AI Dev: $500/day x 16 days",
-        "Azure Hosting: $200/month x 6 months",
-        "Claude Haiku via Azure AI Foundry: $100/month x 6 months",
+        "Azure Hosting: $150/month x 12 months",
+        "Claude Haiku via Azure AI Foundry: $85/month x 12 months",
     ]
 
     details_right = [
@@ -730,7 +730,7 @@ def create_presentation():
     cta_bg = add_shape(slide, Inches(3), Inches(4.2), Inches(4),
                        Inches(0.5), PRIMARY)
     add_text_box(slide, Inches(3), Inches(4.22), Inches(4), Inches(0.45),
-                 "SGD $20,000  |  6 Months  |  IDP 2.0 Aligned",
+                 "SGD $21,000  |  12 Months  |  IDP 2.0 Aligned",
                  size=13, bold=True, color=WHITE, alignment=PP_ALIGN.CENTER)
 
     output_path = "/home/dmgadmin/sandbox/pedaforge/slides/PedaForge_Proposal.pptx"

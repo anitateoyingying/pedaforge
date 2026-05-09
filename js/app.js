@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbarScroll();
   initActiveNavLink();
   initMobileNav();
+  initNavDropdowns();
   initSmoothScroll();
   initCoachingModes();
   initChatDemoInput();
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDashboardDemo();
   initCounterAnimation();
   initScrollAnimations();
+  initBlobParallax();
 });
 
 /* ─── 1. Navbar Scroll Effect ─────────────────────────────── */
@@ -83,6 +85,36 @@ function initMobileNav() {
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
+    });
+  });
+}
+
+/* ─── 2b. Nav Dropdown Interaction ────────────────────────── */
+
+function initNavDropdowns() {
+  const triggers = document.querySelectorAll('.nav-dropdown-trigger');
+  triggers.forEach(trigger => {
+    const parent = trigger.parentElement;
+    if (!parent) return;
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasOpen = parent.classList.contains('dropdown-open');
+      // Close all dropdowns
+      document.querySelectorAll('.nav-links li.dropdown-open').forEach(li => li.classList.remove('dropdown-open'));
+      if (!wasOpen) parent.classList.add('dropdown-open');
+    });
+  });
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-links li.dropdown-open').forEach(li => li.classList.remove('dropdown-open'));
+  });
+
+  // Close dropdowns when a link inside is clicked
+  document.querySelectorAll('.nav-dropdown a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.querySelectorAll('.nav-links li.dropdown-open').forEach(li => li.classList.remove('dropdown-open'));
     });
   });
 }
@@ -213,6 +245,17 @@ function initCoachingModes() {
 
       const key = modeKeys[index] || 'reflective';
       renderConversation(key);
+
+      const chatHeader = document.querySelector('.chat-demo-header h4') || document.getElementById('indexChatTitle');
+      if (chatHeader) {
+        const MODE_DISPLAY = {
+          reflective: 'AI Coach: Reflective Practice Mode',
+          qtt: 'AI Coach: QTT Deep Dive Mode',
+          socratic: 'AI Coach: Socratic Inquiry Mode',
+          scenario: 'AI Coach: Scenario Analysis Mode'
+        };
+        chatHeader.textContent = MODE_DISPLAY[key] || MODE_DISPLAY.reflective;
+      }
     });
   });
 
@@ -566,7 +609,7 @@ function initDashboardDemo() {
     }, { threshold: 0.1 });
 
     qttBars.forEach(bar => {
-      const targetHeight = bar.style.height || bar.getAttribute('data-height');
+      const targetHeight = bar.getAttribute('data-height') || bar.style.height;
       if (targetHeight) {
         bar.setAttribute('data-height', targetHeight);
         bar.style.height = '0';
@@ -686,6 +729,21 @@ function initScrollAnimations() {
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   allAnimatable.forEach(el => observer.observe(el));
+}
+
+/* ─── 11. Background Blob Parallax ───────────────────────── */
+
+function initBlobParallax() {
+  const blobs = document.querySelectorAll('.bg-blob');
+  if (blobs.length === 0 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    blobs.forEach((blob, i) => {
+      const speed = 0.02 + i * 0.01;
+      blob.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+  }, { passive: true });
 }
 
 /* ─── Shared: Tab Switching ───────────────────────────────── */

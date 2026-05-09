@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="PedaForge Director's Dashboard: Real-time pedagogical insights, staff QTT profiles, and SFw-aligned professional development recommendations for Singapore ECE centre leaders.">
   <title>PedaForge: Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="bg-blobs" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
 
   <!-- ────────────────────────────────────────────────────────
        Navigation
@@ -21,16 +26,26 @@
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#features">Features</a></li>
-        <li><a href="index.html#coaching">Coaching</a></li>
-        <li><a href="index.html#architecture">Architecture</a></li>
-        <li><a href="index.html#timeline">Timeline</a></li>
-        <li><a href="index.html#budget">Budget</a></li>
-        <li><a href="index.html#team">Team</a></li>
-        <li><a href="planner.html">Planner</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="coach.html">Coach</a></li>
-        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li>
+          <span class="nav-dropdown-trigger">Proposal</span>
+          <div class="nav-dropdown">
+            <a href="index.html#features">Features</a>
+            <a href="index.html#coaching">Coaching</a>
+            <a href="index.html#architecture">Architecture</a>
+            <a href="index.html#timeline">Timeline</a>
+            <a href="index.html#budget">Budget</a>
+            <a href="index.html#team">Team</a>
+          </div>
+        </li>
+        <li>
+          <span class="nav-dropdown-trigger">Demos</span>
+          <div class="nav-dropdown">
+            <a href="planner.html">Lesson Planner</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="coach.html">AI Coach</a>
+            <a href="dashboard.html">Dashboard</a>
+          </div>
+        </li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
     </div>
@@ -91,27 +106,27 @@
           <h3>&#128202; QTT Domain Performance</h3>
           <div class="qtt-domain-chart">
             <div class="qtt-bar-container">
-              <div class="qtt-bar" data-height="75%" style="height: 0%; background: var(--success);"></div>
+              <div class="qtt-bar" data-height="75%" style="background: var(--success);"></div>
               <div class="qtt-bar-label">Learning Env.</div>
             </div>
             <div class="qtt-bar-container">
-              <div class="qtt-bar" data-height="85%" style="height: 0%; background: var(--info);"></div>
+              <div class="qtt-bar" data-height="85%" style="background: var(--info);"></div>
               <div class="qtt-bar-label">Teacher-Child</div>
             </div>
             <div class="qtt-bar-container">
-              <div class="qtt-bar" data-height="60%" style="height: 0%; background: var(--warning);"></div>
+              <div class="qtt-bar" data-height="60%" style="background: var(--warning);"></div>
               <div class="qtt-bar-label">Curriculum</div>
             </div>
             <div class="qtt-bar-container">
-              <div class="qtt-bar" data-height="40%" style="height: 0%; background: var(--danger);"></div>
+              <div class="qtt-bar" data-height="40%" style="background: var(--danger);"></div>
               <div class="qtt-bar-label">Assessment</div>
             </div>
             <div class="qtt-bar-container">
-              <div class="qtt-bar" data-height="35%" style="height: 0%; background: var(--danger);"></div>
+              <div class="qtt-bar" data-height="35%" style="background: var(--danger);"></div>
               <div class="qtt-bar-label">Sustained Thinking</div>
             </div>
             <div class="qtt-bar-container">
-              <div class="qtt-bar" data-height="70%" style="height: 0%; background: var(--success);"></div>
+              <div class="qtt-bar" data-height="70%" style="background: var(--success);"></div>
               <div class="qtt-bar-label">Family &amp; Community</div>
             </div>
           </div>
