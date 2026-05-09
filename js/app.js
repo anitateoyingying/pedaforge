@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initButtonRipple();
   initHeroParallax();
   initTypingIndicator();
+  initBackToTop();
 });
 
 /* ─── 1. Navbar Scroll Effect ─────────────────────────────── */
@@ -805,7 +806,26 @@ function initTabSwitching() {
   });
 }
 
-/* ─── 12. Scroll Progress Indicator ──────────────────── */
+/* ─── 12. Back to Top Button ─────────────────────────── */
+
+function initBackToTop() {
+  const btn = document.getElementById('backToTop');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ─── 13. Scroll Progress Indicator ──────────────────── */
 
 function initScrollProgress() {
   const bar = document.createElement('div');
