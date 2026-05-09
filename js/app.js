@@ -597,27 +597,26 @@ function initPortfolioDemo() {
 /* ─── 8. Dashboard Demo ───────────────────────────────────── */
 
 function initDashboardDemo() {
-  const qttBars = document.querySelectorAll('.qtt-bar');
-  if (qttBars.length > 0) {
+  const chartContainer = document.querySelector('.qtt-domain-chart');
+  if (chartContainer) {
+    const qttBars = chartContainer.querySelectorAll('.qtt-bar');
     qttBars.forEach(bar => { bar.style.height = '0'; });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const bar = entry.target;
-          const targetHeight = bar.getAttribute('data-height');
-          if (targetHeight) {
-            void bar.offsetHeight;
-            requestAnimationFrame(() => {
-              bar.style.height = targetHeight;
-            });
-          }
-          observer.unobserve(bar);
+          qttBars.forEach((bar, i) => {
+            const targetHeight = bar.getAttribute('data-height');
+            if (targetHeight) {
+              setTimeout(() => { bar.style.height = targetHeight; }, i * 120);
+            }
+          });
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.05 });
+    }, { threshold: 0 });
 
-    qttBars.forEach(bar => observer.observe(bar));
+    observer.observe(chartContainer);
   }
 
   // Animate stat counters
