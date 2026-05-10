@@ -390,7 +390,7 @@
           <rect x="65" y="205" width="200" height="36" rx="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
           <rect x="300" y="205" width="200" height="36" rx="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
           <rect x="535" y="205" width="200" height="36" rx="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <text x="165" y="228" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Outfit,sans-serif" font-size="11">API Layer &amp; Auth</text>
+          <text x="165" y="228" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Outfit,sans-serif" font-size="11">API (Swagger) &amp; Entra ID Auth</text>
           <text x="400" y="228" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Outfit,sans-serif" font-size="11">AI Services &amp; QTT Mapper</text>
           <text x="635" y="228" text-anchor="middle" fill="rgba(255,255,255,0.85)" font-family="Outfit,sans-serif" font-size="11">Data Layer (PostgreSQL)</text>
           <!-- Arrow 2 -->
@@ -410,7 +410,7 @@
           <!-- Compliance bar -->
           <rect x="40" y="420" width="720" height="40" rx="14" fill="#faf6f0" stroke="#e8e4dd" stroke-width="1.5" filter="url(#clay-shadow)"/>
           <text x="200" y="445" text-anchor="middle" fill="#6b7280" font-family="Outfit,sans-serif" font-size="11" font-weight="600">PDPA Compliant</text>
-          <text x="400" y="445" text-anchor="middle" fill="#6b7280" font-family="Outfit,sans-serif" font-size="11" font-weight="600">Role-Based Access</text>
+          <text x="400" y="445" text-anchor="middle" fill="#6b7280" font-family="Outfit,sans-serif" font-size="11" font-weight="600">Entra ID + Role-Based Access</text>
           <text x="600" y="445" text-anchor="middle" fill="#6b7280" font-family="Outfit,sans-serif" font-size="11" font-weight="600">Zero Public AI Training</text>
         </svg>
       </div>
@@ -433,7 +433,7 @@
             <tr>
               <td><strong>Backend</strong></td>
               <td>Python FastAPI</td>
-              <td>Async performance, native SSE streaming, auto-generated OpenAPI docs</td>
+              <td>Async performance, native SSE streaming, auto-generated Swagger/OpenAPI docs at <code>/docs</code> for interactive API testing</td>
             </tr>
             <tr>
               <td><strong>AI / LLM</strong></td>
@@ -447,8 +447,8 @@
             </tr>
             <tr>
               <td><strong>Auth</strong></td>
-              <td>JWT + bcrypt</td>
-              <td>Stateless authentication, secure password hashing</td>
+              <td>Microsoft Entra ID; Entra External ID</td>
+              <td>Enterprise SSO for centre staff via Entra ID; Entra External ID for external educators and relief staff with scoped access</td>
             </tr>
             <tr>
               <td><strong>Hosting</strong></td>
@@ -498,6 +498,126 @@
           <div class="kpi-sublabel">Weekly per educator</div>
         </div>
       </div>
+
+      <div class="mt-4">
+        <h3 style="font-size:1.15rem; color:var(--secondary); margin-bottom:20px; font-family:'Playfair Display',serif;">How Each KPI Is Measured</h3>
+        <div class="kpi-details">
+
+          <div class="kpi-detail-card">
+            <div class="kpi-detail-header">
+              <span class="kpi-detail-metric">60% Documentation Time Saved</span>
+            </div>
+            <div class="kpi-detail-body">
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">What is measured</span>
+                <span>Reduction in hours/week each educator spends on lesson planning, portfolio writing, assessment reports, and parent communications</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Data sources</span>
+                <span>Structured weekly time diaries (2-week samples at baseline, Month 9, Month 12) cross-referenced with platform usage analytics (timestamped session durations per document type)</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Baseline</span>
+                <span>Collected during Months 4&ndash;5 across all pilot educators. Expected ~8 hrs/week based on Harper, Wilson &amp; McGrath-Champ (2025) findings in comparable ECE settings</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Calculation</span>
+                <span>((Baseline hours &minus; Post-intervention hours) / Baseline hours) &times; 100, per educator, reported as cohort mean with standard deviation</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Reporting</span>
+                <span>Dashboard widget (real-time % vs. baseline); detailed per-educator breakdown at Month 5, 9, and 12; included in ECDA Impact Report</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="kpi-detail-card">
+            <div class="kpi-detail-header">
+              <span class="kpi-detail-metric">100% Differentiated Lessons</span>
+            </div>
+            <div class="kpi-detail-body">
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">What is measured</span>
+                <span>Percentage of AI-generated lesson plans that include scaffolding strategies for 2+ distinct learner profiles (e.g., Kinesthetic, Visual-Spatial, Advanced Verbal)</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Data sources</span>
+                <span>Platform lesson plan metadata (structured fields for linked profiles and scaffolding strategies) with automated validation; monthly 10% sample audit by Pedagogical Specialist using a 3-point rubric (profile relevance, strategy actionability, strategy distinctness)</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Baseline</span>
+                <span>Pre-platform audit of 20 existing lesson plans per centre during Month 4. Expected 20&ndash;40% showing explicit differentiation (OECD TALIS Starting Strong, 2018)</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Calculation</span>
+                <span>Plans with 2+ profiles / total plans generated. 100% target is a system design constraint: the AI requires class profiles as input and produces differentiated scaffolding as output</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Reporting</span>
+                <span>Real-time compliance rate on Director's Dashboard; monthly pedagogical audit report with qualitative notes; final tally in Month 12 ECDA report</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="kpi-detail-card">
+            <div class="kpi-detail-header">
+              <span class="kpi-detail-metric">85% IDP Accuracy</span>
+            </div>
+            <div class="kpi-detail-body">
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">What is measured</span>
+                <span>Educator agreement with AI-generated Individual Development Plan recommendations: strongest QTT domain, primary growth area, and recommended SFw-aligned PD pathway</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Data sources</span>
+                <span>5-item Likert-scale validation survey per educator per term (items: strongest domain accuracy, growth area accuracy, PD relevance, coaching focus alignment, willingness to act); director corroboration rating; cross-referenced with platform coaching transcripts and lesson plan patterns</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Baseline</span>
+                <span>Educators rate accuracy of their existing manual IDP using the same 5-item instrument during Month 5, establishing a comparison benchmark (typical 70&ndash;75% agreement for human-generated PD mappings)</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Calculation</span>
+                <span>Percentage of survey items rated 4 ("Agree") or 5 ("Strongly Agree") across all educators. 85% target exceeds typical human-generated benchmarks due to continuous data collection vs. annual snapshots</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Reporting</span>
+                <span>Per-term (Month 7 and Month 11); Likert distribution chart; per-educator IDP status on Dashboard; qualitative disagreement notes for AI improvement; included in Month 12 ECDA report</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="kpi-detail-card">
+            <div class="kpi-detail-header">
+              <span class="kpi-detail-metric">2x Coaching Cycles</span>
+            </div>
+            <div class="kpi-detail-body">
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">What is measured</span>
+                <span>Completed AI coaching sessions per educator per week. A completed session requires 4+ conversational turns and engagement with at least one QTT domain tag</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Data sources</span>
+                <span>Platform session logs (session ID, educator ID, mode, timestamps, turn count, QTT domains, completion status). Quality check via average session duration and depth-of-reflection score (Gibbs' Reflective Cycle stages)</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Baseline</span>
+                <span>Current structured coaching frequency reported by each centre during Month 4&ndash;5 onboarding. Expected ~0.5&ndash;1.0 sessions/educator/week based on Singapore ECE norms</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Calculation</span>
+                <span>Total completed sessions / active educators per week. "2x" is contextually calibrated to each centre's baseline (e.g., baseline 1/week &rarr; target 2/week). AI coaching removes scheduling and availability barriers</span>
+              </div>
+              <div class="kpi-detail-row">
+                <span class="kpi-detail-label">Reporting</span>
+                <span>Weekly on Dashboard (real-time counter); monthly trend chart showing frequency over Months 5&ndash;12; per-educator breakdown by coaching mode; correlation analysis between coaching frequency and QTT improvement in Month 12 report</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -516,7 +636,7 @@
         <div class="timeline-item">
           <span class="timeline-phase">Months 1&ndash;3</span>
           <h3>Development &amp; AI Foundation</h3>
-          <p>Deploy cloud infrastructure on Azure SG region. Build the four core modules (Planner, Portfolio, Coach, Dashboard). Engineer and validate AI prompts for QTT/SFw alignment using GPT-4.1-mini via Azure OpenAI. Implement PDPA compliance framework and role-based access control.</p>
+          <p>Deploy cloud infrastructure on Azure SG region. Build the four core modules (Planner, Portfolio, Coach, Dashboard). Engineer and validate AI prompts for QTT/SFw alignment using GPT-4.1-mini via Azure OpenAI. Implement PDPA compliance framework and Microsoft Entra ID authentication with role-based access control.</p>
         </div>
         <div class="timeline-item">
           <span class="timeline-phase">Months 4&ndash;5</span>
@@ -544,7 +664,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-label">Investment</span>
-        <h2>Transparent Budget Breakdown</h2>
+        <h2>Budget Breakdown</h2>
         <p>Every dollar mapped to deliverables, with clear rationale and per-unit costing.</p>
       </div>
 
@@ -585,12 +705,12 @@
           </tr>
           <tr class="sub-row">
             <td>PDPA Compliance Review</td>
-            <td>External vendor</td>
+            <td>Internal IT department</td>
             <td>$2,000</td>
           </tr>
           <tr class="sub-row">
             <td>Security Assessment</td>
-            <td>External vendor</td>
+            <td>Internal IT department</td>
             <td>$1,200</td>
           </tr>
 

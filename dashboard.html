@@ -106,32 +106,32 @@
           <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20V10M18 20V4M6 20v-4"/></svg> QTT Domain Performance</h3>
           <div class="qtt-chart">
             <div class="qtt-col">
-              <span class="qtt-val">75%</span>
+              <span class="qtt-val" style="color:var(--success)">75%</span>
               <div class="qtt-track"><div class="qtt-fill" style="background:var(--success); height:75%"></div></div>
               <span class="qtt-lbl">Learning Env.</span>
             </div>
             <div class="qtt-col">
-              <span class="qtt-val">85%</span>
+              <span class="qtt-val" style="color:var(--info)">85%</span>
               <div class="qtt-track"><div class="qtt-fill" style="background:var(--info); height:85%"></div></div>
               <span class="qtt-lbl">Teacher-Child</span>
             </div>
             <div class="qtt-col">
-              <span class="qtt-val">60%</span>
+              <span class="qtt-val" style="color:var(--warning)">60%</span>
               <div class="qtt-track"><div class="qtt-fill" style="background:var(--warning); height:60%"></div></div>
               <span class="qtt-lbl">Curriculum</span>
             </div>
             <div class="qtt-col">
-              <span class="qtt-val">40%</span>
+              <span class="qtt-val" style="color:var(--danger)">40%</span>
               <div class="qtt-track"><div class="qtt-fill" style="background:var(--danger); height:40%"></div></div>
               <span class="qtt-lbl">Assessment</span>
             </div>
             <div class="qtt-col">
-              <span class="qtt-val">35%</span>
+              <span class="qtt-val" style="color:var(--danger)">35%</span>
               <div class="qtt-track"><div class="qtt-fill" style="background:var(--danger); height:35%"></div></div>
               <span class="qtt-lbl">Sustained Thinking</span>
             </div>
             <div class="qtt-col">
-              <span class="qtt-val">70%</span>
+              <span class="qtt-val" style="color:var(--success)">70%</span>
               <div class="qtt-track"><div class="qtt-fill" style="background:var(--success); height:70%"></div></div>
               <span class="qtt-lbl">Family &amp; Community</span>
             </div>
@@ -158,28 +158,28 @@
                   <td>Teacher-Child Interaction</td>
                   <td>Sustained Thinking</td>
                   <td>12</td>
-                  <td><span style="color: var(--success); font-weight: 600;">On Track</span></td>
+                  <td><span class="status-badge on-track">On Track</span></td>
                 </tr>
                 <tr>
                   <td><strong>Wei Ting</strong></td>
                   <td>Learning Environment</td>
                   <td>Assessment</td>
                   <td>8</td>
-                  <td><span style="color: var(--warning); font-weight: 600;">Needs Support</span></td>
+                  <td><span class="status-badge needs-support">Needs Support</span></td>
                 </tr>
                 <tr>
                   <td><strong>Siti R.</strong></td>
                   <td>Curriculum &amp; Pedagogy</td>
                   <td>Sustained Thinking</td>
                   <td>15</td>
-                  <td><span style="color: var(--info); font-weight: 600;">Exceeding</span></td>
+                  <td><span class="status-badge exceeding">Exceeding</span></td>
                 </tr>
                 <tr>
                   <td><strong>James K.</strong></td>
                   <td>Family &amp; Community</td>
                   <td>Curriculum</td>
                   <td>6</td>
-                  <td><span style="color: var(--text-muted); font-weight: 600;">New Educator</span></td>
+                  <td><span class="status-badge new-educator">New Educator</span></td>
                 </tr>
               </tbody>
             </table>
@@ -247,51 +247,47 @@
         <div class="dash-panel mb-3">
           <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg> Targeted Training (SFw for ECCE)</h3>
 
-          <div style="display: flex; flex-direction: column; gap: 14px;">
-
-            <div style="padding: 14px; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <div style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 4px;">Engage Children in Meaningful Conversations</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">TSC: ECE-PIN-3001-1.1</div>
-              <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px;">Recommended for: <strong>Sarah L.</strong>, <strong>Wei Ting</strong></div>
+          <div class="pd-list">
+            <div class="pd-card">
+              <div class="pd-title">Engage Children in Meaningful Conversations</div>
+              <div class="pd-code">TSC: ECE-PIN-3001-1.1</div>
+              <div class="pd-for">Recommended for: <strong>Sarah L.</strong>, <strong>Wei Ting</strong></div>
               <button class="btn btn-primary btn-sm">Assign PD</button>
             </div>
-
-            <div style="padding: 14px; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <div style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 4px;">Apply Formative Assessment in ECE</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">TSC: ECE-ASS-4001-1.1</div>
-              <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px;">Recommended for: <strong>Wei Ting</strong></div>
+            <div class="pd-card">
+              <div class="pd-title">Apply Formative Assessment in ECE</div>
+              <div class="pd-code">TSC: ECE-ASS-4001-1.1</div>
+              <div class="pd-for">Recommended for: <strong>Wei Ting</strong></div>
               <button class="btn btn-primary btn-sm">Assign PD</button>
             </div>
-
-            <div style="padding: 14px; background: var(--bg); border-radius: var(--radius-sm); border: 1px solid var(--border);">
-              <div style="font-size: 0.9rem; font-weight: 600; color: var(--secondary); margin-bottom: 4px;">Facilitate Collaborative Learning</div>
-              <div style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px;">TSC: ECE-COL-3002-1.1</div>
-              <div style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 8px;">Recommended for: <strong>James K.</strong></div>
+            <div class="pd-card">
+              <div class="pd-title">Facilitate Collaborative Learning</div>
+              <div class="pd-code">TSC: ECE-COL-3002-1.1</div>
+              <div class="pd-for">Recommended for: <strong>James K.</strong></div>
               <button class="btn btn-primary btn-sm">Assign PD</button>
             </div>
-
           </div>
         </div>
 
         <!-- Panel 6: Quick Stats -->
         <div class="dash-panel">
           <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> This Term</h3>
-          <div style="display: flex; flex-direction: column; gap: 12px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
-              <span style="font-size: 0.9rem; color: var(--text-light);">Lesson Plans Generated</span>
-              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">156</span>
+          <div class="stat-list">
+            <div class="stat-row">
+              <span class="stat-row-label">Lesson Plans Generated</span>
+              <span class="stat-row-value">156</span>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
-              <span style="font-size: 0.9rem; color: var(--text-light);">Portfolio Entries</span>
-              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">892</span>
+            <div class="stat-row">
+              <span class="stat-row-label">Portfolio Entries</span>
+              <span class="stat-row-value">892</span>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border);">
-              <span style="font-size: 0.9rem; color: var(--text-light);">Parent Reports Sent</span>
-              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">48</span>
+            <div class="stat-row">
+              <span class="stat-row-label">Parent Reports Sent</span>
+              <span class="stat-row-value">48</span>
             </div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
-              <span style="font-size: 0.9rem; color: var(--text-light);">AI Coaching Hours</span>
-              <span style="font-size: 1rem; font-weight: 700; color: var(--secondary);">24</span>
+            <div class="stat-row">
+              <span class="stat-row-label">AI Coaching Hours</span>
+              <span class="stat-row-value">24</span>
             </div>
           </div>
         </div>
