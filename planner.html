@@ -64,8 +64,8 @@
         <span>&rsaquo;</span>
         <span class="current">Lesson Planner</span>
       </div>
-      <h1>Profile-Driven Smart Lesson Planner</h1>
-      <p>AI-generated differentiated scaffolding based on your classroom's unique learning profiles.</p>
+      <h1>Unique Child Learning Experience</h1>
+      <p>AI-recommended differentiated scaffolding based on your classroom's unique learning profiles.</p>
     </div>
   </section>
 
@@ -81,7 +81,7 @@
 
           <!-- Theme Selector -->
           <div class="form-group">
-            <label for="theme-select">Theme / Topic</label>
+            <label for="theme-select">Inquiry Topic/Unit</label>
             <select class="form-control" id="theme-select">
               <option value="community-helpers">Community Helpers</option>
               <option value="my-body">My Body</option>
@@ -124,7 +124,7 @@
 
           <div class="profile-chip selected">
             <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></span>
-            <span class="profile-name">Gifted/Twice Exceptional</span>
+            <span class="profile-name">Exceptional</span>
             <span class="count">1</span>
           </div>
 
@@ -156,7 +156,7 @@
 
           <!-- Lesson Output Header -->
           <div class="lesson-header">
-            <h2 class="lesson-title">AI-Generated Lesson Plan</h2>
+            <h2 class="lesson-title">Recommended Lesson Plan</h2>
             <div class="tag-row">
               <span class="tag tag-framework">EYDF Mapped</span>
               <span class="tag tag-framework">NEL Aligned</span>
@@ -184,6 +184,7 @@
             <div class="scaffolding-item">
               <div class="scaffolding-icon blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
               <div>
+                <span class="phase-tag">Main Activity</span>
                 <h4>Kinesthetic Learners</h4>
                 <p>Allow children to physically build the fire station using large hollow blocks. Incorporate movement: &ldquo;run like firefighters&rdquo; to count blocks needed.</p>
               </div>
@@ -192,6 +193,7 @@
             <div class="scaffolding-item">
               <div class="scaffolding-icon purple"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
               <div>
+                <span class="phase-tag">Provocation</span>
                 <h4>Visual-Spatial Learners</h4>
                 <p>Provide blueprint templates and reference photos of fire stations. Use grid paper for children to design their station before building.</p>
               </div>
@@ -200,6 +202,7 @@
             <div class="scaffolding-item">
               <div class="scaffolding-icon green"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
               <div>
+                <span class="phase-tag">Main Activity</span>
                 <h4>Advanced Verbal</h4>
                 <p>Assign the &ldquo;Dispatcher&rdquo; role: they narrate what&rsquo;s happening, call out instructions, and describe the building process to classmates.</p>
               </div>
@@ -208,6 +211,7 @@
             <div class="scaffolding-item">
               <div class="scaffolding-icon amber"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5z"/></svg></div>
               <div>
+                <span class="phase-tag">Tuning In</span>
                 <h4>Fine-Motor Needs</h4>
                 <p>Provide larger, ergonomic building pieces. Use Velcro-attached components that require less precision but still allow participation.</p>
               </div>
@@ -216,6 +220,7 @@
             <div class="scaffolding-item">
               <div class="scaffolding-icon red"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4zM23 9l-6 6M17 9l6 6"/></svg></div>
               <div>
+                <span class="phase-tag">Closure</span>
                 <h4>Sensory-Avoidant</h4>
                 <p>Offer noise-dampening foam blocks. Designate a quieter building zone away from the main activity hub.</p>
               </div>
@@ -247,6 +252,33 @@
             </div>
 
           </div>
+
+          <!-- Teacher Evaluation Section -->
+          <div class="eval-section">
+            <h4><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Post-Lesson Evaluation</h4>
+            <textarea class="eval-textarea" placeholder="Reflect on how the lesson went. What worked well? What challenges did you face? How did children respond to the differentiated activities?"></textarea>
+            <button class="btn btn-primary mt-2" disabled>Submit for AI Analysis</button>
+
+            <div class="eval-response">
+              <h5>
+                <span class="tag tag-ai tag-sm">AI Suggested Actions</span>
+                Based on your evaluation
+              </h5>
+              <div class="eval-response-item">
+                <span class="eval-response-icon" style="color: var(--primary);">&#9654;</span>
+                <span><strong>Improve teaching:</strong> During the building phase, try using more open-ended questions like &ldquo;What would happen if&hellip;?&rdquo; to extend sustained shared thinking. Avoid directing the outcome; instead, scaffold the process.</span>
+              </div>
+              <div class="eval-response-item">
+                <span class="eval-response-icon" style="color: var(--info);">&#9654;</span>
+                <span><strong>Follow up with children:</strong> Leo showed emerging leadership during cooperative building. In the next session, pair him with a child who needs peer support in turn-taking to reinforce this strength.</span>
+              </div>
+              <div class="eval-response-item">
+                <span class="eval-response-icon" style="color: var(--success);">&#9654;</span>
+                <span><strong>Environment:</strong> Set up a &ldquo;Community Helpers&rdquo; station in the dramatic play corner with firefighter props, hats, and a phone for &ldquo;emergency calls&rdquo; to rehearse and retrieve vocabulary from today&rsquo;s lesson.</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
       </div>
