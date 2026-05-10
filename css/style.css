@@ -1385,7 +1385,220 @@ section {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin-bottom: 12px;
 }
+
+/* ─── Design System: Shared Components ───────────────── */
+.section-flush { padding-top: 0; }
+.mt-2 { margin-top: 16px; }
+.mt-3 { margin-top: 24px; }
+.btn-block { width: 100%; }
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.checkbox-label input { accent-color: var(--primary); }
+
+.lesson-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.lesson-title {
+  font-size: 1.4rem;
+  color: var(--secondary);
+  margin: 0;
+}
+.tag-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.activity-block { margin-bottom: 20px; }
+.activity-title {
+  margin-bottom: 12px;
+  color: var(--secondary);
+}
+.activity-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+.activity-concepts {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+.scaffolding-heading {
+  margin-bottom: 14px;
+  color: var(--secondary);
+  font-size: 1rem;
+}
+
+.callout {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: var(--radius-sm);
+}
+.callout-warning {
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.2);
+}
+.callout h4 {
+  color: var(--secondary);
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+.callout p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.check-item {
+  padding: 6px 0;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.check-mark {
+  color: var(--success);
+  flex-shrink: 0;
+}
+.inline-tag-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tag-sm {
+  font-size: 0.7rem;
+}
+
+.panel-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.section-title {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 16px;
+  font-family: 'Playfair Display', serif;
+}
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 768px) {
+  .two-col-grid { grid-template-columns: 1fr; }
+}
+
+.icon-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.icon-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+.icon-list-mark {
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.icon-list-mark.positive { color: var(--success); }
+.icon-list-mark.growth { color: var(--warning); }
+
+.narrative-box {
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+}
+.narrative-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.narrative-text {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.profile-name-lg {
+  font-size: 1.4rem;
+  color: var(--secondary);
+  margin-bottom: 4px;
+  font-family: 'Playfair Display', serif;
+}
+.profile-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 2px;
+}
+.profile-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.table-scroll { overflow-x: auto; }
+.text-center { text-align: center; }
+
+.suggestion-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.suggestion-card h4 {
+  font-size: 1.05rem;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+.suggestion-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.main-content-spacing {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.scaffolding-icon.blue { background: rgba(59,130,246,0.1); }
+.scaffolding-icon.purple { background: rgba(139,92,246,0.1); }
+.scaffolding-icon.green { background: rgba(16,185,129,0.1); }
+.scaffolding-icon.amber { background: rgba(245,158,11,0.1); }
+.scaffolding-icon.red { background: rgba(239,68,68,0.1); }
 
 /* ─── KPI Detail Cards ───────────────────────────────── */
 .kpi-details {
