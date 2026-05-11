@@ -29,7 +29,7 @@ jobs:
           node-version: 20
 
       - name: Encrypt HTML with StatiCrypt
-        run: npx staticrypt@3 index.html planner.html portfolio.html lna.html coach.html dashboard.html -p "${{ secrets.STATICRYPT_PASSWORD }}" --remember 30 --template-title "PedaForge" --template-instructions "Enter the password to access PedaForge." --template-color-primary "#e8063c" --template-color-secondary "#2D2A5E" --short
+        run: npx staticrypt@3 index.html planner.html portfolio.html lna.html coach.html dashboard.html -p "${{ secrets.STATICRYPT_PASSWORD }}" --remember 30 --template-title "PedaForge" --template-instructions "Enter the password to access PedaForge." --template-color-primary "#e8063c" --template-color-secondary "#2D2A5E" --short -d .
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
