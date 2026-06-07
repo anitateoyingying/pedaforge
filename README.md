@@ -198,7 +198,7 @@ The dashboard gives centre directors and pedagogical leaders a real-time, data-i
 +------------------------------------------------------------------+
 ```
 
-The architecture follows a standard three-tier pattern with clear separation between the presentation layer (Angular), the API and AI service layer (FastAPI), and the data persistence layer (PostgreSQL).
+The architecture follows a standard three-tier pattern with clear separation between the presentation layer (React), the API and AI service layer (FastAPI), and the data persistence layer (PostgreSQL).
 
 **Key architectural decisions:**
 
@@ -243,7 +243,7 @@ The AI pipeline processes input through five stages:
 
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
-| Frontend | Angular, TypeScript, TailwindCSS, Chart.js | Enterprise-grade SPA with component-based architecture and rich ecosystem |
+| Frontend | React, TypeScript, TailwindCSS, Chart.js | Enterprise-grade SPA with component-based architecture and rich ecosystem |
 | Backend | Python 3.11+, FastAPI, Uvicorn | Async API server with SSE streaming support |
 | AI / LLM | GPT-4.1-mini via Azure OpenAI (OpenAI SDK) | Cost-efficient lesson generation, coaching, narrative drafting, alignment mapping |
 | Embeddings | sentence-transformers (all-MiniLM-L6-v2) | Dense vector representations for semantic search |
@@ -415,7 +415,7 @@ PedaForge defines six primary KPIs, each with a specific target, measurement met
 | Role | FTE | Responsibilities |
 |------|-----|-----------------|
 | **Project Lead** | 0.3 | Overall timeline and budget management. Stakeholder communication with ECDA, pilot centres, and institutional partners. Risk management. Leads evaluation and impact reporting. |
-| **Technical Lead** | 1.0 | Full-stack development (FastAPI, Angular). AI integration via Azure OpenAI and prompt engineering. System architecture, database design, security, and deployment on Azure. |
+| **Technical Lead** | 1.0 | Full-stack development (FastAPI, React). AI integration via Azure OpenAI and prompt engineering. System architecture, database design, security, and deployment on Azure. |
 | **Pedagogical Specialist** | 0.2 | EYDF, NEL, QTT, and SFw domain expertise. Validation of AI-generated content against curriculum standards. Coaching mode design. Educator training facilitation. |
 
 ### Advisory

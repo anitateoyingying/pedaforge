@@ -60,7 +60,7 @@ h1, h2, h3, .kpi-value {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-/* ─── Background — ECE Motifs ──────────────────────── */
+/* ─── Background - ECE Motifs ──────────────────────── */
 .bg-blobs {
   position: fixed; inset: 0; overflow: hidden; z-index: -1; pointer-events: none;
 }
@@ -2483,7 +2483,7 @@ select.form-control {
 .hidden { display: none; }
 
 /* ════════════════════════════════════════════════════════════
-   THREE-PROPOSAL RESTRUCTURE — accent namespaces + new components
+   THREE-PROPOSAL RESTRUCTURE - accent namespaces + new components
    ════════════════════════════════════════════════════════════ */
 
 /* ─── Per-hub accent namespaces ──────────────────────────────

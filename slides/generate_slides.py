@@ -380,7 +380,7 @@ def create_presentation():
                  size=26, bold=True, color=SECONDARY)
 
     stack = [
-        ("Frontend", "Angular, TypeScript, TailwindCSS", INFO),
+        ("Frontend", "React, TypeScript, TailwindCSS", INFO),
         ("Backend", "Python 3.11+, FastAPI, Uvicorn", PRIMARY),
         ("AI / LLM", "GPT-4.1-mini via Azure OpenAI", ACCENT),
         ("Database", "PostgreSQL (children, plans, portfolios)", RGBColor(0x8B, 0x5C, 0xF6)),
