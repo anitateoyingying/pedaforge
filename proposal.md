@@ -19,7 +19,7 @@ Source proposals (in `/home/dmgadmin/sandbox/submission/`):
 | **Audience** | Educators (child-facing pedagogy) | Educators + Centre Directors (professional growth) | Infant–K2 teachers, Directors, HQ admins (physical environment & resources) |
 | **Budget** | $110,000 | $120,000 | $150,000 (Category A) |
 | **Modules** | 1) Profile-Driven Smart Lesson Planning  2) Authentic Portfolio & Dynamic Profiling | 1) QTT-Aligned Coaching Agent  2) Full-Cycle AI Lesson Observation  3) Director's 3-step Curriculum Leadership | 1) Interactive Layout Planner  2) Active Resource Inventory Portal (QR)  3) Leadership & Org Control |
-| **Stack** | React + FastAPI + Azure AI Enclave | React + FastAPI + Azure AI Enclave | React + FastAPI + QR (AI-light, integration-led) |
+| **Stack** | React + FastAPI + Azure AI Enclave | React + FastAPI + Azure AI Enclave | React + FastAPI + QR + Azure AI Enclave (custom build on shared libraries; AI ~30-40%) |
 | **Hardware** | 55 tablets (5 × 11 centres) | 11 high-performance laptops (Directors) | 11 QR scanners, 11 tablets, thermal printers, 20k QR tags |
 | **Headline KPIs** | Docs 8h→<3h/wk; 100% lessons differentiated for 2+ profiles; 100% work samples tagged to EYDF/NEL <60s | 85% agree AI-IDP reflects growth vs SFw; 100% do 2+ coaching cycles/wk; 100% gaps→PLC/mentoring | 50% faster layout planning; 75% less inventory search; 35% less duplicate purchasing; 220+ handmade resources; 100% first-time safety approval |
 
@@ -54,7 +54,7 @@ Reasoning: preserves all existing work (7 pages share one asset layer), tells as
 - `observation.html` - **NEW** demo: Full-Cycle AI Lesson Observation - Pre-Observation (surfaces IDP goals, recommends QTT domains), Actual Observation (multimodal capture on HQ device, AI tags evidence to QTT indicators), Post-Observation (AI feedback summary + follow-up plan).
 
 **SproutSpace**  (accent: green/teal - new sub-brand, environment theme)
-- `sproutspace.html` - **NEW** hub: problem, 3 modules, React + FastAPI + QR stack (same foundation as the other two; AI-light, integration-led), Category A, detailed $150k budget (Software/Eng $108k + Cloud $14.4k + Equipment $15.6k + Training $8k + Evaluation $4k), equipment list, timeline, KPIs, team.
+- `sproutspace.html` - **NEW** hub: problem, 3 modules, React + FastAPI + QR stack (same foundation as the other two; a custom build standing on permissive OSS libraries, with AI ~30-40%), Category A, detailed $150k budget (Software/Eng $108k + Cloud $14.4k + Equipment $15.6k + Training $8k + Evaluation $4k), equipment list, timeline, KPIs, team.
 - `sproutspace-layout.html` - **NEW** demo: Interactive Layout Planner (drag-and-drop floor-plan canvas, age-group selector Infant/Toddler/Playgroup/N1/N2/K1/K2, to-scale furniture, safety/visibility-hazard warnings, brand-guideline presets).
 - `sproutspace-inventory.html` - **NEW** demo: Active Resource Inventory Portal (categorization matrix by age/usage/learning category, QR check-in/out with condition rating, Handmade Resource Repository).
 - `sproutspace-control.html` - **NEW** demo: Leadership & Organization Control (push safety/design standards to all branches, smart procurement dashboards with usage/durability charts).
@@ -73,7 +73,7 @@ The existing `index.html` carries **stale** figures that must be rewritten per h
 - Old budget **$21,000** → replaced by $110k / $120k / $150k per hub.
 - Old generic KPIs (60% doc time / 100% differentiated / 85% IDP / 2× coaching) → each hub uses ITS proposal's KPIs (see table §1).
 - Old "five integrated modules" framing → split into 2 (Classroom) + 3 (Leadership) + 3 (SproutSpace).
-- Architecture: all three are built on React + FastAPI; Classroom/Leadership are AI-token-heavy with the Azure AI Enclave, SproutSpace is the same stack but AI-light and QR/integration-led.
+- Architecture: all three are built on React + FastAPI; Classroom/Leadership are AI-token-heavy with the Azure AI Enclave, SproutSpace is the same stack and AI enclave but the broadest custom build (drag-drop canvas, QR, dashboards) standing on permissive OSS libraries, with AI used purposefully (~30-40%) for compliance copilot, vision tagging and procurement forecasting. SproutSpace is NOT a tools-integration project: the $108k software line is engineering, not licensing.
 - Budgets must be independently fundable - **no double-counting** shared Azure tenant costs across Classroom and Leadership budgets.
 
 ---
