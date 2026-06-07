@@ -150,7 +150,11 @@ h1, h2, h3, .kpi-value {
   font-size: 1.25rem;
   color: var(--secondary);
   font-family: 'Playfair Display', serif;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
+
+.navbar .nav-links { flex-wrap: nowrap; }
 
 .navbar-brand .logo {
   width: 36px;
