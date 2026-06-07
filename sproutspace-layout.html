@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SproutSpace Interactive Layout Planner: design age-appropriate, safe classroom layouts with live safety checks for sightlines, spacing, and evacuation paths.">
+  <title>SproutSpace: Interactive Layout Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="hub-sproutspace">
+<div class="bg-blobs" aria-hidden="true">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+  <div class="bg-blob bg-blob-4"></div>
+  <div class="bg-blob bg-blob-5"></div>
+  <div class="bg-blob bg-blob-6"></div>
+</div>
+
+  <!-- ─── Navigation (umbrella) ─────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><div class="logo">EC</div> ECE Sandbox</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><span class="nav-dropdown-trigger">Classroom</span><div class="nav-dropdown">
+          <a href="classroom.html">Proposal Overview</a><a href="planner.html">Lesson Planner</a><a href="portfolio.html">Portfolio</a><a href="work-sample.html">Work Sample Interpretation</a></div></li>
+        <li><span class="nav-dropdown-trigger">Leadership</span><div class="nav-dropdown">
+          <a href="leadership.html">Proposal Overview</a><a href="coach.html">AI Coach</a><a href="lna.html">Learning Needs Analysis</a><a href="observation.html">AI Lesson Observation</a><a href="dashboard.html">Leadership Dashboard</a></div></li>
+        <li><span class="nav-dropdown-trigger">SproutSpace</span><div class="nav-dropdown">
+          <a href="sproutspace.html">Proposal Overview</a><a href="sproutspace-layout.html" class="active">Layout Planner</a><a href="sproutspace-inventory.html">Resource Inventory</a><a href="sproutspace-control.html">Leadership Control</a></div></li>
+        <li><a href="index.html#compliance">Compliance</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- ─── Page Header ───────────────────────────────────────── -->
+  <header class="page-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>&#8250;</span>
+        <a href="sproutspace.html">SproutSpace</a>
+        <span>&#8250;</span>
+        <span class="current">Layout Planner</span>
+      </div>
+      <span class="hub-pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        SproutSpace
+      </span>
+      <h1>Interactive Layout Planner</h1>
+      <p>Drag furniture and learning zones onto a to-scale floor plan, choose the age group, and let SproutSpace run live safety checks for sightlines, spacing, and clear evacuation paths before any layout goes to a Centre Director for approval.</p>
+      <div class="mt-2">
+        <a href="sproutspace.html" class="btn btn-secondary btn-sm">&larr; Back to SproutSpace</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Main Content ──────────────────────────────────────── -->
+  <main class="container main-content-spacing">
+
+    <!-- Layout shell: palette | canvas | inspector -->
+    <div class="layout-shell">
+
+      <!-- ─── Left: Furniture & Zones palette ─────────── -->
+      <div class="layout-palette">
+        <h3>Furniture &amp; Zones</h3>
+        <p class="profile-meta" style="margin-bottom:14px;">Drag an item onto the canvas to place it.</p>
+
+        <div class="palette-item">
+          <span class="palette-swatch" style="background:#8b5cf6;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+          </span>
+          Storage Shelf
+        </div>
+
+        <div class="palette-item">
+          <span class="palette-swatch" style="background:var(--info);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="9" rx="1"/><line x1="6" y1="15" x2="6" y2="20"/><line x1="18" y1="15" x2="18" y2="20"/></svg>
+          </span>
+          Activity Table
+        </div>
+
+        <div class="palette-item">
+          <span class="palette-swatch" style="background:var(--sprout);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          Soft Rug / Circle
+        </div>
+
+        <div class="palette-item">
+          <span class="palette-swatch" style="background:var(--accent-warm);">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </span>
+          Reading Corner
+        </div>
+
+        <div class="palette-item">
+          <span class="palette-swatch" style="background:#64748b;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5S5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+          </span>
+          Water / Sink
+        </div>
+
+        <div class="palette-item">
+          <span class="palette-swatch" style="background:#94a3b8;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561z"/></svg>
+          </span>
+          Door / Exit
+        </div>
+
+        <p class="profile-meta" style="margin-top:14px;line-height:1.5;">Items snap to the 0.5&nbsp;m grid. Tall furniture is auto-flagged where it would block a child sightline.</p>
+      </div>
+
+      <!-- ─── Centre: Canvas ──────────────────────────── -->
+      <div class="layout-canvas-wrap">
+        <div class="layout-toolbar">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <label for="ageGroup" class="profile-meta" style="font-weight:600;">Age group</label>
+            <select class="age-select" id="ageGroup">
+              <option value="ic">Infant Care</option>
+              <option value="pg">Playgroup</option>
+              <option value="n1">Nursery N1</option>
+              <option value="n2">Nursery N2</option>
+              <option value="k1" selected>Kindergarten K1</option>
+              <option value="k2">Kindergarten K2</option>
+            </select>
+          </div>
+          <span class="profile-meta">Scale: 1 grid = 0.5&nbsp;m</span>
+        </div>
+
+        <div class="layout-canvas">
+          <!-- Zone labels -->
+          <span class="zone-label" style="top:6%;left:6%;">Reading Corner</span>
+          <span class="zone-label" style="top:6%;right:6%;">Construction</span>
+
+          <!-- Educator sightline (dashed circle, line of sight from the centre) -->
+          <div class="sightline" style="top:14%;left:18%;width:64%;height:72%;"></div>
+
+          <!-- Storage shelves along the walls (kept low, &lt;1.2m, to preserve visibility) -->
+          <div class="furn shelf" style="top:2%;left:34%;width:30%;height:7%;">Low Shelf</div>
+          <div class="furn shelf" style="top:30%;left:1.5%;width:7%;height:38%;">Shelf</div>
+
+          <!-- Reading corner (soft seating, top-left) -->
+          <div class="furn reading" style="top:11%;left:5%;width:22%;height:20%;">Reading Corner</div>
+
+          <!-- Construction / block area shelf (top-right, low) -->
+          <div class="furn shelf" style="top:11%;right:5%;width:20%;height:9%;">Block Shelf</div>
+
+          <!-- Soft rug / circle-time area in the middle -->
+          <div class="furn rug" style="top:38%;left:38%;width:24%;height:26%;border-radius:50%;">Circle Rug</div>
+
+          <!-- Activity tables flanking the rug -->
+          <div class="furn table" style="top:40%;right:6%;width:18%;height:13%;">Activity Table</div>
+          <div class="furn table" style="top:70%;left:30%;width:22%;height:11%;">Activity Table</div>
+
+          <!-- Water / sink against the wall -->
+          <div class="furn sink" style="bottom:3%;right:6%;width:16%;height:8%;">Sink</div>
+
+          <!-- Door / exit -->
+          <div class="furn door" style="bottom:2%;left:6%;width:14%;height:7%;">Door / Exit</div>
+        </div>
+
+        <p class="profile-meta" style="margin-top:12px;line-height:1.55;">
+          K1 reference layout &middot; 60&nbsp;m&sup2; room. Shelves sit along the walls under 1.2&nbsp;m so the educator keeps a clear view across the room; the circle rug anchors group time at the centre.
+        </p>
+      </div>
+
+      <!-- ─── Right: Live Safety Check inspector ──────── -->
+      <div class="layout-inspector">
+        <h3>Live Safety Check</h3>
+
+        <div class="safety-flag ok">
+          <span class="safety-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </span>
+          <span>Clear sightline maintained across the room.</span>
+        </div>
+
+        <div class="safety-flag warn">
+          <span class="safety-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF9E18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </span>
+          <span>Shelf near window &mdash; keep under 1.2&nbsp;m for visibility.</span>
+        </div>
+
+        <div class="safety-flag ok">
+          <span class="safety-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </span>
+          <span>Two clear evacuation paths to the exit.</span>
+        </div>
+
+        <!-- Brand guideline presets -->
+        <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border);">
+          <h3 style="margin-bottom:12px;">Brand Guideline Presets</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="toggle-pill">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Busy Bees palette applied
+            </span>
+            <span class="toggle-pill" style="background:rgba(156,163,175,0.15);color:var(--text-muted);">
+              Minimalist theme
+            </span>
+          </div>
+          <p class="profile-meta" style="margin-top:10px;line-height:1.5;">Presets keep colours, signage, and furniture finishes consistent across all 11 centres.</p>
+        </div>
+
+        <button class="btn btn-primary mt-3" style="width:100%;justify-content:center;background:var(--sprout);border-color:var(--sprout);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          Submit Layout for Approval
+        </button>
+      </div>
+
+    </div>
+
+    <!-- ─── How the planner enforces safe, age-appropriate spaces ─── -->
+    <div class="panel-card mt-4">
+      <div class="section-header" style="text-align:left;margin-bottom:24px;">
+        <span class="section-label" style="color:var(--sprout);">Built-In Safeguards</span>
+        <h2 style="font-size:1.5rem;">How the Planner Keeps Every Layout Safe</h2>
+        <p style="margin:0;">SproutSpace turns ECDA and SCDF licensing requirements into live, visual rules. Each placement is checked against the selected age group, so a layout cannot be submitted for approval until it is age-appropriate, visible, and evacuable.</p>
+      </div>
+
+      <div class="two-col-grid">
+
+        <div>
+          <h4 style="font-size:1rem;color:var(--secondary);display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="width:34px;height:34px;border-radius:9px;background:var(--sprout-soft);color:var(--sprout-dark);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            Age-appropriate spacing
+          </h4>
+          <p style="font-size:0.9rem;color:var(--text-light);line-height:1.6;">Each age group carries its own ratio and floor-area rules. Selecting <strong>Kindergarten K1</strong> sets the minimum per-child area and caps furniture density, so the room never exceeds the licensed capacity for that band &mdash; from Infant Care through K2.</p>
+        </div>
+
+        <div>
+          <h4 style="font-size:1rem;color:var(--secondary);display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="width:34px;height:34px;border-radius:9px;background:var(--sprout-soft);color:var(--sprout-dark);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            Supervision &amp; visibility
+          </h4>
+          <p style="font-size:0.9rem;color:var(--text-light);line-height:1.6;">The planner traces the educator&rsquo;s line of sight and flags any furniture over 1.2&nbsp;m that would create a blind spot. Tall storage is pushed to the perimeter so children remain visible from the circle area at all times.</p>
+        </div>
+
+        <div>
+          <h4 style="font-size:1rem;color:var(--secondary);display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="width:34px;height:34px;border-radius:9px;background:var(--sprout-soft);color:var(--sprout-dark);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.562v16.157a1 1 0 0 1-1.242.97L5 20V5.562a2 2 0 0 1 1.515-1.94l4-1A2 2 0 0 1 13 4.561z"/></svg>
+            </span>
+            Clear evacuation paths
+          </h4>
+          <p style="font-size:0.9rem;color:var(--text-light);line-height:1.6;">SCDF rules require unobstructed routes to every exit. The planner keeps a minimum walkway width clear of furniture and confirms at least two independent paths reach the door before a layout can be submitted.</p>
+        </div>
+
+        <div>
+          <h4 style="font-size:1rem;color:var(--secondary);display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="width:34px;height:34px;border-radius:9px;background:var(--sprout-soft);color:var(--sprout-dark);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </span>
+            Mapped to safety KPIs
+          </h4>
+          <p style="font-size:0.9rem;color:var(--text-light);line-height:1.6;">Every check feeds the sandbox KPI of <strong>100% first-time classroom-layout safety approval</strong>, while reusable, pre-validated templates cut planning time by <strong>50%</strong> &mdash; Centre Directors approve digitally rather than re-measuring on paper.</p>
+        </div>
+
+      </div>
+
+      <div class="narrative-box mt-3">
+        <span class="narrative-label">Why it matters</span>
+        <p class="narrative-text">By the time a layout reaches a Centre Director, the hard safety questions are already answered. Educators spend their energy on the pedagogy of the space &mdash; provocations, flow between zones, quiet versus active areas &mdash; not on chasing compliance, and HQ gains a consistent, evidence-based record of every room across the network.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ─── Footer ────────────────────────────────────────────── -->
+  <footer class="footer"><div class="container"><div class="footer-grid">
+    <div><h4>ECE Innovation Sandbox</h4><p>Three AI-enabled proposals from one Singapore early childhood operator, aligned with ECDA's IDP 2.0 vision for future-ready preschools.</p></div>
+    <div><h4>Classroom</h4><ul><li><a href="classroom.html">Proposal Overview</a></li><li><a href="planner.html">Lesson Planner</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="work-sample.html">Work Sample Interpretation</a></li></ul></div>
+    <div><h4>Leadership</h4><ul><li><a href="leadership.html">Proposal Overview</a></li><li><a href="coach.html">AI Coach</a></li><li><a href="lna.html">Learning Needs Analysis</a></li><li><a href="observation.html">AI Lesson Observation</a></li><li><a href="dashboard.html">Leadership Dashboard</a></li></ul></div>
+    <div><h4>SproutSpace</h4><ul><li><a href="sproutspace.html">Proposal Overview</a></li><li><a href="sproutspace-layout.html">Layout Planner</a></li><li><a href="sproutspace-inventory.html">Resource Inventory</a></li><li><a href="sproutspace-control.html">Leadership Control</a></li></ul></div>
+  </div><div class="footer-bottom"><span>&copy; 2026 Busy Bees &middot; Prepared by Anita Teo</span><div class="footer-badges"><span class="footer-badge">PDPA Compliant</span><span class="footer-badge">SG Data Residency</span></div></div></div></footer>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="hub-classroom">
 <div class="bg-blobs" aria-hidden="true">
   <div class="bg-blob bg-blob-1"></div>
   <div class="bg-blob bg-blob-2"></div>
@@ -24,32 +24,40 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container">
       <a href="index.html" class="navbar-brand">
-        <div class="logo">PF</div>
-        PedaForge
+        <div class="logo">EC</div>
+        ECE Sandbox
       </a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li>
-          <span class="nav-dropdown-trigger">Proposal</span>
+          <span class="nav-dropdown-trigger">Classroom</span>
           <div class="nav-dropdown">
-            <a href="index.html#features">Features</a>
-            <a href="index.html#coaching">Coaching</a>
-            <a href="index.html#architecture">Architecture</a>
-            <a href="index.html#timeline">Timeline</a>
-            <a href="index.html#budget">Budget</a>
-            <a href="index.html#team">Team</a>
+            <a href="classroom.html">Proposal Overview</a>
+            <a href="planner.html">Lesson Planner</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="work-sample.html">Work Sample Interpretation</a>
           </div>
         </li>
         <li>
-          <span class="nav-dropdown-trigger">Demos</span>
+          <span class="nav-dropdown-trigger">Leadership</span>
           <div class="nav-dropdown">
-            <a href="planner.html">Lesson Planner</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="lna.html">Learning Needs Analysis</a>
+            <a href="leadership.html">Proposal Overview</a>
             <a href="coach.html">AI Coach</a>
-            <a href="dashboard.html">Dashboard</a>
+            <a href="lna.html">Learning Needs Analysis</a>
+            <a href="observation.html">AI Lesson Observation</a>
+            <a href="dashboard.html">Leadership Dashboard</a>
           </div>
         </li>
+        <li>
+          <span class="nav-dropdown-trigger">SproutSpace</span>
+          <div class="nav-dropdown">
+            <a href="sproutspace.html">Proposal Overview</a>
+            <a href="sproutspace-layout.html">Layout Planner</a>
+            <a href="sproutspace-inventory.html">Resource Inventory</a>
+            <a href="sproutspace-control.html">Leadership Control</a>
+          </div>
+        </li>
+        <li><a href="index.html#compliance">Compliance</a></li>
       </ul>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">&#9776;</button>
     </div>
@@ -62,6 +70,8 @@
     <div class="container">
       <div class="breadcrumb">
         <a href="index.html">Home</a>
+        <span>&rsaquo;</span>
+        <a href="classroom.html">Classroom</a>
         <span>&rsaquo;</span>
         <span class="current">Portfolio</span>
       </div>
@@ -531,39 +541,40 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <h4>PedaForge</h4>
-          <p>An AI-powered pedagogical development platform purpose-built for Singapore's early childhood education sector. Aligned with ECDA's IDP 2.0 vision to uplift educator capabilities through technology-enabled professional growth.</p>
+          <h4>ECE Innovation Sandbox</h4>
+          <p>Three AI-enabled proposals from one Singapore early childhood operator, aligned with ECDA's IDP 2.0 vision for future-ready preschools.</p>
         </div>
         <div>
-          <h4>Demos</h4>
+          <h4>Classroom</h4>
           <ul>
+            <li><a href="classroom.html">Proposal Overview</a></li>
             <li><a href="planner.html">Lesson Planner</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="lna.html">Learning Needs Analysis</a></li>
+            <li><a href="work-sample.html">Work Sample Interpretation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Leadership</h4>
+          <ul>
+            <li><a href="leadership.html">Proposal Overview</a></li>
             <li><a href="coach.html">AI Coach</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="lna.html">Learning Needs Analysis</a></li>
+            <li><a href="observation.html">AI Lesson Observation</a></li>
+            <li><a href="dashboard.html">Leadership Dashboard</a></li>
           </ul>
         </div>
         <div>
-          <h4>Frameworks</h4>
+          <h4>SproutSpace</h4>
           <ul>
-            <li><a href="index.html#features">EYDF</a></li>
-            <li><a href="index.html#features">NEL</a></li>
-            <li><a href="index.html#coaching">QTT</a></li>
-            <li><a href="index.html#team">SFw for ECCE</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Compliance</h4>
-          <ul>
-            <li><a href="index.html#architecture">PDPA</a></li>
-            <li><a href="index.html#architecture">Azure SG Region</a></li>
-            <li><a href="index.html#architecture">Zero Public AI Training</a></li>
+            <li><a href="sproutspace.html">Proposal Overview</a></li>
+            <li><a href="sproutspace-layout.html">Layout Planner</a></li>
+            <li><a href="sproutspace-inventory.html">Resource Inventory</a></li>
+            <li><a href="sproutspace-control.html">Leadership Control</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 PedaForge; Anita Teo</span>
+        <span>&copy; 2026 Busy Bees &middot; Prepared by Anita Teo</span>
         <div class="footer-badges">
           <span class="footer-badge">PDPA Compliant</span>
           <span class="footer-badge">SG Data Residency</span>
