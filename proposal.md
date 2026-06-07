@@ -135,9 +135,25 @@ Each new page is built to match the existing clay-neumorphic design system (Outf
 
 ---
 
-## 8. Open decisions for Anita (needed before Phase E)
+## 8. Decisions for Anita (resolved)
 
-1. **Docx output:** three separate filled application forms (recommended - each is a distinct ECDA submission), or one combined?
-2. **Project Start Date** for the form (projects must commence by Jan 2027 - e.g. "01 Jan 2027"?).
-3. **Main Contact Person / Email** for the form fields.
-4. **Operator / pilot-centre naming:** use "Busy Bees" + "11 pilot centres" as in the PDFs, or anonymise?
+1. **Docx output:** three separate filled application forms (one per proposal). RESOLVED - three forms generated.
+2. **Project Start Date:** **01 Jan 2027** (commence by Jan 2027; final report 12 months after). RESOLVED.
+3. **Main Contact Person / Email:** Anita Teo / **xxx@busybees.com.sg**. RESOLVED (email is a confirmed placeholder).
+4. **Operator / pilot-centre naming:** **Busy Bees** + **11 pilot centres**, as in the source PDFs. RESOLVED.
+
+---
+
+## 9. SproutSpace: build vs integrate (resolved 2026-06-07)
+
+**Decision:** SproutSpace is a **custom build** on the shared React + FastAPI + Azure stack, **not** a tools-integration project. It stands on permissive open-source *libraries* (canvas/scene-graph for the layout planner, a public-domain visibility-polygon algorithm for line-of-sight checks, a charting library for dashboards, QR scan + label generation) for the commodity surfaces, and spends the salaried engineering months on the bespoke IP: the ECDA per-child-area/ratio + SCDF two-exit safety-rule engine, the ECE taxonomy, the Handmade Resource Repository, and the HQ standards-push + approval workflow. AI is **purposeful (~30-40%)**, not "light."
+
+**Why** (build-vs-integrate research, all 3 modules came back "build", high confidence):
+- No open-source app covers a *majority* of any module's value with a usable licence and matching stack. Mature OSS was evaluated and rejected as the base: inventory (Snipe-IT, Shelf.nu, InvenTree) is built for IT assets, has no ECE/ECDA/SCDF logic, and the closest fit (Shelf.nu) is AGPL + cloud-coupled; BI tools (Metabase, Superset) cover only the ~40% read-only charts of the leadership module and add a second runtime + auth bridge; the furniture-rich layout planners are GPL/Java or the wrong framework.
+- The **$108k software line** (2 devs x 9 months + designer) is an **engineering** line, not a licensing line - there is nothing to license. Budget unchanged; only the narrative was corrected to match it.
+- This is also a stronger grant story under ECDA's *novelty* and *value-for-money* criteria: "we spent the grant building Singapore-regulation-aware safety IP" beats "we wired three off-the-shelf tools together."
+
+**Still open (for Anita / CEO - not blocking, but sharpen the proposal):**
+1. **Scale beyond pilot?** Will SproutSpace scale past the 11 centres / be productised? That is the main condition that could re-open integrating a mature inventory engine for Module 2. A fixed 12-month internal pilot favours the custom build as written.
+2. **Safety-rule source & sign-off.** Where exactly are the ECDA per-child-area/ratio and SCDF two-exit/walkway rules sourced, and who signs off the encoded thresholds are correct? This is the load-bearing IP and the main liability - author from official source documents, keep the Centre Director human-in-the-loop, and treat AI/automated checks as advisory and auditable, never legally authoritative.
+3. **AI inference budget.** Confirm the ~30-40% AI uplift is covered by the existing Azure OpenAI enclave with no incremental token line, or whether the S$14.4k cloud line needs a small AI-inference allocation.
