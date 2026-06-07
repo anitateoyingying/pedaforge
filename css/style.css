@@ -32,7 +32,7 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 18px; }
 
 body {
   font-family: var(--font);
@@ -2863,3 +2863,36 @@ body.hub-sproutspace {
 /* generic two-col hub layout used by observation + sproutspace demos */
 .demo-two-col { display: grid; grid-template-columns: 1fr 340px; gap: 24px; align-items: start; }
 @media (max-width: 1024px) { .demo-two-col { grid-template-columns: 1fr; } }
+
+/* ════════════════════════════════════════════════════════════
+   Softer container framing — drop top & right borders so cards
+   read as crafted rather than uniformly boxed. Left + bottom
+   borders remain for a light, editorial edge.
+   ════════════════════════════════════════════════════════════ */
+.feature-card,
+.problem-card,
+.panel-card,
+.dash-panel,
+.proposal-card,
+.module-card,
+.connect-node,
+.obs-stage-card,
+.inv-card,
+.layout-palette,
+.layout-inspector,
+.layout-canvas-wrap,
+.ws-panel,
+.sidebar-panel,
+.step-card,
+.framework-item,
+.observation-card,
+.suggestion-card,
+.kpi-card,
+.kpi-detail-card,
+.team-card,
+.control-row,
+.pd-card,
+.dash-stat {
+  border-top: none;
+  border-right: none;
+}
