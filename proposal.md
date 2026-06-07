@@ -157,3 +157,27 @@ Each new page is built to match the existing clay-neumorphic design system (Outf
 1. **Scale beyond pilot?** Will SproutSpace scale past the 11 centres / be productised? That is the main condition that could re-open integrating a mature inventory engine for Module 2. A fixed 12-month internal pilot favours the custom build as written.
 2. **Safety-rule source & sign-off.** Where exactly are the ECDA per-child-area/ratio and SCDF two-exit/walkway rules sourced, and who signs off the encoded thresholds are correct? This is the load-bearing IP and the main liability - author from official source documents, keep the Centre Director human-in-the-loop, and treat AI/automated checks as advisory and auditable, never legally authoritative.
 3. **AI inference budget.** Confirm the ~30-40% AI uplift is covered by the existing Azure OpenAI enclave with no incremental token line, or whether the S$14.4k cloud line needs a small AI-inference allocation.
+
+---
+
+## 10. PedaForge Home - the fourth proposal (added 2026-06-07)
+
+**PedaForge Home: The Home-School Literacy Bridge.** Budget **S$140,000**, 12 months, accent teal **#0E8FA8**. The FAMILY proposal - serves the home-school literacy bridge (Classroom serves the child, Leadership the educator, SproutSpace the environment, Home the family).
+
+**Problem:** young children's English-language standards and love of reading hinge on the home, yet families and centres work in isolation with no shared reading benchmark. SG evidence: the home literacy environment (shared-reading frequency + child reading interest) is the strongest predictor of early word-reading (Sun & Ng ~1,440-child study; validated 4-factor SG HLE model). Compounds at K2->P1 (English becomes medium of instruction).
+
+**5 modules** (each with a demo page): 1) Phonics Studio & Decodable Reader Library (`home-phonics-studio.html`); 2) Termly Benchmarking & Home-School Reading Bridge - formative, score-free (`home-benchmark.html`); 3) Automated AI Reading Coach & Self-Tracking - Azure AI Speech, advisory + teacher-confirmed, child self-monitoring (`home-reading-coach.html`); 4) Draw, Write & Reflect SEL writing portal (`home-draw-reflect.html`); 5) Talking Dictionary & Word Recognition - Azure Neural TTS (`home-dictionary.html`). Hub: `home.html`.
+
+**Build:** same React + FastAPI + PostgreSQL + Azure OpenAI (SG, PDPA, RBAC, Zero Public AI Training) stack. BUY undifferentiated infra (Azure AI Speech pronunciation assessment, Azure Neural TTS, a licensed decodable/levelled reader subscription, an OSS canvas lib); BUILD the proprietary pedagogy (phonics scope-and-sequence, bespoke decodables = the fundable IP, the termly benchmark model, SEL reflection model, kid-dictionary state machine, consent/PDPA). AI value highest in M3/M5 (~50%+).
+
+**Budget (S$140,000):** Software & Engineering S$92,000; Reader/Content Subscription Licensing S$16,000; Cloud + AI & Speech Inference S$15,000; Family Devices & Pilot Equipment S$8,000; Training & Change Management (staff + families) S$5,000; Project Evaluation & Review S$4,000. (Note: reader-subscription licensing + speech inference are real cost lines unique to this proposal.)
+
+**Headline KPIs:** weekly shared-reading families ~25% -> 70%; 75% of children advance >=1 reading-benchmark band across two terms; love-of-reading disposition +0.6 (5-pt pictorial survey), 80%+ at "enjoy". All formative - NOT high-stakes testing of young children.
+
+**Aligns:** NEL 2022 Language & Literacy (3 Cs) + iTeach; SEL; complements NLB programmes (Early READ, kidsREAD@Home, Let's Read, Read@School); staff capability via SFw for ECCE / WSQ; EYDF for youngest readers.
+
+**Differentiation:** unlike child-facing apps (Reading Eggs, Epic, Khan Academy Kids, NLB Let's Read), PedaForge Home is the home-SCHOOL bridge - one shared parent+teacher termly evidence picture, operator-owned phonics IP + bespoke decodables, child self-monitoring for 5-6yos, SEL-integrated writing, and locally teacher-confirmed AI reading coaching.
+
+**Open questions (for Anita - not blocking):** (1) which decodable/levelled reader corpus to license + per-seat price; how many bespoke decodables the literacy lead can author/vet in 12 months. (2) Azure Speech fit for 5-6yo Singapore-accented voices - collect an early teacher-scored calibration set; en-US vs en-GB/en-AU. (3) does Busy Bees have an in-house reading benchmark, or co-design one mapped to NEL Language & Literacy. (4) PDPA/parental consent for children's voice clips, drawings, reflections at home; device-pool eligibility. (5) verify the ~25% shared-reading and ~30% engagement baselines against actual home-reading-return data. (6) no verified SG screen-time statistic - frame the portal as a purposeful nightly routine, do not assert a figure.
+
+Research saved at `submission/pedaforge_home_research.json`. ECDA form: `submission/PedaForge_Home_Application.docx`.
