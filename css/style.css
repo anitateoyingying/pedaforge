@@ -2869,9 +2869,9 @@ body.hub-sproutspace {
 @media (max-width: 1024px) { .demo-two-col { grid-template-columns: 1fr; } }
 
 /* ════════════════════════════════════════════════════════════
-   Softer container framing — drop top & right borders so cards
-   read as crafted rather than uniformly boxed. Left + bottom
-   borders remain for a light, editorial edge.
+   Softer container framing — drop the hard box border entirely and
+   let a quiet shadow define each surface. (An earlier half-border
+   left an L-shaped edge that clashed with cards' coloured accents.)
    ════════════════════════════════════════════════════════════ */
 .feature-card,
 .problem-card,
@@ -2894,9 +2894,15 @@ body.hub-sproutspace {
 .kpi-card,
 .kpi-detail-card,
 .team-card,
-.control-row,
 .pd-card,
 .dash-stat {
-  border-top: none;
-  border-right: none;
+  border: none;
+  box-shadow: 0 1px 2px rgba(45,42,94,0.04), 0 6px 18px rgba(45,42,94,0.06);
+}
+
+/* control-row keeps a full hairline border — it reads as a list row,
+   not a floating card, so a shadow would look wrong. */
+.control-row {
+  border-top: 1px solid var(--border);
+  border-right: 1px solid var(--border);
 }
