@@ -609,86 +609,40 @@
     commit(p.items.map(function (i) { return mkItem(i.type, i.x, i.y, i.w, i.h); }));
   }
 
-  /* Cloud persistence (Supabase, RLS-scoped to the signed-in user).
-     Falls back to localStorage if the data layer is unavailable. */
-  var savedRows = [];
-
+  function loadSaved() {
+    try { return JSON.parse(localStorage.getItem(LS_KEY) || '[]'); }
+    catch (e) { return []; }
+  }
   function refreshSavedList() {
+    var saved = loadSaved();
     savedSel.innerHTML = '';
     var opt0 = document.createElement('option');
-    opt0.value = ''; opt0.textContent = savedRows.length ? 'My saved layouts…' : 'No saved layouts yet';
+    opt0.value = ''; opt0.textContent = saved.length ? 'My saved layouts…' : 'No saved layouts yet';
     savedSel.appendChild(opt0);
-    savedRows.forEach(function (s, i) {
+    saved.forEach(function (s, i) {
       var o = document.createElement('option');
-      o.value = String(i);
-      o.textContent = s.name + (s.status && s.status !== 'draft' ? ' · ' + s.status : '');
+      o.value = String(i); o.textContent = s.name;
       savedSel.appendChild(o);
     });
   }
-  function fetchSaved() {
-    if (!window.pfDb || !window.pfUser) {
-      try { savedRows = JSON.parse(localStorage.getItem(LS_KEY) || '[]'); } catch (e) { savedRows = []; }
-      refreshSavedList();
-      return;
-    }
-    window.pfDb.from('layouts')
-      .select('id,name,age_group,items,score,status')
-      .order('updated_at', { ascending: false }).limit(20)
-      .then(function (r) {
-        savedRows = (r.data || []).map(function (row) {
-          return { id: row.id, name: row.name, age: row.age_group, items: row.items, score: row.score, status: row.status };
-        });
-        refreshSavedList();
-      });
-  }
   function saveLayout() {
+    var saved = loadSaved();
     var name = AGE_RULES[state.age].label + ' · ' + lastEval.score + '% · ' + new Date().toLocaleDateString('en-SG');
-    var rec = { name: name, age: state.age, items: state.items, score: lastEval.score };
-    if (window.pfDb && window.pfUser) {
-      window.pfDb.from('layouts').insert({
-        owner: window.pfUser.id, name: name, age_group: state.age,
-        items: state.items, score: lastEval.score
-      }).then(function (r) {
-        if (r.error) { if (window.pfToast) pfToast('Save failed: ' + r.error.message); return; }
-        fetchSaved();
-        flashButton($('lpSave'), 'Saved to cloud ✓');
-      });
-    } else {
-      savedRows.push(rec);
-      if (savedRows.length > 12) savedRows.shift();
-      try { localStorage.setItem(LS_KEY, JSON.stringify(savedRows)); } catch (e) { /* quota */ }
-      refreshSavedList();
-      flashButton($('lpSave'), 'Saved ✓');
-    }
+    saved.push({ name: name, age: state.age, items: state.items, score: lastEval.score, savedAt: Date.now() });
+    if (saved.length > 12) saved.shift();
+    try { localStorage.setItem(LS_KEY, JSON.stringify(saved)); } catch (e) { /* storage full/blocked — POC, ignore */ }
+    refreshSavedList();
+    savedSel.value = String(saved.length - 1);
+    flashButton($('lpSave'), 'Saved ✓');
   }
   function loadLayout(idx) {
-    var s = savedRows[idx];
+    var saved = loadSaved();
+    var s = saved[idx];
     if (!s) return;
     state.age = s.age && AGE_RULES[s.age] ? s.age : 'k1';
     ageSel.value = state.age;
     state.selected = null;
-    currentLayoutId = s.id || null;
     commit(s.items.map(function (i) { return mkItem(i.type, i.x, i.y, i.w, i.h); }));
-  }
-  var currentLayoutId = null;
-  function submitLayout() {
-    if (lastEval.score !== 100) return;
-    if (!(window.pfDb && window.pfUser)) { flashButton(submitBtn, '✓ Submitted to Director'); return; }
-    var name = AGE_RULES[state.age].label + ' · submitted ' + new Date().toLocaleDateString('en-SG');
-    var payload = {
-      owner: window.pfUser.id, name: name, age_group: state.age,
-      items: state.items, score: lastEval.score,
-      status: 'submitted', submitted_at: new Date().toISOString()
-    };
-    var op = currentLayoutId
-      ? window.pfDb.from('layouts').update(payload).eq('id', currentLayoutId)
-      : window.pfDb.from('layouts').insert(payload);
-    op.then(function (r) {
-      if (r.error) { if (window.pfToast) pfToast('Submit failed: ' + r.error.message); return; }
-      fetchSaved();
-      flashButton(submitBtn, '✓ Submitted to Director');
-      if (window.pfToast) pfToast('Layout submitted for Director approval');
-    });
   }
   function flashButton(btn, text) {
     var orig = btn.textContent;
@@ -723,13 +677,15 @@
     $('lpRedo').addEventListener('click', redo);
     $('lpClear').addEventListener('click', function () { state.selected = null; commit(state.items.filter(function (i) { return TYPES[i.type].fixture; })); });
     $('lpSave').addEventListener('click', saveLayout);
-    submitBtn.addEventListener('click', submitLayout);
+    submitBtn.addEventListener('click', function () {
+      if (lastEval.score !== 100) return;
+      flashButton(submitBtn, '✓ Submitted to Director');
+    });
     document.addEventListener('keydown', function (e) {
       if ((e.ctrlKey || e.metaKey) && e.key === 'z') { e.preventDefault(); if (e.shiftKey) redo(); else undo(); }
     });
 
-    if (window.pfAuthReady) window.pfAuthReady.then(fetchSaved);
-    else fetchSaved();
+    refreshSavedList();
 
     /* Start on the K1 preset */
     var p = PRESETS.k1;

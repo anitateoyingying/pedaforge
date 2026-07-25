@@ -23,8 +23,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Access control moved from StatiCrypt to Google sign-in (Supabase
-      # Auth): pages redirect to login.html; all data is behind Postgres RLS.
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Encrypt HTML with StatiCrypt
+        run: npx staticrypt@3 index.html classroom.html leadership.html sproutspace.html home.html planner.html portfolio.html work-sample.html lna.html coach.html observation.html dashboard.html sproutspace-layout.html sproutspace-inventory.html sproutspace-control.html home-phonics-studio.html home-benchmark.html home-reading-coach.html home-draw-reflect.html home-dictionary.html -p "${{ secrets.STATICRYPT_PASSWORD }}" --remember 30 --template-title "Agape's Sandbox" --template-instructions "Enter the password to access the proposal site." --template-color-primary "#e8063c" --template-color-secondary "#2D2A5E" --short -d .
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
