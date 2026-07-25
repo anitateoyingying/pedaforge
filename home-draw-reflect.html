@@ -118,10 +118,72 @@
       position: relative;
       overflow: hidden;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
-    .dr-canvas-frame svg { display: block; width: 100%; height: auto; max-width: 460px; }
+    .draw-canvas {
+      display: block;
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+      touch-action: none;
+      cursor: crosshair;
+      border-radius: 16px;
+    }
+    .dr-canvas-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .dr-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      border-radius: 100px;
+      padding: 11px 20px;
+      font-family: var(--font);
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #0a6f82;
+      background: #eef3f4;
+      box-shadow: 5px 5px 12px rgba(13,79,94,0.16), -5px -5px 12px rgba(255,255,255,0.95);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease;
+    }
+    .dr-action-btn:hover:not(:disabled) { transform: translateY(-2px); }
+    .dr-action-btn:disabled { opacity: 0.45; cursor: default; }
+    .dr-action-btn.primary {
+      color: #fff;
+      background: #0E8FA8;
+      box-shadow: 6px 6px 14px rgba(14,143,168,0.32);
+    }
+    .dr-reflect-chat {
+      margin-top: 18px;
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(14,143,168,0.06);
+    }
+    .dr-reflect-chat[hidden] { display: none; }
+    .dr-reflect-chat .chat-message.assistant .chat-bubble {
+      background: #fff;
+      border: 1px solid rgba(14,143,168,0.18);
+      color: var(--text);
+    }
+    .dr-reflect-chat .chat-message.assistant .avatar {
+      background: linear-gradient(135deg, #0E8FA8, #2BAEC7);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .dr-reflect-chat .typing-indicator span { background: #0E8FA8; }
+    @media (prefers-reduced-motion: reduce) {
+      .dr-action-btn:hover:not(:disabled) { transform: none; }
+    }
 
     /* ─── Reflection card ─── */
     .dr-reflect-card {
@@ -453,19 +515,19 @@
             <!-- Chunky pastel tool palette -->
             <div class="dr-tools">
               <div class="dr-tool-wrap">
-                <button class="dr-tool active" aria-label="Brush tool">
+                <button class="dr-tool active" data-tool="brush" aria-label="Brush tool">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.06 11.9l8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"/><path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"/></svg>
                 </button>
                 <span class="dr-tool-label">Brush</span>
               </div>
               <div class="dr-tool-wrap">
-                <button class="dr-tool" aria-label="Stamp tool">
+                <button class="dr-tool" data-tool="stamp" aria-label="Star stamp tool">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.3L12 14.8l-4.8 2.5.9-5.3-3.9-3.8 5.4-.8z"/></svg>
                 </button>
                 <span class="dr-tool-label">Stamp</span>
               </div>
               <div class="dr-tool-wrap">
-                <button class="dr-tool" aria-label="Eraser tool">
+                <button class="dr-tool" data-tool="eraser" aria-label="Eraser tool">
                   <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20H7L3 16a2 2 0 0 1 0-2.8l9.2-9.2a2 2 0 0 1 2.8 0l5 5a2 2 0 0 1 0 2.8L11 20"/><line x1="18" y1="13" x2="9" y2="13"/></svg>
                 </button>
                 <span class="dr-tool-label">Eraser</span>
@@ -473,55 +535,34 @@
 
               <!-- Colour swatches -->
               <div class="dr-colours">
-                <button class="dr-swatch active" style="background:#0E8FA8;" aria-label="Teal"></button>
-                <button class="dr-swatch" style="background:#F4A93A;" aria-label="Sunny yellow"></button>
-                <button class="dr-swatch" style="background:#E8638C;" aria-label="Pink"></button>
-                <button class="dr-swatch" style="background:#5BC08A;" aria-label="Green"></button>
-                <button class="dr-swatch" style="background:#7E6BD6;" aria-label="Purple"></button>
+                <button class="dr-swatch active" data-colour="#0E8FA8" style="background:#0E8FA8;" aria-label="Teal"></button>
+                <button class="dr-swatch" data-colour="#F4A93A" style="background:#F4A93A;" aria-label="Sunny yellow"></button>
+                <button class="dr-swatch" data-colour="#E8638C" style="background:#E8638C;" aria-label="Pink"></button>
+                <button class="dr-swatch" data-colour="#5BC08A" style="background:#5BC08A;" aria-label="Green"></button>
+                <button class="dr-swatch" data-colour="#7E6BD6" style="background:#7E6BD6;" aria-label="Purple"></button>
               </div>
             </div>
 
-            <!-- Framed drawing area with a playful child's drawing -->
+            <!-- Framed drawing area: a real canvas — draw here! -->
             <div class="dr-canvas-frame">
-              <svg viewBox="0 0 460 340" role="img" aria-label="A child's drawing of a sunny garden with a house, a tree, a sun and a smiling figure">
-                <!-- ground -->
-                <path d="M0 270 Q120 252 240 268 T460 262 L460 340 L0 340 Z" fill="#dff0e6"/>
-                <!-- sun -->
-                <circle cx="392" cy="62" r="30" fill="#F4A93A"/>
-                <g stroke="#F4A93A" stroke-width="5" stroke-linecap="round">
-                  <line x1="392" y1="14" x2="392" y2="2"/>
-                  <line x1="430" y1="24" x2="438" y2="16"/>
-                  <line x1="446" y1="62" x2="458" y2="62"/>
-                  <line x1="354" y1="24" x2="346" y2="16"/>
-                </g>
-                <!-- tree -->
-                <rect x="64" y="186" width="20" height="92" rx="6" fill="#B07B4F"/>
-                <circle cx="74" cy="166" r="46" fill="#5BC08A"/>
-                <circle cx="44" cy="180" r="28" fill="#5BC08A"/>
-                <circle cx="104" cy="180" r="28" fill="#5BC08A"/>
-                <!-- house -->
-                <rect x="178" y="178" width="118" height="100" rx="8" fill="#E8638C"/>
-                <path d="M168 180 L237 122 L306 180 Z" fill="#0E8FA8"/>
-                <rect x="214" y="220" width="46" height="58" rx="5" fill="#7E6BD6"/>
-                <circle cx="252" cy="250" r="4" fill="#fff"/>
-                <rect x="196" y="196" width="26" height="26" rx="4" fill="#F4A93A"/>
-                <!-- smiling child figure -->
-                <circle cx="372" cy="214" r="20" fill="#F4A93A"/>
-                <circle cx="366" cy="210" r="2.4" fill="#3a2f1a"/>
-                <circle cx="378" cy="210" r="2.4" fill="#3a2f1a"/>
-                <path d="M365 219 Q372 226 379 219" stroke="#3a2f1a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
-                <line x1="372" y1="234" x2="372" y2="266" stroke="#0E8FA8" stroke-width="6" stroke-linecap="round"/>
-                <line x1="372" y1="244" x2="356" y2="256" stroke="#0E8FA8" stroke-width="6" stroke-linecap="round"/>
-                <line x1="372" y1="244" x2="388" y2="256" stroke="#0E8FA8" stroke-width="6" stroke-linecap="round"/>
-                <line x1="372" y1="266" x2="362" y2="282" stroke="#0E8FA8" stroke-width="6" stroke-linecap="round"/>
-                <line x1="372" y1="266" x2="382" y2="282" stroke="#0E8FA8" stroke-width="6" stroke-linecap="round"/>
-                <!-- floating heart + wobbly cloud -->
-                <path d="M120 84 q-10 -14 -22 -4 q-12 10 22 32 q34 -22 22 -32 q-12 -10 -22 4 z" fill="#E8638C" opacity="0.85"/>
-                <ellipse cx="236" cy="64" rx="34" ry="16" fill="#eaf4f6"/>
-                <ellipse cx="262" cy="58" rx="22" ry="13" fill="#eaf4f6"/>
-              </svg>
+              <canvas class="draw-canvas" id="drCanvas" width="460" height="340" aria-label="Drawing canvas — use your finger, mouse or pen to draw"></canvas>
             </div>
           </div>
+
+          <!-- Canvas actions -->
+          <div class="dr-canvas-actions">
+            <button type="button" class="dr-action-btn" id="drUndoBtn" disabled>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+              Undo
+            </button>
+            <button type="button" class="dr-action-btn primary" id="drDoneBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              I&rsquo;m done!
+            </button>
+          </div>
+
+          <!-- Canned AI reflection appears here after "I'm done" -->
+          <div class="dr-reflect-chat" id="drReflectChat" hidden aria-live="polite"></div>
 
           <!-- Reflection card -->
           <div class="dr-reflect-card">
@@ -741,5 +782,7 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
   <script src="js/app.js"></script>
+  <script src="js/home-speech.js"></script>
+  <script src="js/home-draw.js"></script>
 </body>
 </html>

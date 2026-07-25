@@ -139,7 +139,7 @@ Each new page is built to match the existing clay-neumorphic design system (Outf
 
 1. **Docx output:** three separate filled application forms (one per proposal). RESOLVED - three forms generated.
 2. **Project Start Date:** **01 Jan 2027** (commence by Jan 2027; final report 12 months after). RESOLVED.
-3. **Main Contact Person / Email:** Anita Teo / **xxx@busybees.com.sg**. RESOLVED (email is a confirmed placeholder).
+3. **Main Contact Person / Email:** Anita Teo / **[EMAIL TBC — Anita Teo]**. RESOLVED (email is a confirmed placeholder).
 4. **Operator / pilot-centre naming:** **Busy Bees** + **11 pilot centres**, as in the source PDFs. RESOLVED.
 
 ---

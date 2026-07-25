@@ -255,6 +255,109 @@
     .shared-banner svg { color: #0E8FA8; flex-shrink: 0; }
     .shared-banner p { font-size: 0.84rem; color: var(--text-light); line-height: 1.5; margin: 0; }
     .shared-banner strong { color: var(--secondary); }
+
+    /* ─── 3-question check-in quiz ───────────────────────── */
+    .bmq-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 1px 2px rgba(45,42,94,0.04), 0 6px 18px rgba(45,42,94,0.06);
+    }
+    .bmq-head {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .bmq-ring { position: relative; width: 76px; height: 76px; flex-shrink: 0; }
+    .bmq-ring svg { transform: rotate(-90deg); display: block; }
+    .bmq-ring-fill { transition: stroke-dashoffset 0.8s cubic-bezier(0.34,1.56,0.64,1); }
+    .bmq-ring-label {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 800; color: var(--secondary);
+    }
+    .bmq-title h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--secondary);
+      margin: 0 0 3px;
+    }
+    .bmq-title p { font-size: 0.84rem; color: var(--text-light); margin: 0; }
+    .bmq-step {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.4px;
+      text-transform: uppercase; color: #0a6e82;
+      margin-bottom: 6px;
+    }
+    .bmq-prompt {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; color: var(--secondary);
+      margin: 0 0 4px;
+    }
+    .bmq-hint { font-size: 0.84rem; color: var(--text-muted); margin: 0 0 16px; }
+    .bmq-options { display: flex; flex-wrap: wrap; gap: 12px; }
+    .bmq-option {
+      border: none;
+      cursor: pointer;
+      padding: 14px 24px;
+      border-radius: 100px;
+      font-family: var(--font);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary);
+      background: var(--bg);
+      box-shadow: inset 0 0 0 1px var(--border);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+    .bmq-option:hover:not(:disabled) {
+      transform: translateY(-3px);
+      box-shadow: inset 0 0 0 2px rgba(14,143,168,0.4), 0 8px 18px rgba(14,143,168,0.14);
+    }
+    .bmq-option:disabled { cursor: default; }
+    .bmq-option.is-right {
+      background: rgba(16,185,129,0.14);
+      color: #0f7a56;
+      box-shadow: inset 0 0 0 2px rgba(16,185,129,0.5), 0 0 0 5px rgba(16,185,129,0.10);
+    }
+    .bmq-option.is-gentle {
+      background: rgba(255,158,24,0.10);
+      color: #a86400;
+      box-shadow: inset 0 0 0 2px rgba(255,158,24,0.35);
+    }
+    .bmq-feedback {
+      min-height: 1.4rem;
+      margin-top: 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #0a6e82;
+    }
+    .bmq-summary[hidden] { display: none; }
+    .bmq-summary h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--secondary);
+      margin: 0 0 8px;
+    }
+    .bmq-summary p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; margin: 0 0 16px; }
+    .bmq-strand {
+      display: grid;
+      grid-template-columns: 150px 1fr 60px;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+    }
+    .bmq-strand-val { font-size: 0.82rem; font-weight: 700; color: #0a6e82; justify-self: end; }
+    @media (prefers-reduced-motion: reduce) {
+      .bmq-ring-fill { transition: none; }
+      .bmq-option:hover:not(:disabled) { transform: none; }
+    }
+    @media (max-width: 600px) {
+      .bmq-strand { grid-template-columns: 1fr; gap: 8px; }
+      .bmq-strand-val { justify-self: start; }
+    }
   </style>
 </head>
 <body class="hub-home">
@@ -332,6 +435,49 @@
 
       <!-- ═══ MAIN COLUMN ═══════════════════════════════════ -->
       <div style="display:flex;flex-direction:column;gap:24px;">
+
+        <!-- Try a 3-question check-in (interactive) -->
+        <div class="bmq-card">
+          <div class="bmq-head">
+            <div class="bmq-ring" aria-hidden="true">
+              <svg width="76" height="76" viewBox="0 0 76 76">
+                <circle cx="38" cy="38" r="34" fill="none" stroke="var(--border)" stroke-width="7"/>
+                <circle id="bmqRingFill" class="bmq-ring-fill" cx="38" cy="38" r="34" fill="none" stroke="#0E8FA8" stroke-width="7" stroke-linecap="round" stroke-dasharray="213.63" stroke-dashoffset="213.63"/>
+              </svg>
+              <span class="bmq-ring-label" id="bmqRingLabel">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E8FA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </span>
+            </div>
+            <div class="bmq-title" style="flex:1;">
+              <h3>Try a 3-question check-in</h3>
+              <p>This is what a child&rsquo;s termly check-in feels like - warm, quick and game-like. Tap an answer to see the ring fill. <span id="bmqSimHost" style="display:inline-flex;vertical-align:middle;margin-left:6px;"></span></p>
+            </div>
+          </div>
+
+          <div id="bmqBody">
+            <div class="bmq-step" id="bmqStep">Question 1 of 3</div>
+            <p class="bmq-prompt" id="bmqPrompt"></p>
+            <p class="bmq-hint" id="bmqHint"></p>
+            <div class="bmq-options" id="bmqOptions"></div>
+            <div class="bmq-feedback" id="bmqFeedback" aria-live="polite"></div>
+          </div>
+
+          <div class="bmq-summary" id="bmqSummary" hidden>
+            <h4 id="bmqSummaryHead"></h4>
+            <p id="bmqSummaryBody"></p>
+            <div class="bmq-strand">
+              <div class="bm-strand-name">Phonics<small>Letter-sound knowledge</small></div>
+              <div class="bm-bar"><div class="bm-bar-fill" id="bmqStrandFill" style="width:45%;"></div></div>
+              <span class="bmq-strand-val" id="bmqStrandVal"></span>
+            </div>
+            <div style="margin-top:16px;">
+              <button type="button" class="pill-btn" id="bmqRestartBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                Try it again
+              </button>
+            </div>
+          </div>
+        </div>
 
         <!-- Benchmark card -->
         <div class="panel-card">
@@ -560,5 +706,7 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
   <script src="js/app.js"></script>
+  <script src="js/home-speech.js"></script>
+  <script src="js/home-benchmark-quiz.js"></script>
 </body>
 </html>

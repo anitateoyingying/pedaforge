@@ -115,13 +115,20 @@
       width: 3px;
       border-radius: 2px;
       background: var(--accent-proposal);
-      animation: soundWave 1s ease-in-out infinite;
+      transform: scaleY(0.5);
+      transform-origin: bottom;
     }
+    /* wave bars animate ONLY while speechSynthesis is speaking */
+    .speaker-caption .sound-wave.speaking span { animation: soundWave 1s ease-in-out infinite; }
     .speaker-caption .sound-wave span:nth-child(1) { height: 6px;  animation-delay: 0s;    }
     .speaker-caption .sound-wave span:nth-child(2) { height: 13px; animation-delay: 0.15s; }
     .speaker-caption .sound-wave span:nth-child(3) { height: 9px;  animation-delay: 0.3s;  }
     .speaker-caption .sound-wave span:nth-child(4) { height: 14px; animation-delay: 0.45s; }
     @keyframes soundWave { 0%,100% { transform: scaleY(0.5); } 50% { transform: scaleY(1); } }
+    @media (prefers-reduced-motion: reduce) {
+      .speaker-caption .sound-wave.speaking span { animation: none; transform: scaleY(1); }
+      .word-search-caret { animation: none; }
+    }
 
     /* ─── Result word display ──────────────────────────────── */
     .result-word {
@@ -153,6 +160,36 @@
       background: #fff;
       color: var(--secondary);
     }
+    .syllable-chip .syll-btn {
+      border: none;
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+    }
+    .syllable-chip .syll-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(14,143,168,0.18);
+    }
+    .zh-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px 0 0 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 100px;
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--accent-proposal);
+      background: var(--accent-proposal-soft);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .zh-chip:hover { transform: translateY(-2px); }
+    .zh-chip[hidden] { display: none; }
     .kid-def {
       font-size: 1.05rem;
       color: var(--text);
@@ -190,7 +227,9 @@
       align-items: center;
       gap: 8px;
       padding: 11px 18px;
+      border: none;
       border-radius: 100px;
+      font-family: var(--font);
       font-size: 0.92rem;
       font-weight: 600;
       color: var(--secondary);
@@ -199,7 +238,7 @@
       box-shadow:
         5px 5px 11px rgba(45,42,94,0.08),
         -5px -5px 11px rgba(255,255,255,0.92);
-      transition: transform var(--transition);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
     }
     .starter-pill:hover { transform: translateY(-2px); }
     .starter-pill .pill-dot {
@@ -230,6 +269,7 @@
     .letter-tiles { display: flex; gap: 14px; flex-wrap: wrap; }
     .letter-tile {
       width: 62px; height: 62px;
+      border: none;
       border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font);
@@ -237,33 +277,44 @@
       font-weight: 800;
       color: var(--secondary);
       background: var(--bg);
-      cursor: grab;
+      cursor: pointer;
       position: relative;
       box-shadow:
         6px 6px 13px rgba(45,42,94,0.10),
         -6px -6px 13px rgba(255,255,255,0.95);
-      transition: transform var(--transition);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease;
     }
-    .letter-tile:hover { transform: translateY(-3px) rotate(-2deg); }
-    .letter-tile .grip {
-      position: absolute; top: 6px; right: 7px;
-      color: var(--text-muted); opacity: 0.5;
+    .letter-tile:hover:not(:disabled) { transform: translateY(-3px) rotate(-2deg); }
+    .letter-tile.used {
+      opacity: 0.28;
+      cursor: default;
+      box-shadow: inset 3px 3px 8px rgba(45,42,94,0.10), inset -3px -3px 8px rgba(255,255,255,0.9);
     }
     .spell-slots {
       display: flex; gap: 14px; margin-top: 22px; flex-wrap: wrap;
     }
     .spell-slot {
       width: 62px; height: 62px;
+      border: none;
       border-radius: 16px;
       display: flex; align-items: center; justify-content: center;
+      font-family: var(--font);
       font-size: 1.7rem; font-weight: 800;
       color: var(--secondary);
       background: var(--bg);
+      cursor: pointer;
       box-shadow:
         inset 5px 5px 11px rgba(45,42,94,0.10),
         inset -5px -5px 11px rgba(255,255,255,0.95);
     }
     .spell-slot.filled { color: var(--accent-proposal); }
+    .spell-slot.pop { animation: slotPop 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+    @keyframes slotPop {
+      0% { transform: scale(0.8); }
+      60% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    @media (prefers-reduced-motion: reduce) { .spell-slot.pop { animation: none; } }
     .spell-actions {
       display: flex; align-items: center; gap: 14px;
       margin-top: 22px; flex-wrap: wrap;
@@ -286,6 +337,7 @@
       display: inline-flex; align-items: center; gap: 7px;
       font-size: 0.9rem; font-weight: 600; color: var(--success);
     }
+    .spell-feedback.is-error { color: var(--accent-proposal); }
 
     /* ─── My Words Jar (right rail) ────────────────────────── */
     .jar-rail { display: flex; flex-direction: column; gap: 22px; }
@@ -327,6 +379,23 @@
         4px 4px 9px rgba(45,42,94,0.06),
         -4px -4px 9px rgba(255,255,255,0.92);
     }
+    .jar-chip {
+      border: none;
+      cursor: pointer;
+      align-items: flex-start;
+      text-align: left;
+      font-family: var(--font);
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease;
+    }
+    .jar-chip:hover { transform: translateY(-2px); }
+    .jar-chip.jar-active {
+      box-shadow:
+        inset 3px 3px 8px rgba(14,143,168,0.14),
+        inset -3px -3px 8px rgba(255,255,255,0.9),
+        0 0 0 2px var(--accent-proposal-line);
+    }
+    #dictRingCircle { transition: stroke-dashoffset 0.9s cubic-bezier(0.34,1.56,0.64,1); }
+    @media (prefers-reduced-motion: reduce) { #dictRingCircle { transition: none; } }
     .word-chip .wc-word { font-weight: 700; font-size: 0.98rem; color: var(--secondary); }
     .wc-status {
       align-self: flex-start;
@@ -432,43 +501,38 @@
             <div class="word-search">
               <div class="word-search-field">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <span class="word-search-text">ship</span><span class="word-search-caret" aria-hidden="true"></span>
+                <span class="word-search-text" id="dictSearchText">ship</span><span class="word-search-caret" aria-hidden="true"></span>
               </div>
-              <button class="speaker-btn" aria-label="Say the word ship aloud">
+              <button class="speaker-btn" id="dictSpeakerBtn" aria-label="Say the word aloud">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
               </button>
             </div>
             <div class="speaker-caption">
-              <span class="sound-wave" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-              Tap the speaker to hear &ldquo;ship&rdquo; spoken aloud &middot; Azure Neural TTS
+              <span class="sound-wave" id="dictWave" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+              <span id="dictCaption">Tap the speaker to hear &ldquo;ship&rdquo; spoken aloud &middot; real browser TTS</span>
             </div>
           </div>
 
-          <!-- Result card -->
+          <!-- Result card (re-rendered by js/home-dictionary.js) -->
           <div class="clay-card">
-            <div class="result-word">ship</div>
-            <div class="syllable-chip">
-              <span class="syll-part">ship</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-              <span class="syll-part">sh</span>
-              <span style="color:var(--text-muted);">&middot;</span>
-              <span class="syll-part">ip</span>
-            </div>
-            <p class="kid-def">A <strong>ship</strong> is a very big boat that carries people or things across the sea.</p>
+            <div class="result-word" id="dictWord">ship</div>
+            <div class="syllable-chip" id="dictSyllables"></div>
+            <button class="zh-chip" id="dictZhChip" hidden aria-label="Hear the word in Mandarin">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <span id="dictZhText"></span>
+              <small style="font-weight:600;opacity:0.75;">&middot; Mandarin</small>
+            </button>
+            <p class="kid-def" id="dictDef"></p>
             <div class="example-sentence">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l9-9 9 9"/><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6"/><path d="M9 21V13h6v8"/></svg>
-              The big ship sailed all the way across the blue sea.
+              <span id="dictExample"></span>
             </div>
 
             <div class="starter-label">Now you try &middot; finish a sentence</div>
-            <div class="starter-pills">
-              <span class="starter-pill"><span class="pill-dot"></span>I see a ship&hellip;</span>
-              <span class="starter-pill"><span class="pill-dot"></span>The ship can&hellip;</span>
-              <span class="starter-pill"><span class="pill-dot"></span>My ship is&hellip;</span>
-            </div>
+            <div class="starter-pills" id="dictStarters"></div>
           </div>
 
-          <!-- Spell it! card -->
+          <!-- Spell it! card (click-to-place tiles) -->
           <div class="clay-card">
             <div class="spell-head">
               <span class="spell-title">
@@ -477,31 +541,18 @@
               </span>
               <span class="tag tag-amount tag-sm">Self-led practice</span>
             </div>
-            <p class="spell-hint">Drag each letter into the right box to spell <strong>ship</strong>, then press Check. Try as many times as you like - mistakes are part of learning.</p>
+            <p class="spell-hint">Tap each letter to drop it into the next box and spell <strong id="dictSpellWord">ship</strong>, then press Check. Tap a filled box to send its letter back. Try as many times as you like - mistakes are part of learning.</p>
 
-            <div class="letter-tiles">
-              <span class="letter-tile">s<span class="grip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/></svg></span></span>
-              <span class="letter-tile">h<span class="grip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/></svg></span></span>
-              <span class="letter-tile">i<span class="grip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/></svg></span></span>
-              <span class="letter-tile">p<span class="grip"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="18" r="1"/></svg></span></span>
-            </div>
+            <div class="letter-tiles" id="dictTiles"></div>
 
-            <div class="spell-slots">
-              <span class="spell-slot filled">s</span>
-              <span class="spell-slot filled">h</span>
-              <span class="spell-slot filled">i</span>
-              <span class="spell-slot">&nbsp;</span>
-            </div>
+            <div class="spell-slots" id="dictSlots"></div>
 
             <div class="spell-actions">
-              <button class="check-btn">
+              <button class="check-btn" id="dictCheckBtn">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
                 Check
               </button>
-              <span class="spell-feedback">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                Almost there - one more letter to go!
-              </span>
+              <span class="spell-feedback" id="dictFeedback"></span>
             </div>
           </div>
 
@@ -522,37 +573,28 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8"/><path d="M9 2v2.79a4 4 0 0 1-.52 1.97l-.18.32A4 4 0 0 0 7.78 9H16.2a4 4 0 0 0-.52-1.92l-.18-.32A4 4 0 0 1 15 4.79V2"/><path d="M7.78 9A6 6 0 0 0 6 13v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-5a6 6 0 0 0-1.78-4"/></svg>
             My Words Jar
           </h3>
-          <p class="jar-sub">Every word Mia explores drops into her jar. Watch it fill up over the term.</p>
+          <p class="jar-sub">Every word Mia explores drops into her jar. Hear a word and spell it to move it from <em>New</em> to <em>Learning</em> to <em>Known</em>. Tap any word to open it.</p>
 
           <!-- Progress ring -->
           <div class="ring-wrap">
-            <div class="ring" role="img" aria-label="Word recognition growth: 68 percent of this term's words now known">
+            <div class="ring" role="img" aria-label="Word recognition growth ring">
               <svg width="84" height="84" viewBox="0 0 84 84">
                 <circle cx="42" cy="42" r="36" fill="none" stroke="var(--border)" stroke-width="9"/>
-                <circle cx="42" cy="42" r="36" fill="none" stroke="var(--accent-proposal)" stroke-width="9" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="72.4"/>
+                <circle id="dictRingCircle" cx="42" cy="42" r="36" fill="none" stroke="var(--accent-proposal)" stroke-width="9" stroke-linecap="round" stroke-dasharray="226.2" stroke-dashoffset="226.2"/>
               </svg>
               <div class="ring-label">
-                <span class="ring-pct">68%</span>
+                <span class="ring-pct" id="dictRingPct">0%</span>
                 <span class="ring-cap">known</span>
               </div>
             </div>
             <div class="ring-text">
               <strong>Word recognition</strong>
-              <p>Up 19% since last month &middot; 34 of 50 term words now Known.</p>
+              <p id="dictRingText">Hear a word and spell it to grow the jar.</p>
             </div>
           </div>
 
-          <!-- Word chips -->
-          <div class="word-chip-grid">
-            <div class="word-chip"><span class="wc-word">ship</span><span class="wc-status new">New</span></div>
-            <div class="word-chip"><span class="wc-word">boat</span><span class="wc-status known">Known</span></div>
-            <div class="word-chip"><span class="wc-word">sea</span><span class="wc-status known">Known</span></div>
-            <div class="word-chip"><span class="wc-word">whale</span><span class="wc-status learning">Learning</span></div>
-            <div class="word-chip"><span class="wc-word">shell</span><span class="wc-status learning">Learning</span></div>
-            <div class="word-chip"><span class="wc-word">fish</span><span class="wc-status known">Known</span></div>
-            <div class="word-chip"><span class="wc-word">wave</span><span class="wc-status known">Known</span></div>
-            <div class="word-chip"><span class="wc-word">splash</span><span class="wc-status new">New</span></div>
-          </div>
+          <!-- Word chips (rendered by js/home-dictionary.js) -->
+          <div class="word-chip-grid" id="dictJarGrid"></div>
 
           <div class="jar-legend">
             <span><span class="legend-dot known"></span>Known</span>
@@ -592,5 +634,8 @@
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
   <script src="js/app.js"></script>
+  <script src="js/home-speech.js"></script>
+  <script src="js/home-dictionary-data.js"></script>
+  <script src="js/home-dictionary.js"></script>
 </body>
 </html>

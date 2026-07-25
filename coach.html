@@ -888,6 +888,35 @@
         });
       });
 
+      // Observation handoff: ?handoff=obs-20260514 opens Reflective mode
+      // with a scripted opener that references the replayed observation.
+      // The param is only a key into canned text — never rendered raw.
+      const HANDOFF_OPENERS = {
+        'obs-20260514': 'I’ve read Mdm Lim’s 14 May observation of your K1 lesson, Sarah. Your Sustained Shared Thinking goal is now evidenced — the water-table exchange with Amira was a textbook open question. Shall we plan the small-group inquiry stretch goal, or talk through the pack-away transition first?'
+      };
+      const handoffKey = new URLSearchParams(window.location.search).get('handoff');
+      const opener = HANDOFF_OPENERS[handoffKey];
+      if (opener) {
+        const reflectiveBtn = document.querySelector('.mode-strip-btn[data-mode="reflective"]');
+        if (reflectiveBtn) reflectiveBtn.click();
+        // Reflective mode renders 5 canned messages over ~2.2s; land after them.
+        setTimeout(() => {
+          const body = document.querySelector('.chat-demo-body');
+          if (body && typeof createChatMessage === 'function') {
+            const typing = document.createElement('div');
+            typing.className = 'chat-message assistant';
+            typing.innerHTML = '<div class="avatar">PF</div><div class="chat-bubble typing-indicator"><span></span><span></span><span></span></div>';
+            body.appendChild(typing);
+            body.scrollTop = body.scrollHeight;
+            setTimeout(() => {
+              typing.remove();
+              body.appendChild(createChatMessage('assistant', opener));
+              body.scrollTop = body.scrollHeight;
+            }, 900);
+          }
+        }, 2600);
+      }
+
       // Prompt starters: populate chat input on click
       const starters = document.querySelectorAll('.prompt-starter');
       const chatInput = document.querySelector('.chat-standalone-input input, .chat-demo-input input');
