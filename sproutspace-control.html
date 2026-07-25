@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add("pf-auth-pending");</script><style>.pf-auth-pending body{visibility:hidden;}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="SproutSpace Leadership & Organization Control: an HQ/Director view giving Singapore early childhood operators network-wide visibility over smart procurement, resource durability, centralised environment standards, and classroom-layout approvals across the pilot centres.">
@@ -62,6 +63,75 @@
 
   <!-- ─── Main Content ──────────────────────────────────────── -->
   <main class="container main-content-spacing">
+
+    <!-- ─── Live: Submitted Layouts (Supabase-backed) ───────── -->
+    <div class="panel-card" id="lpApprovals" style="margin-bottom:28px;display:none;">
+      <div class="section-header" style="text-align:left;margin-bottom:18px;">
+        <span class="section-label" style="color:var(--sprout);">Live &middot; Layout Approvals</span>
+        <h2 style="font-size:1.4rem;">Submitted Classroom Layouts</h2>
+        <p style="margin:0;font-size:0.9rem;">Layouts submitted from the <a href="sproutspace-layout.html">Layout Planner</a> by signed-in educators, read live from the database. Directors can approve or request changes.</p>
+      </div>
+      <div id="lpApprovalRows"></div>
+    </div>
+
+    <script>
+    (function () {
+      'use strict';
+      function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+      function fmtDate(s) { try { return new Date(s).toLocaleString('en-SG', { dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return s || ''; } }
+
+      function rowHtml(l, canReview) {
+        var badge = { submitted: 'warn', approved: 'ok', changes_requested: 'danger' }[l.status] || 'ok';
+        return '<div class="safety-flag ' + badge + '" style="align-items:center;" data-id="' + esc(l.id) + '">' +
+          '<span style="flex:1;"><strong>' + esc(l.name) + '</strong><br>' +
+          '<em style="font-size:0.72rem;color:var(--text-muted);">' + esc(l.owner_name || '') + ' · score ' + esc(l.score) + '% · ' + esc(fmtDate(l.submitted_at || l.updated_at)) + ' · ' + esc(l.status.replace('_', ' ')) + '</em></span>' +
+          (canReview && l.status === 'submitted'
+            ? '<span style="display:flex;gap:6px;flex-shrink:0;">' +
+              '<button class="btn btn-sm btn-primary" data-act="approved" style="background:var(--sprout);border-color:var(--sprout);">Approve</button>' +
+              '<button class="btn btn-sm btn-secondary" data-act="changes_requested">Request changes</button></span>'
+            : '') +
+          '</div>';
+      }
+
+      function load(ctx) {
+        if (!ctx.user || !window.pfDb) return;
+        var isDirector = ctx.profile && ctx.profile.role === 'director';
+        window.pfDb.from('layouts')
+          .select('id,name,age_group,score,status,submitted_at,updated_at,owner,profiles:owner(full_name)')
+          .neq('status', 'draft')
+          .order('submitted_at', { ascending: false })
+          .limit(15)
+          .then(function (r) {
+            var rows = r.data || [];
+            if (r.error || !rows.length) return; // hidden panel if nothing to show
+            rows.forEach(function (l) { l.owner_name = l.profiles ? l.profiles.full_name : ''; });
+            var panel = document.getElementById('lpApprovals');
+            var host = document.getElementById('lpApprovalRows');
+            host.innerHTML = rows.map(function (l) { return rowHtml(l, isDirector); }).join('');
+            panel.style.display = '';
+            host.addEventListener('click', function (e) {
+              var btn = e.target.closest('button[data-act]');
+              if (!btn) return;
+              var row = btn.closest('[data-id]');
+              window.pfDb.from('layouts')
+                .update({ status: btn.dataset.act, reviewed_by: ctx.user.id, review_note: btn.dataset.act === 'approved' ? 'Approved by Director' : 'Changes requested by Director' })
+                .eq('id', row.dataset.id)
+                .then(function (res) {
+                  if (res.error) { if (window.pfToast) pfToast('Update failed: ' + res.error.message); return; }
+                  if (window.pfToast) pfToast(btn.dataset.act === 'approved' ? 'Layout approved' : 'Changes requested');
+                  load(ctx);
+                });
+            }, { once: true });
+          });
+      }
+      // pf-auth.js loads at the end of <body>; defer until it exists.
+      function boot() {
+        if (window.pfAuthReady) window.pfAuthReady.then(load);
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+      else boot();
+    })();
+    </script>
 
     <!-- ─── Stats Row ───────────────────────────────────────── -->
     <div class="dashboard-stats">
@@ -285,6 +355,8 @@
   </div><div class="footer-bottom"><span>&copy; 2026 Busy Bees &middot; Prepared by Anita Teo</span><div class="footer-badges"><span class="footer-badge">PDPA Compliant</span><span class="footer-badge">SG Data Residency</span></div></div></div></footer>
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/pf-auth.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

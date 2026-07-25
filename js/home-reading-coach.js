@@ -289,6 +289,20 @@
     return list;
   }
 
+  function persistSession(wcpm, accuracy, miscues) {
+    if (!(window.pfDb && window.pfUser)) return;
+    window.pfDb.from('reading_sessions').insert({
+      user_id: window.pfUser.id,
+      passage: passage.join(' '),
+      wcpm: wcpm,
+      accuracy: accuracy,
+      miscues: miscues,
+      mode: state.mode === 'sim' ? 'simulated' : 'live'
+    }).then(function (r) {
+      if (!r.error && window.pfToast) pfToast('Reading session saved — WCPM ' + wcpm);
+    });
+  }
+
   function showResults(elapsedSec, reason) {
     var ok = countOk();
     var total = passage.length;
@@ -296,6 +310,7 @@
     var accuracy = attempted > 0 ? Math.round((ok / Math.max(attempted, 1)) * 100) : 0;
     var wcpm = Math.round((ok / elapsedSec) * 60);
     var miscues = miscueWords();
+    persistSession(wcpm, accuracy, miscues);
 
     /* Mascot praise (canned, gentle) */
     var title;

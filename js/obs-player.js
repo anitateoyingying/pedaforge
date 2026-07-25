@@ -183,12 +183,36 @@
     var reportOn = clock >= 76;
     el.reportWrap.hidden = !reportOn;
     el.cta.style.display = clock >= 87 ? '' : 'none';
+    if (clock >= 88) persistObservation();
 
     /* Transport */
     el.scrub.value = clock;
     el.time.textContent = fmt(clock) + ' / ' + fmt(DUR);
     el.playBtn.textContent = playing ? '❚❚' : (clock >= DUR ? '↺' : '▶');
     el.playBtn.setAttribute('aria-label', playing ? 'Pause' : clock >= DUR ? 'Replay' : 'Play');
+  }
+
+  /* Persist the completed observation once per page load (idempotent). */
+  var persisted = false;
+  function persistObservation() {
+    if (persisted || !(window.pfDb && window.pfUser)) return;
+    persisted = true;
+    var evidence = EVENTS.filter(function (e) { return e.type === 'evidence'; });
+    var report = {};
+    EVENTS.filter(function (e) { return e.type === 'report'; }).forEach(function (e) {
+      report[e.section] = e.text;
+    });
+    window.pfDb.from('observations').insert({
+      observer: window.pfUser.id,
+      educator_name: META.educator,
+      class_name: META.klass,
+      meta: { observer_name: META.observer, date: META.date, simulated: true },
+      evidence: evidence,
+      report: report
+    }).then(function (r) {
+      if (!r.error && window.pfToast) pfToast('Observation record saved');
+      if (r.error) persisted = false;
+    });
   }
 
   /* Evidence cards glow + "file" toward the report as it assembles */

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add("pf-auth-pending");</script><style>.pf-auth-pending body{visibility:hidden;}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="PedaForge AI Coaching Agent: multiple coaching modes aligned to ECDA Quality Teaching Tool for Singapore early childhood educators.">
@@ -829,6 +830,8 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/pf-auth.js"></script>
   <script src="js/app.js"></script>
   <script>
     /* ─── Coach Page: Mode Strip + Chat Integration ─────── */
@@ -916,6 +919,43 @@
           }
         }, 2600);
       }
+
+      // Persist coaching sessions: observe the chat body and upsert the
+      // transcript (canned demo AI + real user inputs) per page visit.
+      (function initCoachPersistence() {
+        const body = document.querySelector('.chat-demo-body');
+        if (!body || !window.MutationObserver) return;
+        let sessionId = null, saveTimer = null, saving = false;
+
+        function currentMode() {
+          const active = document.querySelector('.mode-strip-btn.active');
+          return active ? active.getAttribute('data-mode') : 'reflective';
+        }
+        function transcript() {
+          return Array.from(body.querySelectorAll('.chat-message')).map(el => ({
+            role: el.classList.contains('user') ? 'user' : 'assistant',
+            text: (el.querySelector('.chat-bubble') || el).textContent.trim()
+          })).filter(m => m.text && !/^\s*$/.test(m.text));
+        }
+        function save() {
+          if (saving || !(window.pfDb && window.pfUser)) return;
+          const msgs = transcript();
+          if (msgs.length < 2) return;
+          saving = true;
+          const rec = { user_id: window.pfUser.id, mode: currentMode(), messages: msgs };
+          const op = sessionId
+            ? window.pfDb.from('coach_sessions').update(rec).eq('id', sessionId)
+            : window.pfDb.from('coach_sessions').insert(rec).select('id').single();
+          op.then(r => {
+            saving = false;
+            if (!r.error && r.data && r.data.id) sessionId = r.data.id;
+          });
+        }
+        new MutationObserver(() => {
+          clearTimeout(saveTimer);
+          saveTimer = setTimeout(save, 2500);
+        }).observe(body, { childList: true, subtree: true });
+      })();
 
       // Prompt starters: populate chat input on click
       const starters = document.querySelectorAll('.prompt-starter');

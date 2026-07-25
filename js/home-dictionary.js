@@ -37,6 +37,35 @@
     try { window.localStorage.setItem(STORE_KEY, JSON.stringify(next)); } catch (err) { /* quota */ }
   }
 
+  function syncWordToCloud(word) {
+    if (!(window.pfDb && window.pfUser)) return;
+    window.pfDb.from('dictionary_progress').upsert({
+      user_id: window.pfUser.id,
+      word: word,
+      status: statusOf(word),
+      updated_at: new Date().toISOString()
+    }).then(function () { /* fire-and-forget */ });
+  }
+
+  function hydrateFromCloud() {
+    if (!(window.pfDb && window.pfUser)) return;
+    window.pfDb.from('dictionary_progress').select('word,status').then(function (r) {
+      if (r.error || !r.data || !r.data.length) return;
+      var next = {};
+      Object.keys(progress).forEach(function (k) { next[k] = progress[k]; });
+      r.data.forEach(function (row) {
+        var local = statusOf(row.word);
+        var rank = { 'new': 0, learning: 1, known: 2 };
+        if (rank[row.status] > rank[local]) {
+          next[row.word] = { heard: true, spelled: row.status === 'known' };
+        }
+      });
+      saveProgress(next);
+      renderJar();
+    });
+  }
+  if (window.pfAuthReady) window.pfAuthReady.then(hydrateFromCloud);
+
   function recordEvent(word, field) {
     var entry = progress[word] || { heard: false, spelled: false };
     if (entry[field]) return;
@@ -45,6 +74,7 @@
     Object.keys(progress).forEach(function (k) { next[k] = progress[k]; });
     next[word] = updatedEntry;
     saveProgress(next);
+    syncWordToCloud(word);
     renderJar();
   }
 
